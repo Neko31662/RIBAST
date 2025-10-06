@@ -9,14 +9,14 @@ using namespace std;
 // 技能模板函数
 
 // 将该干员的 efficiencyEnhance 增加 value
-void add_efficiency(Facility &facility, Operator &op, double value);
+void add_efficiency(Facility &facility, Operator &op, int value);
 // 将该干员的 efficiencyReduce 增加 value
-void reduce_efficiency(Facility &facility, Operator &op, double value);
+void reduce_efficiency(Facility &facility, Operator &op, int value);
 
 // 将该干员的 moodConsumptionReduce 增加 value
-void reduce_mood_consumption_rate(Facility &facility, Operator &op, double value);
+void reduce_mood_consumption_rate(Facility &facility, Operator &op, int value);
 // 将该干员的 moodConsumptionEnhance 增加 value
-void add_mood_consumption_rate(Facility &facility, Operator &op, double value);
+void add_mood_consumption_rate(Facility &facility, Operator &op, int value);
 
 // 增加设施容量
 void add_capacity(Facility &facility, Operator &op, int value);
@@ -25,13 +25,22 @@ void add_capacity(Facility &facility, Operator &op, int value);
 void reduce_capacity(Facility &facility, Operator &op, int value);
 
 // 将制造站-赤金的 efficiencyEnhance 增加 value
-void add_efficiency_gold(Facility &facility, Operator &op, double value);
+void add_efficiency_gold(Facility &facility, Operator &op, int value);
 
 // 将制造站-作战记录的 efficiencyEnhance 增加 value
-void add_efficiency_records(Facility &facility, Operator &op, double value);
+void add_efficiency_records(Facility &facility, Operator &op, int value);
 
 // 将制造站-源石碎片的 efficiencyEnhance 增加 value
-void add_efficiency_originium(Facility &facility, Operator &op, double value);
+void add_efficiency_originium(Facility &facility, Operator &op, int value);
 
 // 将干员的 spec.efficiency_by_facility 增加 value
-void add_efficiency_by_facility(Facility &facility, Operator &op, double value);
+void add_efficiency_by_facility(Facility &facility, Operator &op, int value);
+
+// 将贸易站的 efficiencyEnhance 增加 value
+void add_efficiency_trade(Facility &facility, Operator &op, int value);
+
+// 将贸易站-龙门币的 efficiencyEnhance 增加 value
+void add_efficiency_LMD(Facility &facility, Operator &op, int value);
+
+// 将贸易站-合成玉的 efficiencyEnhance 增加 value
+void add_efficiency_orundum(Facility &facility, Operator &op, int value);

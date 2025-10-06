@@ -4,6 +4,7 @@ using namespace std;
 
 #include "operator.h"
 
+// 设施编号
 #define MFG_GOLD 1      // 制造站-赤金
 #define MFG_RECORDS 2   // 制造站-作战记录
 #define MFG_ORIGINIUM 3 // 制造站-源石碎片
@@ -17,15 +18,38 @@ using namespace std;
 #define PROCESSING 11   // 加工站
 #define TRAINING 12     // 训练室
 
+// 物品编号
+#define LMD 1
+#define ORUNDUM 2
+
+// 设施产品的价值表
+// 赤金、中级作战记录、源石碎片、龙门币、合成玉产品的价值由三级设施生产一份产品所需的时间确定；
+//
+// 无人机的价值由无人机充能带来的基础耗时降低值确定（即3分钟）；
+//
+// 基础作战记录、初级作战记录的价值根据其与中级作战记录的经验比例确定；
+//
+// 线索的价值确定方式如下：由线索->信用->龙门币（50% off）确定每线索对应的龙门币价值；
+//
+// 公招刷新次数的价值确定方式如下：公招刷新带来的黄票与绿票的增益期望->
+// (黄票->黄票对应的抽数（258黄票对38抽）->每抽对应的合成玉数量) +
+// (绿票->绿票在资质凭证区阶段3对应的合成玉) ->每刷新次数对应的合成玉数量增益。
+extern double productValueList[15][6];
+
+// 单个物品的价值表
+// 龙门币价值由 (制造站制造赤金的价值 + 贸易站龙门币订单的价值) 确定；
+// 单个合成玉的价值:单个龙门币价值 = 0.75:0.0036。
+extern double itemValueList[3];
+
+extern bool hasLoadedValueList;
+void loadValueList();                                // 加载价值表
+double getProductValue(int facilityType, int level); // 获取产品价值
+
 // 判断设施类型是否为制造站
-inline bool isMfg(int facilityType) {
-    return facilityType == MFG_GOLD || facilityType == MFG_RECORDS || facilityType == MFG_ORIGINIUM;
-}
+bool isMfg(int facilityType);
 
 // 判断设施类型是否为贸易站
-inline bool isTrade(int facilityType) {
-    return facilityType == TRADE_ORUNDUM || facilityType == TRADE_LMD;
-}
+bool isTrade(int facilityType);
 
 // 单个设施的基类
 struct Facility {
@@ -33,7 +57,7 @@ struct Facility {
 
     // （可能）与设施等级有关的参数
     int level = 0;            // 设施等级
-    double efficiency = 0.0;  // 效率，使用小数表示，不包括由干员基建技能提供的效率
+    int efficiency = 0;       // 效率，使用整数表示，基础效率100代表1.0
     int capacity = 0;         // 容量
     int operatorLimit = 0;    // 干员数量上限
     int powerConsumption = 0; // 设施的电力消耗
@@ -41,16 +65,8 @@ struct Facility {
     // （可能）与设施生产产品（和设施等级）有关的参数
     int facilityType = -1;       // 设施类型，在派生类构造时指定
     int productSpace = 1;        // 单个产品占用的容量
-    int productTime = 1;         // 单个产品在效率1.0下的生产时间，单位分钟
+    double productTime = 1;      // 单个产品在效率1.0下的生产时间，单位分钟
     double productValue = 0.001; // 单个产品的基础价值
-    // 赤金、中级作战记录、源石碎片、龙门币、合成玉产品的价值由三级设施生产一份产品所需的时间确定
-    // 无人机的价值由无人机充能带来的基础耗时降低值确定（即3分钟）；
-    // 基础作战记录、初级作战记录的价值根据其与中级作战记录的经验比例确定；
-    // 线索的价值确定方式如下：由线索->信用->龙门币（50% off）确定每线索对应的龙门币价值；
-    // 公招刷新次数的价值确定方式如下：公招刷新带来的黄票与绿票的增益期望->
-    // (黄票->黄票对应的抽数（258黄票对38抽）->每抽对应的合成玉数量) +
-    // (绿票->绿票在资质凭证区阶段3对应的合成玉) 确定每刷新次数对应的合成玉数量增益；
-    // 单个合成玉的价值为生产对应的源石碎片+订单所需时间之和；
 
     vector<Operator *> operators; // 设施中驻守的干员列表
     int operatorDuration = 0;     // 干员进驻时长，以小时为单位，刚进驻为0小时
@@ -62,6 +78,12 @@ struct Facility {
     };
     unique_ptr<FacilitySpecBase> spec; // 设施特化属性
 
+    Facility() {}
+    Facility(int facilityType, int lv) {
+        this->facilityType = facilityType;
+        level = lv;
+        productValue = getProductValue(facilityType, lv);
+    }
     // 返回该设施是否在工作，工作的定义为，该设施所制造的产品是否在生产
     virtual bool isWorking() const { return !operators.empty(); }
 
@@ -92,6 +114,10 @@ struct Facility {
             return "办公室";
         case DORMITORY:
             return "宿舍";
+        case PROCESSING:
+            return "加工站";
+        case TRAINING:
+            return "训练室";
         default:
             return "其它设施";
         }
@@ -120,18 +146,17 @@ struct Mfg : Facility {
         bool has_skill_da_jiu_shi_hao = false;     // 是否含有“大就是好！”技能
         double efficiency_by_da_jiu_shi_hao = 0.0; // “大就是好！”技能提供的效率值
 
-        bool has_skill_hui_shou_li_yong = false;   // 是否含有“回收利用”技能
+        bool has_skill_hui_shou_li_yong = false;     // 是否含有“回收利用”技能
         double efficiency_by_hui_shou_li_yong = 0.0; // “回收利用”技能提供的效率值
 
-        bool has_skill_tuan_dui_jing_shen = false;   // 是否含有“团队精神”技能
+        bool has_skill_tuan_dui_jing_shen = false; // 是否含有“团队精神”技能
 
         unique_ptr<FacilitySpecBase> clone() const override { return make_unique<MfgSpec>(*this); }
     };
 
     Mfg() {}
-    Mfg(int lv) {
-        efficiency = 1.0;
-        level = lv;
+    Mfg(int facilityType, int lv) : Facility(facilityType, lv) {
+        efficiency = 100;
         spec = make_unique<MfgSpec>();
 
         if (lv == 1) {
@@ -164,11 +189,9 @@ struct Mfg_Gold : Mfg {
     };
 
     Mfg_Gold() {}
-    Mfg_Gold(int lv) : Mfg(lv) {
-        facilityType = MFG_GOLD;
+    Mfg_Gold(int lv) : Mfg(MFG_GOLD, lv) {
         productSpace = 2;
         productTime = 1 * 60 + 12;
-        productValue = productTime;
         spec = make_unique<Mfg_GoldSpec>();
     }
 };
@@ -185,23 +208,19 @@ struct Mfg_Records : Mfg {
     };
 
     Mfg_Records() {}
-    Mfg_Records(int lv) : Mfg(lv) {
-        facilityType = MFG_RECORDS;
+    Mfg_Records(int lv) : Mfg(MFG_RECORDS, lv) {
         if (lv == 1) {
             // 生产基础作战记录
             productSpace = 2;
             productTime = 45;
-            productValue = 3.0 * 60 * (200.0 / 1000);
         } else if (lv == 2) {
             // 生产初级作战记录
             productSpace = 3;
             productTime = 1 * 60 + 20;
-            productValue = 3.0 * 60 * (400.0 / 1000);
         } else if (lv == 3) {
             // 生产中级作战记录
             productSpace = 5;
             productTime = 3 * 60;
-            productValue = productTime;
         }
         spec = make_unique<Mfg_RecordsSpec>();
     }
@@ -219,14 +238,12 @@ struct Mfg_Originium : Mfg {
     };
 
     Mfg_Originium() {}
-    Mfg_Originium(int lv) : Mfg(lv) {
+    Mfg_Originium(int lv) : Mfg(MFG_ORIGINIUM, lv) {
         if (lv != 3) {
             throw invalid_argument("Mfg_Originium构造函数：源石碎片制造站等级只能为3");
         }
-        facilityType = MFG_ORIGINIUM;
         productSpace = 3;
         productTime = 1 * 60;
-        productValue = productTime;
         spec = make_unique<Mfg_OriginiumSpec>();
     }
 };
@@ -243,9 +260,8 @@ struct Trade : Facility {
     };
 
     Trade() {}
-    Trade(int lv) {
-        efficiency = 1.0;
-        level = lv;
+    Trade(int facilityType, int lv) : Facility(facilityType, lv) {
+        efficiency = 100;
         spec = make_unique<TradeSpec>();
 
         if (lv == 1) {
@@ -278,20 +294,20 @@ struct Trade_Orundum : Trade {
     };
 
     Trade_Orundum() {}
-    Trade_Orundum(int lv) : Trade(lv) {
+    Trade_Orundum(int lv) : Trade(TRADE_ORUNDUM, lv) {
         if (lv != 3) {
             throw invalid_argument("Trade_Orundum构造函数：合成玉贸易站等级只能为3");
         }
-        facilityType = TRADE_ORUNDUM;
         productSpace = 1;
         productTime = 2 * 60;
-        productValue = productTime;
         spec = make_unique<Trade_OrundumSpec>();
     }
 };
 
 // 贸易站-龙门币
 struct Trade_LMD : Trade {
+    // 贸易站-龙门币的productValue指的是1赤金对应的订单价值（即无加成3级贸易站下售卖1赤金的所需期望时间）
+
     // 龙门币贸易站的Spec
     struct Trade_LMDSpec : public TradeSpec {
         // 目前为空，后续可根据需要扩展
@@ -301,14 +317,13 @@ struct Trade_LMD : Trade {
         }
     };
 
-    int productTimeList[3]; // 分别对应2,3,4赤金订单的生产时间
-    int productTimeRate[3]; // 分别对应2,3,4赤金订单的生产概率
-    double
-        productValue_perGold; // 一份赤金对应的订单价值（即无加成3级贸易站下售卖一份赤金的期望时间）
+    int productTimeList[3];                 // 分别对应2,3,4赤金订单的生产时间
+    int productRate[3];                     // 分别对应2,3,4赤金订单的生产概率（*100）
+    int productNumber[3] = {2, 3, 4};       // 分别对应2,3,4赤金订单的实际交付赤金个数
+    int productLMD[3] = {1000, 1500, 2000}; // 分别对应2,3,4赤金订单的实际获取龙门币数
 
     Trade_LMD() {}
-    Trade_LMD(int lv) : Trade(lv) {
-        facilityType = TRADE_LMD;
+    Trade_LMD(int lv) : Trade(TRADE_LMD, lv) {
         productSpace = 1;
 
         productTimeList[0] = 2 * 60 + 24;
@@ -316,36 +331,50 @@ struct Trade_LMD : Trade {
         productTimeList[2] = 4 * 60 + 36;
         // 2,3,4赤金订单生产概率数据来源：https://m.prts.wiki/w/%E7%BD%97%E5%BE%B7%E5%B2%9B%E5%9F%BA%E5%BB%BA/%E8%B4%B8%E6%98%93%E7%AB%99
         if (lv == 1) {
-            productTimeRate[0] = 100;
-            productTimeRate[1] = 0;
-            productTimeRate[2] = 0;
+            productRate[0] = 100;
+            productRate[1] = 0;
+            productRate[2] = 0;
         } else if (lv == 2) {
-            productTimeRate[0] = 60;
-            productTimeRate[1] = 40;
-            productTimeRate[2] = 0;
+            productRate[0] = 60;
+            productRate[1] = 40;
+            productRate[2] = 0;
         } else if (lv == 3) {
-            productTimeRate[0] = 30;
-            productTimeRate[1] = 50;
-            productTimeRate[2] = 20;
+            productRate[0] = 30;
+            productRate[1] = 50;
+            productRate[2] = 20;
         }
 
         productTime = 0;
+        int goldCount = 0;
         for (int i = 0; i < 3; i++) {
-            productTime += productTimeList[i] * productTimeRate[i];
+            productTime += productTimeList[i] * productRate[i];
+            goldCount += (2 + i) * productRate[i];
         }
-        productTime /= 100;
+        productTime /= (double)goldCount;
 
-        // 3级贸易站每份订单平均生产时间
-        double productTime_lv3 =
-            (30.0 * productTimeList[0] + 50.0 * productTimeList[1] + 20.0 * productTimeList[2]) /
-            100;
-        // 3级贸易站每份订单平均产出赤金数量
-        double averageGoldCount_lv3 = (2 * 30.0 + 3 * 50.0 + 4 * 20.0) / 100;
-        productValue_perGold = productTime_lv3 / averageGoldCount_lv3;
-        double averageGoldCount =
-            (productTimeRate[0] * 2 + productTimeRate[1] * 3 + productTimeRate[2] * 4) / 100.0;
-        productValue = productValue_perGold * averageGoldCount;
         spec = make_unique<Trade_LMDSpec>();
+    }
+
+    // 确定2,3,4赤金订单的生产时间、生产概率、实际交付赤金个数、实际获取龙门币数后，平均每份订单的价值
+    double getValuePerOrder() {
+        double expectedValue = 0.0;
+        for (int i = 0; i < 3; i++) {
+            if (productNumber[i] * 500 == productLMD[i]) {
+                double productValue_OrderPerGold = productValue;
+                expectedValue +=
+                    productValue_OrderPerGold * productNumber[i] * productRate[i] / 100;
+            } else {
+                // 1龙门币的价值
+                double value_LMD = itemValueList[LMD];
+                // 1制造站赤金的价值
+                double productValue_perGold = productValueList[MFG_GOLD][3];
+                // 相减得到该类型订单下，由工作时长得到的价值增益
+                double benefit =
+                    value_LMD * productLMD[i] - productValue_perGold * productNumber[i];
+                expectedValue += benefit * productRate[i] / 100;
+            }
+        }
+        return expectedValue;
     }
 };
 
@@ -361,12 +390,11 @@ struct Reception : Facility {
     };
 
     Reception() {}
-    Reception(int lv) {
-        level = lv;
+    Reception(int lv) : Facility(RECEPTION, lv) {
         spec = make_unique<ReceptionSpec>();
 
         // 效率计算参考：https://m.prts.wiki/w/%E7%BD%97%E5%BE%B7%E5%B2%9B%E5%9F%BA%E5%BB%BA/%E4%BC%9A%E5%AE%A2%E5%AE%A4
-        efficiency = 1.0 + 0.15 + 0.05; // 基础效率 + 宿舍氛围值加成 + 进驻干员非涣散加成
+        efficiency = 100;
         // 会客室等级加成
         if (lv == 1) {
             efficiency += 0.07;
@@ -391,20 +419,8 @@ struct Reception : Facility {
             powerConsumption = 60;
         }
 
-        facilityType = RECEPTION;
         productSpace = 1;
         productTime = 20 * 60;
-
-        // 假设1个线索收益为45信用（直接使用为30，送人为两方带来收益分别为20、30+(0~15)）
-        productValue = 45.0;
-        // 1信用对应18龙门币（50% off）
-        productValue *= 18.0;
-        // 500龙门币对应1赤金
-        productValue /= 500.0;
-        // 生成一个3级龙门币贸易站，用于确定单个赤金的订单价值（好浪费啊草）
-        auto tmp = Trade_LMD(3);
-        double goldValue = tmp.productValue_perGold;
-        productValue *= goldValue;
     }
 };
 
@@ -420,20 +436,18 @@ struct Power : Facility {
     };
 
     Power() {}
-    Power(int number) {
+    Power(int number) : Facility(POWER, number) {
         if (number <= 0) {
             throw invalid_argument("Power构造函数：发电站数量不能为0或负数");
         }
         level = number;
         spec = make_unique<PowerSpec>();
-        efficiency = 1.0;
+        efficiency = 100;
         capacity = 235; // 后面或许会改成可变值
         operatorLimit = number;
         powerConsumption = -270 * number;
-        facilityType = POWER;
         productSpace = 1;
         productTime = 6;
-        productValue = 3.0;
     }
 
     // 无干员驻守时无人机也会充能，因此发电站在无人时也视为工作
@@ -454,10 +468,9 @@ struct Office : Facility {
     int recruitSlots; // 招募位个数
 
     Office() {}
-    Office(int lv) {
-        level = lv;
+    Office(int lv) : Facility(OFFICE, lv) {
         spec = make_unique<OfficeSpec>();
-        efficiency = 1.05; // 只要有干员进驻就获得5%的效率加成
+        efficiency = 105; // 只要有干员进驻就获得5%的效率加成
         capacity = 3;
         operatorLimit = 1;
 
@@ -471,41 +484,8 @@ struct Office : Facility {
             throw invalid_argument("Office构造函数：办公室等级只能为1,2,3");
         }
 
-        facilityType = OFFICE;
         productSpace = 1;
         productTime = 12 * 60;
-
-        // 计算一次刷新的价值
-        // 公招出3~6星的概率，数据来源：https://ark.yituliu.cn/survey/maarecruitdata（截止2025.10.01）
-        double probability[4] = {0.8394, 0.1530, 0.0055, 0.0021};
-        // 每个星级对应的绿票和黄票收益，3、4星为满潜，5、6星为未满潜
-        pair<int, int> benefit[4] = {{10, 0}, {30, 1}, {0, 5}, {0, 10}};
-        // 生成一个3级合成玉贸易站，和一个3级源石碎片制造站，用于确定合成玉的价值
-        auto tmp1 = Trade_Orundum(3);
-        auto tmp2 = Mfg_Originium(3);
-        double orundumValue = tmp1.productValue / 20 + tmp2.productValue / 10;
-
-        // 计算一张绿票价值
-        double greenTicketValue = 1.0;
-        greenTicketValue *= 30.0 / 50.0; // 50绿票对应30合成玉
-        greenTicketValue *= orundumValue;
-
-        // 计算一张黄票价值
-        double yellowTicketValue = 1.0;
-        yellowTicketValue *= 38.0 / 258.0;       // 258黄票对应38抽
-        yellowTicketValue *= 600 * orundumValue; // 1抽对应600合成玉
-
-        // 计算：刷新后公招收益期望 - 刷新前（3星）公招收益
-        pair<double, double> expectedBenefit = {0.0, 0.0};
-        for (int i = 0; i < 4; i++) {
-            expectedBenefit.first += probability[i] * benefit[i].first;
-            expectedBenefit.second += probability[i] * benefit[i].second;
-        }
-        expectedBenefit.first -= benefit[0].first;
-        expectedBenefit.second -= benefit[0].second;
-
-        productValue =
-            expectedBenefit.first * greenTicketValue + expectedBenefit.second * yellowTicketValue;
     }
 };
 
@@ -521,15 +501,13 @@ struct Control : Facility {
     };
 
     Control() {}
-    Control(int lv) {
+    Control(int lv) : Facility(CONTROL, lv) {
         if (lv <= 0 || lv > 5) {
             throw invalid_argument("Control构造函数：控制中枢等级只能为1~5");
         }
-        level = lv;
         spec = make_unique<ControlSpec>();
         operatorLimit = lv;
         powerConsumption = 0;
-        facilityType = CONTROL;
     }
 };
 
@@ -545,10 +523,7 @@ struct Dormitory : Facility {
     }
 
     Dormitory() {}
-    Dormitory(int lv) {
-        level = lv;
-        efficiency = 0.0;
-        capacity = 0; // 宿舍不生产产品，因此容量设为0
+    Dormitory(int lv) : Facility(DORMITORY, lv) {
         operatorLimit = lv;
         basicRecoverySpeed = 1.5 + 0.1 * lv;
 
@@ -565,8 +540,6 @@ struct Dormitory : Facility {
         } else {
             throw invalid_argument("Dormitory构造函数：宿舍等级只能为1~5");
         }
-
-        facilityType = DORMITORY;
     }
 
     bool isWorking() const override { return false; }
@@ -575,8 +548,7 @@ struct Dormitory : Facility {
 // 加工站
 struct Processing : Facility {
     Processing() {}
-    Processing(int lv) {
-        level = lv;
+    Processing(int lv) : Facility(PROCESSING, lv) {
         operatorLimit = 1;
 
         if (lv == 1 || lv == 2 || lv == 3) {
@@ -584,16 +556,13 @@ struct Processing : Facility {
         } else {
             throw invalid_argument("Processing构造函数：加工站等级只能为1,2,3");
         }
-
-        facilityType = PROCESSING;
     }
 };
 
 // 训练室
 struct Training : Facility {
     Training() {}
-    Training(int lv) {
-        level = lv;
+    Training(int lv) : Facility(TRAINING, lv) {
         operatorLimit = 2;
 
         if (lv == 1) {
@@ -605,8 +574,6 @@ struct Training : Facility {
         } else {
             throw invalid_argument("Training构造函数：训练室等级只能为1,2,3");
         }
-
-        facilityType = TRAINING;
     }
 };
 

@@ -16,11 +16,11 @@ auto skillFunc_biao_zhun_hua = [](GlobalParams &gp, Facility &facility, Operator
         return;
     }
 
-    double eff = 0.0;
+    int eff = 0;
     if (level == "alpha") {
-        eff = 0.15;
+        eff = 15;
     } else if (level == "beta") {
-        eff = 0.25;
+        eff = 25;
     } else {
         throw invalid_argument("skillFunc_biao_zhun_hua函数：level参数错误");
     }
@@ -36,11 +36,11 @@ auto skillFunc_gong_zheng_suo_jiao_xi = [](GlobalParams &gp, Facility &facility,
         return;
     }
 
-    double eff = 0.0;
+    int eff = 0;
     if (level == "alpha") {
-        eff = 0.20;
+        eff = 20;
     } else if (level == "beta") {
-        eff = 0.30;
+        eff = 30;
     } else {
         throw invalid_argument("skillFunc_gong_zheng_suo_jiao_xi函数：level参数错误");
     }
@@ -61,15 +61,15 @@ auto skillFunc_ji_xie_jing_tong = [](GlobalParams &gp, Facility &facility, Opera
             platformCount++;
         }
     }
-    double rate = 0.0;
+    int rate = 0;
     if (level == "alpha") {
-        rate = 0.05;
+        rate = 5;
     } else if (level == "beta") {
-        rate = 0.10;
+        rate = 10;
     } else {
         throw invalid_argument("skillFunc_ji_xie_jing_tong函数：level参数错误");
     }
-    double eff = rate * platformCount;
+    int eff = rate * platformCount;
     add_efficiency_gold(facility, op, eff);
 };
 
@@ -88,7 +88,7 @@ auto skillFunc_ji_xie_fu_zhu = [](GlobalParams &gp, Facility &facility, Operator
         throw invalid_argument("skillFunc_ji_xie_fu_zhu函数：level参数错误");
     }
 
-    double eff = 0.05 * (gp.spec.gong_cheng_ji_qi_ren / divisor);
+    int eff = 5 * (gp.spec.gong_cheng_ji_qi_ren / divisor);
     add_efficiency(facility, op, eff);
 };
 
@@ -98,11 +98,11 @@ auto skillFunc_jin_shu_gong_yi = [](GlobalParams &gp, Facility &facility, Operat
     if (isMfg(facility.facilityType) == false) {
         return;
     }
-    double eff = 0.0;
+    int eff = 0;
     if (level == "alpha") {
-        eff = 0.30;
+        eff = 30;
     } else if (level == "beta") {
-        eff = 0.35;
+        eff = 35;
     } else {
         throw invalid_argument("skillFunc_jin_shu_gong_yi函数：level参数错误");
     }
@@ -116,13 +116,13 @@ auto skillFunc_lai_yin_ke_ji = [](GlobalParams &gp, Facility &facility, Operator
     if (isMfg(facility.facilityType) == false) {
         return;
     }
-    double eff = 0.0;
+    int eff = 0;
     if (level == "alpha") {
-        eff = 0.15;
+        eff = 15;
     } else if (level == "beta") {
-        eff = 0.25;
+        eff = 25;
     } else if (level == "gamma") {
-        eff = 0.30;
+        eff = 30;
     } else {
         throw invalid_argument("skillFunc_lai_yin_ke_ji函数：level参数错误");
     }
@@ -137,11 +137,11 @@ auto skillFunc_chai_qian_shi_mo = [](GlobalParams &gp, Facility &facility, Opera
     if (isMfg(facility.facilityType) == false) {
         return;
     }
-    double eff = 0.0;
+    int eff = 0;
     if (level == "alpha") {
-        eff = 0.20;
+        eff = 20;
     } else if (level == "beta") {
-        eff = 0.30;
+        eff = 30;
     } else {
         throw invalid_argument("skillFunc_chai_qian_shi_mo函数：level参数错误");
     }
@@ -154,11 +154,11 @@ auto skillFunc_hong_song_qi_shi_tuan = [](GlobalParams &gp, Facility &facility, 
     if (isMfg(facility.facilityType) == false) {
         return;
     }
-    double eff = 0.0;
+    int eff = 0;
     if (level == "alpha") {
-        eff = 0.15;
+        eff = 15;
     } else if (level == "beta") {
-        eff = 0.25;
+        eff = 25;
     } else {
         throw invalid_argument("skillFunc_hong_song_qi_shi_tuan函数：level参数错误");
     }
@@ -173,13 +173,13 @@ auto skillFunc_zi_dong_hua = [](GlobalParams &gp, Facility &facility, Operator &
         return;
     }
 
-    double rate = 0.0;
+    int rate = 0;
     if (level == "alpha") {
-        rate = 0.05;
+        rate = 5;
     } else if (level == "beta") {
-        rate = 0.10;
+        rate = 10;
     } else if (level == "gamma") {
-        rate = 0.15;
+        rate = 15;
     } else {
         throw invalid_argument("skillFunc_zi_dong_hua函数：level参数错误");
     }
@@ -195,7 +195,7 @@ auto skillFunc_zi_dong_hua = [](GlobalParams &gp, Facility &facility, Operator &
     int powerCount = gp.facilityCount[POWER] + gp.spec.power_count_by_influence;
 
     // 根据发电站数量增加生产力
-    double eff = rate * powerCount;
+    int eff = rate * powerCount;
     add_efficiency_by_facility(facility, op, eff);
 };
 
@@ -214,7 +214,7 @@ auto skillFunc_cang_ku_zheng_bei = [](GlobalParams &gp, Facility &facility, Oper
         throw invalid_argument("skillFunc_cang_ku_zheng_bei函数：level参数错误");
     }
     add_capacity(facility, op, cap);
-    add_efficiency(facility, op, 0.10);
+    add_efficiency(facility, op, 10);
 };
 
 // 工匠精神：进驻制造站时，生产力-5%，仓库容量上限+16（alpha）或+19（beta），心情每小时消耗-0.15（alpha）或-0.25（beta）
@@ -224,19 +224,19 @@ auto skillFunc_gong_jiang_jing_shen = [](GlobalParams &gp, Facility &facility, O
         return;
     }
     int cap = 0;
-    double moodRate = 0.0;
+    int moodRate = 0;
     if (level == "alpha") {
         cap = 16;
-        moodRate = 0.15;
+        moodRate = 15;
     } else if (level == "beta") {
         cap = 19;
-        moodRate = 0.25;
+        moodRate = 25;
     } else {
         throw invalid_argument("skillFunc_gong_jiang_jing_shen函数：level参数错误");
     }
     reduce_mood_consumption_rate(facility, op, moodRate);
     add_capacity(facility, op, cap);
-    reduce_efficiency(facility, op, 0.05);
+    reduce_efficiency(facility, op, 5);
 };
 
 // 剪辑：进驻制造站时，生产作战记录类配方时，仓库容量上限+12（alpha）或+15（beta）
@@ -264,11 +264,11 @@ auto skillFunc_yuan_shi_gong_yi = [](GlobalParams &gp, Facility &facility, Opera
     if (isMfg(facility.facilityType) == false) {
         return;
     }
-    double eff = 0.0;
+    int eff = 0;
     if (level == "alpha") {
-        eff = 0.30;
+        eff = 30;
     } else if (level == "beta") {
-        eff = 0.35;
+        eff = 35;
     } else {
         throw invalid_argument("skillFunc_yuan_shi_gong_yi函数：level参数错误");
     }
@@ -303,8 +303,8 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  add_efficiency_records(facility, op, 0.35);
-                  reduce_mood_consumption_rate(facility, op, 0.25);
+                  add_efficiency_records(facility, op, 35);
+                  reduce_mood_consumption_rate(facility, op, 25);
               }});
 
     // 镜中影：进驻制造站时，作战记录类配方的生产力+20%，心情每小时消耗-0.25
@@ -313,8 +313,8 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  add_efficiency_records(facility, op, 0.20);
-                  reduce_mood_consumption_rate(facility, op, 0.25);
+                  add_efficiency_records(facility, op, 20);
+                  reduce_mood_consumption_rate(facility, op, 25);
               }});
 
     // 实干的寡言者：进驻制造站时，生产力+20%，每有1瓶乌萨斯特饮，则仓库容量上限+2
@@ -323,7 +323,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  double eff = 0.20;
+                  int eff = 20;
                   add_efficiency(facility, op, eff);
                   add_capacity(facility, op, 2 * gp.spec.wu_sa_si_te_yin);
               }});
@@ -343,19 +343,19 @@ void loadMfgSkillList() {
     // 逆境荣光：进驻制造站时，作战记录类配方的生产力+35%
     MfgSkillList.push_back(
         Skill{NORMAL, "逆境荣光", [](GlobalParams &gp, Facility &facility, Operator &op) {
-                  add_efficiency_records(facility, op, 0.35);
+                  add_efficiency_records(facility, op, 35);
               }});
 
     // 拳术指导录像：进驻制造站时，作战记录类配方的生产力+35%
     MfgSkillList.push_back(
         Skill{NORMAL, "拳术指导录像", [](GlobalParams &gp, Facility &facility, Operator &op) {
-                  add_efficiency_records(facility, op, 0.35);
+                  add_efficiency_records(facility, op, 35);
               }});
 
     // 作战指导录像：进驻制造站时，作战记录类配方的生产力+30%
     MfgSkillList.push_back(
         Skill{NORMAL, "作战指导录像", [](GlobalParams &gp, Facility &facility, Operator &op) {
-                  add_efficiency_records(facility, op, 0.30);
+                  add_efficiency_records(facility, op, 30);
               }});
 
     // 原质塑金副产物：进驻制造站时，每个贸易站为当前制造站贵金属类配方的生产力+3%
@@ -364,7 +364,7 @@ void loadMfgSkillList() {
                                      int tradeCount = gp.facilityCount[TRADE_ORUNDUM] +
                                                       gp.facilityCount[TRADE_LMD] +
                                                       gp.spec.trade_count_by_influence;
-                                     double eff = 0.03 * tradeCount;
+                                     int eff = 3 * tradeCount;
                                      if (facility.facilityType != MFG_GOLD) {
                                          return;
                                      }
@@ -374,7 +374,7 @@ void loadMfgSkillList() {
     // 胜利之计：进驻制造站时，作战记录类配方的生产力+25%
     MfgSkillList.push_back(
         Skill{NORMAL, "胜利之计", [](GlobalParams &gp, Facility &facility, Operator &op) {
-                  add_efficiency_records(facility, op, 0.25);
+                  add_efficiency_records(facility, op, 25);
               }});
 
     // 齐心沙盗：进驻制造站时，每间宿舍每级为贵金属类配方的生产力+1%
@@ -388,7 +388,7 @@ void loadMfgSkillList() {
                   for (int i = 0; i < dormCount; i++) {
                       level += gp.dormitories[i].level;
                   }
-                  double eff = 0.01 * level;
+                  int eff = level;
                   add_efficiency_gold(facility, op, eff);
               }});
 
@@ -399,7 +399,7 @@ void loadMfgSkillList() {
                       return;
                   }
                   if (facility.hasOperator("酒神")) {
-                      add_efficiency_records(facility, op, 0.30);
+                      add_efficiency_records(facility, op, 30);
                   }
               }});
 
@@ -410,7 +410,7 @@ void loadMfgSkillList() {
                       return;
                   }
                   if (facility.hasOperator("温米")) {
-                      add_efficiency_gold(facility, op, 0.15);
+                      add_efficiency_gold(facility, op, 15);
                   }
               }});
 
@@ -432,7 +432,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  double eff = 0.01 * (gp.spec.ren_jian_yan_huo / 3);
+                  int eff = 1 * (gp.spec.ren_jian_yan_huo / 3);
                   add_efficiency(facility, op, eff);
               }});
 
@@ -442,7 +442,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  double eff = 0.02 * gp.spec.wu_shu_jie_jing;
+                  int eff = 2 * gp.spec.wu_shu_jie_jing;
                   add_efficiency(facility, op, eff);
               }});
 
@@ -452,7 +452,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  double eff = 0.01 * gp.spec.wu_shu_jie_jing;
+                  int eff = 1 * gp.spec.wu_shu_jie_jing;
                   add_efficiency(facility, op, eff);
               }});
 
@@ -490,7 +490,7 @@ void loadMfgSkillList() {
                       return;
                   }
                   int skillCount = facility.getSpec<Mfg::MfgSpec>()->skillCount_jin_shu_gong_yi;
-                  double eff = 0.05 * skillCount;
+                  int eff = 5 * skillCount;
                   add_efficiency(facility, op, eff);
               }});
 
@@ -509,9 +509,23 @@ void loadMfgSkillList() {
     // 挑大梁：进驻制造站时，基建内（不包含副手及活动室使用者）每有1名黑钢国际干员（最多3名），贵金属类配方的生产力+2%，心情每小时消耗-0.15
     MfgSkillList.push_back(
         Skill{NORMAL, "挑大梁", [](GlobalParams &gp, Facility &facility, Operator &op) {
-                  if (isMfg(facility.facilityType) == false) {
+                  if (facility.facilityType != MFG_GOLD) {
                       return;
                   }
+                  int count = 0;
+                  auto facilities = gp.getAllFacilities();
+                  for (auto &f : facilities) {
+                      for (auto &o : f->operators) {
+                          if (in_forces(*o, "黑钢国际")) {
+                              count++;
+                              if (count >= 3) {
+                                  break;
+                              }
+                          }
+                      }
+                  }
+                  add_efficiency_gold(facility, op, 2 * min(3, count));
+                  reduce_mood_consumption_rate(facility, op, 15);
               }});
 
     // 再生能源：进驻制造站时，每个贸易站为当前制造站贵金属类配方的生产力+20%
@@ -522,7 +536,7 @@ void loadMfgSkillList() {
             }
             int tradeCount = gp.facilityCount[TRADE_ORUNDUM] + gp.facilityCount[TRADE_LMD] +
                              gp.spec.trade_count_by_influence;
-            double eff = 0.20 * tradeCount;
+            int eff = 20 * tradeCount;
             if (facility.facilityType != MFG_GOLD) {
                 return;
             }
@@ -535,7 +549,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  double eff = min(0.02 * facility.operatorDuration, 0.20);
+                  int eff = min(2 * facility.operatorDuration, 20);
                   add_efficiency(facility, op, eff);
               }});
 
@@ -545,8 +559,8 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  add_efficiency_gold(facility, op, 0.25);
-                  add_mood_consumption_rate(facility, op, 0.25);
+                  add_efficiency_gold(facility, op, 25);
+                  add_mood_consumption_rate(facility, op, 25);
               }});
 
     // 净味香氛：进驻制造站时，贵金属类配方的生产力+25%，心情每小时消耗+0.25
@@ -555,8 +569,8 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  add_efficiency_gold(facility, op, 0.25);
-                  add_mood_consumption_rate(facility, op, 0.25);
+                  add_efficiency_gold(facility, op, 25);
+                  add_mood_consumption_rate(facility, op, 25);
               }});
 
     // 莱茵科技·α：进驻制造站时，生产力+15%
@@ -582,7 +596,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  add_efficiency(facility, op, 0.20);
+                  add_efficiency(facility, op, 20);
                   reduce_capacity(facility, op, 8);
               }});
 
@@ -592,7 +606,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  add_efficiency(facility, op, 0.25);
+                  add_efficiency(facility, op, 25);
                   add_capacity(facility, op, 6);
               }});
 
@@ -603,7 +617,7 @@ void loadMfgSkillList() {
                       return;
                   }
                   add_capacity(facility, op, 10);
-                  reduce_mood_consumption_rate(facility, op, 0.25);
+                  reduce_mood_consumption_rate(facility, op, 25);
               }});
 
     // 量体裁衣：进驻制造站时，生产力+20%，心情每小时消耗+0.25
@@ -612,8 +626,8 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  add_efficiency(facility, op, 0.20);
-                  add_mood_consumption_rate(facility, op, 0.25);
+                  add_efficiency(facility, op, 20);
+                  add_mood_consumption_rate(facility, op, 25);
               }});
 
     // 超感：进驻制造站时，宿舍内每有1名干员则感知信息+1，同时每1点感知信息转化为1点思维链环
@@ -634,7 +648,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  double eff = 0.01 * (gp.spec.si_wei_lian_huan / 2);
+                  int eff = 1 * (gp.spec.si_wei_lian_huan / 2);
                   add_efficiency(facility, op, eff);
               }});
 
@@ -644,7 +658,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  double eff = 0.01 * gp.spec.si_wei_lian_huan;
+                  int eff = 1 * gp.spec.si_wei_lian_huan;
                   add_efficiency(facility, op, eff);
               }});
 
@@ -654,7 +668,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  double bonus = 0.0;
+                  int bonus = 0;
                   auto ops = facility.operators;
                   for (auto &o : ops) {
                       if (o->name != op.name) {
@@ -662,9 +676,9 @@ void loadMfgSkillList() {
                           bonus -= o->getEfficiencyReduce();
                       }
                   }
-                  bonus = (int)((bonus + 0.00001) / 0.05) * 0.05; // 向下取整到5%的倍数
-                  bonus = min(bonus, 0.40);
-                  bonus = max(bonus, 0.0);
+                  bonus = (int)(bonus / 5) * 5; // 向下取整到5%的倍数
+                  bonus = min(bonus, 40);
+                  bonus = max(bonus, 0);
                   add_efficiency(facility, op, bonus);
               }});
 
@@ -686,7 +700,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  double eff = 0.01 * gp.spec.mo_wu_liao_li;
+                  int eff = 1 * gp.spec.mo_wu_liao_li;
                   add_efficiency(facility, op, eff);
               }});
 
@@ -696,7 +710,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  add_efficiency(facility, op, 0.30);
+                  add_efficiency(facility, op, 30);
               }});
 
     // 红松骑士团·α：进驻制造站时，生产力+15%
@@ -718,7 +732,7 @@ void loadMfgSkillList() {
                       return;
                   }
                   add_capacity(facility, op, 16);
-                  reduce_mood_consumption_rate(facility, op, 0.25);
+                  reduce_mood_consumption_rate(facility, op, 25);
               }});
 
     // 收纳达人：进驻制造站时，仓库容量上限+16，心情每小时消耗-0.25
@@ -728,7 +742,7 @@ void loadMfgSkillList() {
                       return;
                   }
                   add_capacity(facility, op, 16);
-                  reduce_mood_consumption_rate(facility, op, 0.25);
+                  reduce_mood_consumption_rate(facility, op, 25);
               }});
 
     // 麻烦制造者：进驻制造站时，生产力+25%，仓库容量上限-12，心情每小时消耗+0.25
@@ -737,9 +751,9 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  add_efficiency(facility, op, 0.25);
+                  add_efficiency(facility, op, 25);
                   reduce_capacity(facility, op, 12);
-                  add_mood_consumption_rate(facility, op, 0.25);
+                  add_mood_consumption_rate(facility, op, 25);
               }});
 
     // 急性子：进驻制造站后，生产力首小时+20%，此后每小时+1%，最终达到+25%
@@ -748,7 +762,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  double eff = min(0.20 + 0.01 * facility.operatorDuration, 0.25);
+                  int eff = min(20 + 1 * facility.operatorDuration, 25);
                   add_efficiency(facility, op, eff);
               }});
 
@@ -758,7 +772,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  double eff = min(0.15 + 0.02 * facility.operatorDuration, 0.25);
+                  int eff = min(15 + 2 * facility.operatorDuration, 25);
                   add_efficiency(facility, op, eff);
               }});
 
@@ -768,7 +782,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  double eff = min(0.15 + 0.02 * facility.operatorDuration, 0.25);
+                  int eff = min(15 + 2 * facility.operatorDuration, 25);
                   add_efficiency(facility, op, eff);
               }});
 
@@ -778,7 +792,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  add_efficiency(facility, op, 0.15);
+                  add_efficiency(facility, op, 15);
               }});
 
     // 仿生海龙：进驻制造站时，当前制造站内其他干员提供的生产力全部归零（不包含根据设施数量提供加成的生产力），每个发电站为当前制造站+15%的生产力
@@ -806,7 +820,7 @@ void loadMfgSkillList() {
                 return;
             }
             int skillCount = facility.getSpec<Mfg::MfgSpec>()->skillCount_lai_yin_ke_ji;
-            double eff = 0.05 * skillCount;
+            int eff = 5 * skillCount;
             add_efficiency(facility, op, eff);
         }});
 
@@ -817,7 +831,7 @@ void loadMfgSkillList() {
                       return;
                   }
                   int skillCount = facility.getSpec<Mfg::MfgSpec>()->skillCount_biao_zhun_hua;
-                  double eff = 0.05 * skillCount;
+                  int eff = 5 * skillCount;
                   add_efficiency(facility, op, eff);
               }});
 
@@ -828,7 +842,7 @@ void loadMfgSkillList() {
                       return;
                   }
                   add_capacity(facility, op, 8);
-                  double eff = 0.05 + 0.01 * gp.spec.mu_tian_liao;
+                  int eff = 5 + 1 * gp.spec.mu_tian_liao;
                   add_efficiency(facility, op, eff);
               }});
 
@@ -852,7 +866,7 @@ void loadMfgSkillList() {
                   }
                   auto &ops = facility.operators;
                   int a1Count = opList_in_forces(ops, "A1小队");
-                  double eff = 0.10 * a1Count;
+                  int eff = 10 * a1Count;
                   add_efficiency(facility, op, eff);
               }});
 
@@ -883,9 +897,9 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  reduce_efficiency(facility, op, 0.20);
+                  reduce_efficiency(facility, op, 20);
                   add_capacity(facility, op, 17);
-                  reduce_mood_consumption_rate(facility, op, 0.25);
+                  reduce_mood_consumption_rate(facility, op, 25);
               }});
 
     // 剪辑·α：进驻制造站时，生产作战记录类配方时，仓库容量上限+12
@@ -907,7 +921,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  add_efficiency(facility, op, 0.25);
+                  add_efficiency(facility, op, 25);
               }});
 
     // 窗外雪啸：进驻制造站时，当自身心情落差大于12时，生产力+10%，仓库容量+6
@@ -922,7 +936,7 @@ void loadMfgSkillList() {
                       return;
                   }
                   add_capacity(facility, op, 10);
-                  reduce_mood_consumption_rate(facility, op, 0.25);
+                  reduce_mood_consumption_rate(facility, op, 25);
               }});
 
     // 无畏豪情：进驻制造站时，仓库容量上限+10，心情每小时消耗-0.25
@@ -932,7 +946,7 @@ void loadMfgSkillList() {
                       return;
                   }
                   add_capacity(facility, op, 10);
-                  reduce_mood_consumption_rate(facility, op, 0.25);
+                  reduce_mood_consumption_rate(facility, op, 25);
               }});
 
     // 囤积者：进驻制造站时，仓库容量上限+10，心情每小时消耗-0.25
@@ -942,7 +956,7 @@ void loadMfgSkillList() {
                       return;
                   }
                   add_capacity(facility, op, 10);
-                  reduce_mood_consumption_rate(facility, op, 0.25);
+                  reduce_mood_consumption_rate(facility, op, 25);
               }});
 
     // 大就是好！：进驻制造站时，当前制造站内干员根据自身提升的仓库容量提供一定的生产力。提升16格以下的，每格仓库容量提供1%生产力；提升大于16格的，每格仓库容量提供3%生产力（无法与回收利用叠加，且优先生效）
@@ -952,17 +966,17 @@ void loadMfgSkillList() {
                       return;
                   }
                   facility.getSpec<Mfg::MfgSpec>()->has_skill_da_jiu_shi_hao = 1;
-                  double eff = 0.0;
+                  int eff = 0;
                   for (auto &o : facility.operators) {
                       int addedCapacity = max(o->getCapacityEnhance() - o->getCapacityReduce(), 0);
-                      double eff = 0.0;
+                      int eff = 0;
                       if (addedCapacity <= 16) {
-                          eff = 0.01 * addedCapacity;
+                          eff = 1 * addedCapacity;
                       } else {
-                          eff = 0.16 + 0.03 * (addedCapacity - 16);
+                          eff = 16 + 3 * (addedCapacity - 16);
                       }
                   }
-                  facility.getSpec<Mfg::MfgSpec>()->efficiency_by_hui_shou_li_yong = 0.0;
+                  facility.getSpec<Mfg::MfgSpec>()->efficiency_by_hui_shou_li_yong = 0;
                   facility.getSpec<Mfg::MfgSpec>()->efficiency_by_da_jiu_shi_hao = eff;
               }});
 
@@ -973,7 +987,7 @@ void loadMfgSkillList() {
                       return;
                   }
                   add_capacity(facility, op, 8);
-                  reduce_mood_consumption_rate(facility, op, 0.25);
+                  reduce_mood_consumption_rate(facility, op, 25);
               }});
 
     // “都想要”：进驻制造站时，仓库容量上限+8，心情每小时消耗-0.25
@@ -983,7 +997,7 @@ void loadMfgSkillList() {
                       return;
                   }
                   add_capacity(facility, op, 8);
-                  reduce_mood_consumption_rate(facility, op, 0.25);
+                  reduce_mood_consumption_rate(facility, op, 25);
               }});
 
     // 磐蟹·阿盘：进驻制造站时，仓库容量上限+8，心情每小时消耗-0.25
@@ -993,7 +1007,7 @@ void loadMfgSkillList() {
                       return;
                   }
                   add_capacity(facility, op, 8);
-                  reduce_mood_consumption_rate(facility, op, 0.25);
+                  reduce_mood_consumption_rate(facility, op, 25);
               }});
 
     // 拾荒者：进驻制造站时，仓库容量上限+8，心情每小时消耗-0.25
@@ -1003,7 +1017,7 @@ void loadMfgSkillList() {
                       return;
                   }
                   add_capacity(facility, op, 8);
-                  reduce_mood_consumption_rate(facility, op, 0.25);
+                  reduce_mood_consumption_rate(facility, op, 25);
               }});
 
     // “等不及”：进驻制造站后，生产力首小时+20%，此后每小时+1%，最终达到+25%
@@ -1012,7 +1026,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  double eff = min(0.20 + 0.01 * facility.operatorDuration, 0.25);
+                  int eff = min(20 + 1 * facility.operatorDuration, 25);
                   add_efficiency(facility, op, eff);
               }});
 
@@ -1023,11 +1037,11 @@ void loadMfgSkillList() {
                       return;
                   }
                   facility.getSpec<Mfg::MfgSpec>()->has_skill_hui_shou_li_yong = 1;
-                  double eff = 0.0;
+                  int eff = 0;
                   for (auto &o : facility.operators) {
                       int addedCapacity = max(o->getCapacityEnhance() - o->getCapacityReduce(), 0);
-                      double eff = 0.0;
-                      eff = 0.02 * addedCapacity;
+                      int eff = 0;
+                      eff = 2 * addedCapacity;
                   }
                   facility.getSpec<Mfg::MfgSpec>()->efficiency_by_hui_shou_li_yong = eff;
               }});
@@ -1038,7 +1052,7 @@ void loadMfgSkillList() {
                   if (facility.facilityType != MFG_RECORDS) {
                       return;
                   }
-                  reduce_mood_consumption_rate(facility, op, 0.25);
+                  reduce_mood_consumption_rate(facility, op, 25);
               }});
 
     // 患难拍档：进驻制造站时，若古米在贸易站，则作战记录类配方的生产力+35%
@@ -1050,11 +1064,9 @@ void loadMfgSkillList() {
                   auto facilities = gp.getAllFacilities();
                   for (auto &f : facilities) {
                       if (isTrade(f->facilityType)) {
-                          for (auto &o : f->operators) {
-                              if (o->name == "古米") {
-                                  add_efficiency_records(facility, op, 0.35);
-                                  return;
-                              }
+                          if (f->hasOperator("古米")) {
+                              add_efficiency_records(facility, op, 35);
+                              return;
                           }
                       }
                   }
@@ -1085,7 +1097,7 @@ void loadMfgSkillList() {
                       return;
                   }
                   for (auto &o : facility.operators) {
-                      reduce_mood_consumption_rate(facility, *o, 0.10);
+                      reduce_mood_consumption_rate(facility, *o, 10);
                   }
               }});
 

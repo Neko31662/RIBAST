@@ -8,27 +8,27 @@ using namespace std;
 struct Operator {
     string name; // 干员代号（游戏中的名称）
 
-    double moodConsumptionRate = 1.0; // 干员心情消耗速率 + 设施提供的心情消耗速率
+    int moodConsumptionRate = 100; // 干员基础心情消耗速率
 
   private:
     // 由基建技能提供的心情消耗速率（消耗增加为正值，减少为负值）
-    double efficiencyEnhance = 0.0;      // 由干员基建技能增加的效率
-    double efficiencyReduce = 0.0;       // 由干员基建技能减少的效率
-    int capacityEnhance = 0;             // 由干员基建技能增加的容量上限
-    int capacityReduce = 0;              // 由干员基建技能减少的容量上限
-    double moodConsumptionEnhance = 0.0; // 由干员基建技能提供的心情消耗速率增加值
-    double moodConsumptionReduce = 0.0;  // 由干员基建技能提供的心情消耗速率减少值
-    friend void add_efficiency(Facility &facility, Operator &op, double value);
-    friend void reduce_efficiency(Facility &facility, Operator &op, double value);
+    int efficiencyEnhance = 0;      // 由干员基建技能增加的效率
+    int efficiencyReduce = 0;       // 由干员基建技能减少的效率
+    int capacityEnhance = 0;        // 由干员基建技能增加的容量上限
+    int capacityReduce = 0;         // 由干员基建技能减少的容量上限
+    int moodConsumptionEnhance = 0; // 由干员基建技能提供的心情消耗速率增加值
+    int moodConsumptionReduce = 0;  // 由干员基建技能提供的心情消耗速率减少值
+    friend void add_efficiency(Facility &facility, Operator &op, int value);
+    friend void reduce_efficiency(Facility &facility, Operator &op, int value);
     friend void add_capacity(Facility &facility, Operator &op, int value);
     friend void reduce_capacity(Facility &facility, Operator &op, int value);
-    friend void add_mood_consumption_rate(Facility &facility, Operator &op, double value);
-    friend void reduce_mood_consumption_rate(Facility &facility, Operator &op, double value);
+    friend void add_mood_consumption_rate(Facility &facility, Operator &op, int value);
+    friend void reduce_mood_consumption_rate(Facility &facility, Operator &op, int value);
 
     struct {
-        double efficiency_by_facility = 0.0; // 由设施数量提供的效率加成
+        int efficiency_by_facility = 0; // 由设施数量提供的效率加成
     } spec;
-    friend void add_efficiency_by_facility(Facility &facility, Operator &op, double value);
+    friend void add_efficiency_by_facility(Facility &facility, Operator &op, int value);
 
   public:
     double getEfficiencyEnhance() const { return efficiencyEnhance; }
@@ -39,8 +39,8 @@ struct Operator {
     double getMoodConsumptionReduce() const { return moodConsumptionReduce; }
 
     void clearEfficiency() {
-        efficiencyEnhance = 0.0;
-        efficiencyReduce = 0.0;
+        efficiencyEnhance = 0;
+        efficiencyReduce = 0;
     }
 
     void clearCapacity() {
@@ -49,8 +49,8 @@ struct Operator {
     }
 
     void clearMoodConsumption() {
-        moodConsumptionEnhance = 0.0;
-        moodConsumptionReduce = 0.0;
+        moodConsumptionEnhance = 0;
+        moodConsumptionReduce = 0;
     }
 };
 
