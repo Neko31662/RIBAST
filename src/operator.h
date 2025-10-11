@@ -1,14 +1,16 @@
 #pragma once
-#include <bits/stdc++.h>
-using namespace std;
-
 #include "skill.h"
+#include <map>
+#include <string>
+#include <vector>
 
 // 干员类
 struct Operator {
-    string name; // 干员代号（游戏中的名称）
+    std::string name; // 干员代号（游戏中的名称）
 
     int moodConsumptionRate = 100; // 干员基础心情消耗速率
+    int duration = 0;              // 进驻时长，单位小时，工位变化后，该值归0
+    double mood = 24.0;            // 当前心情值
 
   private:
     // 由基建技能提供的心情消耗速率（消耗增加为正值，减少为负值）
@@ -54,14 +56,8 @@ struct Operator {
     }
 };
 
-// 势力-干员列表
-static map<string, vector<string>> forces_opList = {
-    {"作业平台", {"Lancet-2", "Castle-3", "THRM-EX", "正义骑士号", "Friston-3", "PhonoR-0"}},
-    {"黑钢国际", {"雷蛇", "芙兰卡", "杰西卡", "香草", "杏仁", "寻澜"}},
-    {"A1小队", {"芙蓉", "炎熔", "米格鲁", "芬", "克洛丝"}}};
-
 // 判断干员是否属于某个势力
-bool in_forces(Operator &op, string forcesName);
+bool in_forces(Operator &op, std::string forcesName);
 
 // 统计干员列表中属于某个势力的干员的数量
-int opList_in_forces(const vector<Operator *> &opList, string forcesName);
+int opList_in_forces(const std::vector<Operator *> &opList, std::string forcesName);

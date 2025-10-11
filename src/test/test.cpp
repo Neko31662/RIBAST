@@ -1,7 +1,6 @@
-#include <bits/stdc++.h>
-using namespace std;
-
+#include <iostream>
 #include "../globalParams.h"
+using namespace std;
 
 int main() {
     vector<unique_ptr<Facility>> Facilities_test;

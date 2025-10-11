@@ -1,13 +1,11 @@
-#include <bits/stdc++.h>
-using namespace std;
-
+#include "mfg.h"
 #include "../globalParams.h"
 #include "../operator.h"
-#include "mfg.h"
 #include "skillPriority.h"
 #include "skillTemplates.h"
-
-vector<Skill> MfgSkillList;
+using std::invalid_argument;
+using std::string;
+using std::vector;
 
 // 标准化：进驻制造站时，生产力+15%（alpha）或25%（beta）
 auto skillFunc_biao_zhun_hua = [](GlobalParams &gp, Facility &facility, Operator &op,
@@ -275,7 +273,7 @@ auto skillFunc_yuan_shi_gong_yi = [](GlobalParams &gp, Facility &facility, Opera
     add_efficiency_originium(facility, op, eff);
 };
 
-void loadMfgSkillList() {
+void loadMfgSkillList(vector<Skill> &MfgSkillList) {
     // 标准化·α：进驻制造站时，生产力+15%
     MfgSkillList.push_back(
         Skill{NORMAL, "标准化·α", [](GlobalParams &gp, Facility &facility, Operator &op) {
@@ -467,7 +465,7 @@ void loadMfgSkillList() {
                                      for (auto &f : facilities) {
                                          level += f->level;
                                      }
-                                     int robotCount = min(64, level);
+                                     int robotCount = std::min(64, level);
                                      gp.spec.gong_cheng_ji_qi_ren += robotCount;
                                  }});
 
@@ -524,7 +522,7 @@ void loadMfgSkillList() {
                           }
                       }
                   }
-                  add_efficiency_gold(facility, op, 2 * min(3, count));
+                  add_efficiency_gold(facility, op, 2 * std::min(3, count));
                   reduce_mood_consumption_rate(facility, op, 15);
               }});
 
@@ -549,7 +547,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  int eff = min(2 * facility.operatorDuration, 20);
+                  int eff = std::min(2 * op.duration, 20);
                   add_efficiency(facility, op, eff);
               }});
 
@@ -632,13 +630,19 @@ void loadMfgSkillList() {
 
     // 超感：进驻制造站时，宿舍内每有1名干员则感知信息+1，同时每1点感知信息转化为1点思维链环
     MfgSkillList.push_back(
-        Skill{SI_WEI_LIAN_HUAN, "超感", [](GlobalParams &gp, Facility &facility, Operator &op) {
+        Skill{GAN_ZHI_XIN_XI, "超感_1", [](GlobalParams &gp, Facility &facility, Operator &op) {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
                   int dormCount = (int)(gp.dormitories.size());
                   int operatorCount = dormCount * 5; // 默认满人
                   gp.spec.gan_zhi_xin_xi += operatorCount;
+              }});
+    MfgSkillList.push_back(
+        Skill{SI_WEI_LIAN_HUAN, "超感_2", [](GlobalParams &gp, Facility &facility, Operator &op) {
+                  if (isMfg(facility.facilityType) == false) {
+                      return;
+                  }
                   gp.spec.si_wei_lian_huan += gp.spec.gan_zhi_xin_xi;
               }});
 
@@ -677,8 +681,8 @@ void loadMfgSkillList() {
                       }
                   }
                   bonus = (int)(bonus / 5) * 5; // 向下取整到5%的倍数
-                  bonus = min(bonus, 40);
-                  bonus = max(bonus, 0);
+                  bonus = std::min(bonus, 40);
+                  bonus = std::max(bonus, 0);
                   add_efficiency(facility, op, bonus);
               }});
 
@@ -762,7 +766,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  int eff = min(20 + 1 * facility.operatorDuration, 25);
+                  int eff = std::min(20 + 1 * op.duration, 25);
                   add_efficiency(facility, op, eff);
               }});
 
@@ -772,7 +776,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  int eff = min(15 + 2 * facility.operatorDuration, 25);
+                  int eff = std::min(15 + 2 * op.duration, 25);
                   add_efficiency(facility, op, eff);
               }});
 
@@ -782,7 +786,7 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  int eff = min(15 + 2 * facility.operatorDuration, 25);
+                  int eff = std::min(15 + 2 * op.duration, 25);
                   add_efficiency(facility, op, eff);
               }});
 
@@ -960,25 +964,26 @@ void loadMfgSkillList() {
               }});
 
     // 大就是好！：进驻制造站时，当前制造站内干员根据自身提升的仓库容量提供一定的生产力。提升16格以下的，每格仓库容量提供1%生产力；提升大于16格的，每格仓库容量提供3%生产力（无法与回收利用叠加，且优先生效）
-    MfgSkillList.push_back(
-        Skill{DA_JIU_SHI_HAO, "大就是好！", [](GlobalParams &gp, Facility &facility, Operator &op) {
-                  if (isMfg(facility.facilityType) == false) {
-                      return;
-                  }
-                  facility.getSpec<Mfg::MfgSpec>()->has_skill_da_jiu_shi_hao = 1;
-                  int eff = 0;
-                  for (auto &o : facility.operators) {
-                      int addedCapacity = max(o->getCapacityEnhance() - o->getCapacityReduce(), 0);
-                      int eff = 0;
-                      if (addedCapacity <= 16) {
-                          eff = 1 * addedCapacity;
-                      } else {
-                          eff = 16 + 3 * (addedCapacity - 16);
-                      }
-                  }
-                  facility.getSpec<Mfg::MfgSpec>()->efficiency_by_hui_shou_li_yong = 0;
-                  facility.getSpec<Mfg::MfgSpec>()->efficiency_by_da_jiu_shi_hao = eff;
-              }});
+    MfgSkillList.push_back(Skill{
+        DA_JIU_SHI_HAO, "大就是好！", [](GlobalParams &gp, Facility &facility, Operator &op) {
+            if (isMfg(facility.facilityType) == false) {
+                return;
+            }
+            facility.getSpec<Mfg::MfgSpec>()->has_skill_da_jiu_shi_hao = true;
+            facility.getSpec<Mfg::MfgSpec>()->has_skill_hui_shou_li_yong = false;
+            int eff = 0;
+            for (auto &o : facility.operators) {
+                int addedCapacity = std::max(o->getCapacityEnhance() - o->getCapacityReduce(), 0);
+                int eff = 0;
+                if (addedCapacity <= 16) {
+                    eff = 1 * addedCapacity;
+                } else {
+                    eff = 16 + 3 * (addedCapacity - 16);
+                }
+            }
+            facility.getSpec<Mfg::MfgSpec>()->efficiency_by_hui_shou_li_yong = 0;
+            facility.getSpec<Mfg::MfgSpec>()->efficiency_by_da_jiu_shi_hao = eff;
+        }});
 
     // 智慧之境：进驻制造站时，仓库容量上限+8，心情每小时消耗-0.25
     MfgSkillList.push_back(
@@ -1026,25 +1031,25 @@ void loadMfgSkillList() {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  int eff = min(20 + 1 * facility.operatorDuration, 25);
+                  int eff = std::min(20 + 1 * op.duration, 25);
                   add_efficiency(facility, op, eff);
               }});
 
     // 回收利用：进驻制造站时，当前制造站内干员提升的每格仓库容量，提供2%生产力
-    MfgSkillList.push_back(
-        Skill{HUI_SHOU_LI_YONG, "回收利用", [](GlobalParams &gp, Facility &facility, Operator &op) {
-                  if (isMfg(facility.facilityType) == false) {
-                      return;
-                  }
-                  facility.getSpec<Mfg::MfgSpec>()->has_skill_hui_shou_li_yong = 1;
-                  int eff = 0;
-                  for (auto &o : facility.operators) {
-                      int addedCapacity = max(o->getCapacityEnhance() - o->getCapacityReduce(), 0);
-                      int eff = 0;
-                      eff = 2 * addedCapacity;
-                  }
-                  facility.getSpec<Mfg::MfgSpec>()->efficiency_by_hui_shou_li_yong = eff;
-              }});
+    MfgSkillList.push_back(Skill{
+        HUI_SHOU_LI_YONG, "回收利用", [](GlobalParams &gp, Facility &facility, Operator &op) {
+            if (isMfg(facility.facilityType) == false) {
+                return;
+            }
+            facility.getSpec<Mfg::MfgSpec>()->has_skill_hui_shou_li_yong = 1;
+            int eff = 0;
+            for (auto &o : facility.operators) {
+                int addedCapacity = std::max(o->getCapacityEnhance() - o->getCapacityReduce(), 0);
+                int eff = 0;
+                eff = 2 * addedCapacity;
+            }
+            facility.getSpec<Mfg::MfgSpec>()->efficiency_by_hui_shou_li_yong = eff;
+        }});
 
     // Vlog：进驻制造站时，生产作战记录类配方时，心情每小时消耗-0.25
     MfgSkillList.push_back(
@@ -1114,18 +1119,23 @@ void loadMfgSkillList() {
         }});
 }
 
+#include <iostream>
 int main() {
-
-    loadMfgSkillList();
-    for (auto x : MfgSkillList) {
-        GlobalParams gp;
-        Mfg_Gold f1(3);
-        Mfg_Originium f2(3);
-        Mfg_Records f3(3);
-        Operator op;
-        x.apply(gp, f1, op);
-        x.apply(gp, f2, op);
-        x.apply(gp, f3, op);
+    vector<Skill> MfgSkillList;
+    loadMfgSkillList(MfgSkillList);
+    try {
+        for (auto x : MfgSkillList) {
+            GlobalParams gp;
+            Mfg_Gold f1(3);
+            Mfg_Originium f2(3);
+            Mfg_Records f3(3);
+            Operator op;
+            x.apply(gp, f1, op);
+            x.apply(gp, f2, op);
+            x.apply(gp, f3, op);
+        }
+    } catch (const std::invalid_argument &e) {
+        std::cout << "捕获到异常：" << e.what() << std::endl;
     }
     return 0;
 }

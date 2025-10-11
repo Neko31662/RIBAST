@@ -1,11 +1,6 @@
 #pragma once
-#include <bits/stdc++.h>
-using namespace std;
-
 #include "../Skill.h"
+#include <vector>
 
-// 所有贸易站技能
-
-extern vector<Skill> TradeSkillList;
-
-void loadTradeSkillList();
+// 加载所有贸易站技能
+void loadTradeSkillList(std::vector<Skill> &TradeSkillList);

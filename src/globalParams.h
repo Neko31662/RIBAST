@@ -1,6 +1,10 @@
 #pragma once
-#include <bits/stdc++.h>
-using namespace std;
+#include <algorithm>
+#include <cstring>
+#include <memory>
+#include <stdexcept>
+#include <string>
+#include <vector>
 
 #include "operator.h"
 
@@ -68,15 +72,14 @@ struct Facility {
     double productTime = 1;      // 单个产品在效率1.0下的生产时间，单位分钟
     double productValue = 0.001; // 单个产品的基础价值
 
-    vector<Operator *> operators; // 设施中驻守的干员列表
-    int operatorDuration = 0;     // 干员进驻时长，以小时为单位，刚进驻为0小时
+    std::vector<Operator *> operators; // 设施中驻守的干员列表
 
     // 设施特化属性的基类
     struct FacilitySpecBase {
         virtual ~FacilitySpecBase() = default;
-        virtual unique_ptr<FacilitySpecBase> clone() const = 0;
+        virtual std::unique_ptr<FacilitySpecBase> clone() const = 0;
     };
-    unique_ptr<FacilitySpecBase> spec; // 设施特化属性
+    std::unique_ptr<FacilitySpecBase> spec; // 设施特化属性
 
     Facility() {}
     Facility(int facilityType, int lv) {
@@ -92,39 +95,10 @@ struct Facility {
     template <typename T> const T *getSpec() const { return dynamic_cast<const T *>(spec.get()); }
 
     // 返回设施名称
-    string getName() const {
-        switch (facilityType) {
-        case CONTROL:
-            return "控制中枢";
-        case MFG_GOLD:
-            return "制造站-赤金";
-        case MFG_RECORDS:
-            return "制造站-作战记录";
-        case MFG_ORIGINIUM:
-            return "制造站-源石碎片";
-        case TRADE_ORUNDUM:
-            return "贸易站-合成玉";
-        case TRADE_LMD:
-            return "贸易站-龙门币";
-        case RECEPTION:
-            return "会客室";
-        case POWER:
-            return "发电站";
-        case OFFICE:
-            return "办公室";
-        case DORMITORY:
-            return "宿舍";
-        case PROCESSING:
-            return "加工站";
-        case TRAINING:
-            return "训练室";
-        default:
-            return "其它设施";
-        }
-    }
+    std::string getName() const;
 
     // 返回是否含有指定名称的干员
-    bool hasOperator(string opName) const {
+    bool hasOperator(std::string opName) const {
         for (const auto &op : operators) {
             if (op->name == opName) {
                 return true;
@@ -151,13 +125,15 @@ struct Mfg : Facility {
 
         bool has_skill_tuan_dui_jing_shen = false; // 是否含有“团队精神”技能
 
-        unique_ptr<FacilitySpecBase> clone() const override { return make_unique<MfgSpec>(*this); }
+        std::unique_ptr<FacilitySpecBase> clone() const override {
+            return std::make_unique<MfgSpec>(*this);
+        }
     };
 
     Mfg() {}
     Mfg(int facilityType, int lv) : Facility(facilityType, lv) {
         efficiency = 100;
-        spec = make_unique<MfgSpec>();
+        spec = std::make_unique<MfgSpec>();
 
         if (lv == 1) {
             capacity = 24;
@@ -172,7 +148,7 @@ struct Mfg : Facility {
             operatorLimit = 3;
             powerConsumption = 60;
         } else {
-            throw invalid_argument("Mfg构造函数：制造站等级只能为1,2,3");
+            throw std::invalid_argument("Mfg构造函数：制造站等级只能为1,2,3");
         }
     }
 };
@@ -183,8 +159,8 @@ struct Mfg_Gold : Mfg {
     struct Mfg_GoldSpec : public MfgSpec {
         // 目前为空，后续可根据需要扩展
 
-        unique_ptr<FacilitySpecBase> clone() const override {
-            return make_unique<Mfg_GoldSpec>(*this);
+        std::unique_ptr<FacilitySpecBase> clone() const override {
+            return std::make_unique<Mfg_GoldSpec>(*this);
         }
     };
 
@@ -192,7 +168,7 @@ struct Mfg_Gold : Mfg {
     Mfg_Gold(int lv) : Mfg(MFG_GOLD, lv) {
         productSpace = 2;
         productTime = 1 * 60 + 12;
-        spec = make_unique<Mfg_GoldSpec>();
+        spec = std::make_unique<Mfg_GoldSpec>();
     }
 };
 
@@ -202,8 +178,8 @@ struct Mfg_Records : Mfg {
     struct Mfg_RecordsSpec : public MfgSpec {
         // 目前为空，后续可根据需要扩展
 
-        unique_ptr<FacilitySpecBase> clone() const override {
-            return make_unique<Mfg_RecordsSpec>(*this);
+        std::unique_ptr<FacilitySpecBase> clone() const override {
+            return std::make_unique<Mfg_RecordsSpec>(*this);
         }
     };
 
@@ -222,7 +198,7 @@ struct Mfg_Records : Mfg {
             productSpace = 5;
             productTime = 3 * 60;
         }
-        spec = make_unique<Mfg_RecordsSpec>();
+        spec = std::make_unique<Mfg_RecordsSpec>();
     }
 };
 
@@ -232,19 +208,19 @@ struct Mfg_Originium : Mfg {
     struct Mfg_OriginiumSpec : public MfgSpec {
         // 目前为空，后续可根据需要扩展
 
-        unique_ptr<FacilitySpecBase> clone() const override {
-            return make_unique<Mfg_OriginiumSpec>(*this);
+        std::unique_ptr<FacilitySpecBase> clone() const override {
+            return std::make_unique<Mfg_OriginiumSpec>(*this);
         }
     };
 
     Mfg_Originium() {}
     Mfg_Originium(int lv) : Mfg(MFG_ORIGINIUM, lv) {
         if (lv != 3) {
-            throw invalid_argument("Mfg_Originium构造函数：源石碎片制造站等级只能为3");
+            throw std::invalid_argument("Mfg_Originium构造函数：源石碎片制造站等级只能为3");
         }
         productSpace = 3;
         productTime = 1 * 60;
-        spec = make_unique<Mfg_OriginiumSpec>();
+        spec = std::make_unique<Mfg_OriginiumSpec>();
     }
 };
 
@@ -252,17 +228,16 @@ struct Mfg_Originium : Mfg {
 struct Trade : Facility {
     // 贸易站的Spec
     struct TradeSpec : public FacilitySpecBase {
-        // 目前为空，后续可根据需要扩展
 
-        unique_ptr<FacilitySpecBase> clone() const override {
-            return make_unique<TradeSpec>(*this);
+        std::unique_ptr<FacilitySpecBase> clone() const override {
+            return std::make_unique<TradeSpec>(*this);
         }
     };
 
     Trade() {}
     Trade(int facilityType, int lv) : Facility(facilityType, lv) {
         efficiency = 100;
-        spec = make_unique<TradeSpec>();
+        spec = std::make_unique<TradeSpec>();
 
         if (lv == 1) {
             capacity = 6;
@@ -277,7 +252,7 @@ struct Trade : Facility {
             operatorLimit = 3;
             powerConsumption = 60;
         } else {
-            throw invalid_argument("Trade构造函数：贸易站等级只能为1,2,3");
+            throw std::invalid_argument("Trade构造函数：贸易站等级只能为1,2,3");
         }
     }
 };
@@ -288,37 +263,39 @@ struct Trade_Orundum : Trade {
     struct Trade_OrundumSpec : public TradeSpec {
         // 目前为空，后续可根据需要扩展
 
-        unique_ptr<FacilitySpecBase> clone() const override {
-            return make_unique<Trade_OrundumSpec>(*this);
+        std::unique_ptr<FacilitySpecBase> clone() const override {
+            return std::make_unique<Trade_OrundumSpec>(*this);
         }
     };
 
     Trade_Orundum() {}
     Trade_Orundum(int lv) : Trade(TRADE_ORUNDUM, lv) {
         if (lv != 3) {
-            throw invalid_argument("Trade_Orundum构造函数：合成玉贸易站等级只能为3");
+            throw std::invalid_argument("Trade_Orundum构造函数：合成玉贸易站等级只能为3");
         }
         productSpace = 1;
         productTime = 2 * 60;
-        spec = make_unique<Trade_OrundumSpec>();
+        spec = std::make_unique<Trade_OrundumSpec>();
     }
 };
 
 // 贸易站-龙门币
 struct Trade_LMD : Trade {
     // 贸易站-龙门币的productValue指的是1赤金对应的订单价值（即无加成3级贸易站下售卖1赤金的所需期望时间）
+    // 贸易站-龙门币的productTime指的是1赤金对应的订单生产时间（与productValue相等）
 
     // 龙门币贸易站的Spec
     struct Trade_LMDSpec : public TradeSpec {
-        // 目前为空，后续可根据需要扩展
+        bool has_skill_hui_yan_du_dao = false; // 是否含有“慧眼独到”技能
+        bool has_skill_he_tong_fa = false;     // 是否含有“合同法”技能
 
-        unique_ptr<FacilitySpecBase> clone() const override {
-            return make_unique<Trade_LMDSpec>(*this);
+        std::unique_ptr<FacilitySpecBase> clone() const override {
+            return std::make_unique<Trade_LMDSpec>(*this);
         }
     };
 
     int productTimeList[3];                 // 分别对应2,3,4赤金订单的生产时间
-    int productRate[3];                     // 分别对应2,3,4赤金订单的生产概率（*100）
+    int productRate[3];                     // 分别对应2,3,4赤金订单的生产权重，初始的总和为100，修改后总和不一定为100
     int productNumber[3] = {2, 3, 4};       // 分别对应2,3,4赤金订单的实际交付赤金个数
     int productLMD[3] = {1000, 1500, 2000}; // 分别对应2,3,4赤金订单的实际获取龙门币数
 
@@ -348,34 +325,27 @@ struct Trade_LMD : Trade {
         int goldCount = 0;
         for (int i = 0; i < 3; i++) {
             productTime += productTimeList[i] * productRate[i];
-            goldCount += (2 + i) * productRate[i];
+            goldCount += productNumber[i] * productRate[i];
         }
         productTime /= (double)goldCount;
 
-        spec = make_unique<Trade_LMDSpec>();
+        spec = std::make_unique<Trade_LMDSpec>();
     }
 
     // 确定2,3,4赤金订单的生产时间、生产概率、实际交付赤金个数、实际获取龙门币数后，平均每份订单的价值
-    double getValuePerOrder() {
-        double expectedValue = 0.0;
-        for (int i = 0; i < 3; i++) {
-            if (productNumber[i] * 500 == productLMD[i]) {
-                double productValue_OrderPerGold = productValue;
-                expectedValue +=
-                    productValue_OrderPerGold * productNumber[i] * productRate[i] / 100;
-            } else {
-                // 1龙门币的价值
-                double value_LMD = itemValueList[LMD];
-                // 1制造站赤金的价值
-                double productValue_perGold = productValueList[MFG_GOLD][3];
-                // 相减得到该类型订单下，由工作时长得到的价值增益
-                double benefit =
-                    value_LMD * productLMD[i] - productValue_perGold * productNumber[i];
-                expectedValue += benefit * productRate[i] / 100;
-            }
-        }
-        return expectedValue;
-    }
+    double getValuePerOrder();
+
+    // 确定2,3,4赤金订单的生产时间、生产概率、实际交付赤金个数、实际获取龙门币数后，返回平均每份订单的生产时间
+    double getTimePerOrder();
+
+    // 修改2,3,4赤金订单的生产概率
+    void changeProductRate(std::vector<double> newRate);
+
+    // 修改2,3,4赤金订单的实际交付赤金个数，并将获得的龙门币个数自动设为赤金数*500
+    void changeProductNumber(std::vector<int> newNumber);
+
+    // 不改变2,3,4赤金订单实际交付赤金个数，修改某一类订单的实际获取龙门币数
+    void changeProductLMD(int index, int new_LMD);
 };
 
 // 会客室（获取线索）
@@ -384,14 +354,14 @@ struct Reception : Facility {
     struct ReceptionSpec : public FacilitySpecBase {
         // 目前为空，后续可根据需要扩展
 
-        unique_ptr<FacilitySpecBase> clone() const override {
-            return make_unique<ReceptionSpec>(*this);
+        std::unique_ptr<FacilitySpecBase> clone() const override {
+            return std::make_unique<ReceptionSpec>(*this);
         }
     };
 
     Reception() {}
     Reception(int lv) : Facility(RECEPTION, lv) {
-        spec = make_unique<ReceptionSpec>();
+        spec = std::make_unique<ReceptionSpec>();
 
         // 效率计算参考：https://m.prts.wiki/w/%E7%BD%97%E5%BE%B7%E5%B2%9B%E5%9F%BA%E5%BB%BA/%E4%BC%9A%E5%AE%A2%E5%AE%A4
         efficiency = 100;
@@ -403,7 +373,7 @@ struct Reception : Facility {
         } else if (lv == 3) {
             efficiency += 0.11;
         } else {
-            throw invalid_argument("Reception构造函数：会客室等级只能为1,2,3");
+            throw std::invalid_argument("Reception构造函数：会客室等级只能为1,2,3");
         }
 
         // 考虑到大多数情况下线索都是缺一张或两张，其他线索还可能重复，这里把线索容量设为3
@@ -430,18 +400,18 @@ struct Power : Facility {
     struct PowerSpec : public FacilitySpecBase {
         // 目前为空，后续可根据需要扩展
 
-        unique_ptr<FacilitySpecBase> clone() const override {
-            return make_unique<PowerSpec>(*this);
+        std::unique_ptr<FacilitySpecBase> clone() const override {
+            return std::make_unique<PowerSpec>(*this);
         }
     };
 
     Power() {}
     Power(int number) : Facility(POWER, number) {
         if (number <= 0) {
-            throw invalid_argument("Power构造函数：发电站数量不能为0或负数");
+            throw std::invalid_argument("Power构造函数：发电站数量不能为0或负数");
         }
         level = number;
-        spec = make_unique<PowerSpec>();
+        spec = std::make_unique<PowerSpec>();
         efficiency = 100;
         capacity = 235; // 后面或许会改成可变值
         operatorLimit = number;
@@ -460,8 +430,8 @@ struct Office : Facility {
     struct OfficeSpec : public FacilitySpecBase {
         // 目前为空，后续可根据需要扩展
 
-        unique_ptr<FacilitySpecBase> clone() const override {
-            return make_unique<OfficeSpec>(*this);
+        std::unique_ptr<FacilitySpecBase> clone() const override {
+            return std::make_unique<OfficeSpec>(*this);
         }
     };
 
@@ -469,7 +439,7 @@ struct Office : Facility {
 
     Office() {}
     Office(int lv) : Facility(OFFICE, lv) {
-        spec = make_unique<OfficeSpec>();
+        spec = std::make_unique<OfficeSpec>();
         efficiency = 105; // 只要有干员进驻就获得5%的效率加成
         capacity = 3;
         operatorLimit = 1;
@@ -481,7 +451,7 @@ struct Office : Facility {
         } else if (lv == 3) {
             powerConsumption = 60;
         } else {
-            throw invalid_argument("Office构造函数：办公室等级只能为1,2,3");
+            throw std::invalid_argument("Office构造函数：办公室等级只能为1,2,3");
         }
 
         productSpace = 1;
@@ -495,17 +465,17 @@ struct Control : Facility {
     struct ControlSpec : public FacilitySpecBase {
         // 目前为空，后续可根据需要扩展
 
-        unique_ptr<FacilitySpecBase> clone() const override {
-            return make_unique<ControlSpec>(*this);
+        std::unique_ptr<FacilitySpecBase> clone() const override {
+            return std::make_unique<ControlSpec>(*this);
         }
     };
 
     Control() {}
     Control(int lv) : Facility(CONTROL, lv) {
         if (lv <= 0 || lv > 5) {
-            throw invalid_argument("Control构造函数：控制中枢等级只能为1~5");
+            throw std::invalid_argument("Control构造函数：控制中枢等级只能为1~5");
         }
-        spec = make_unique<ControlSpec>();
+        spec = std::make_unique<ControlSpec>();
         operatorLimit = lv;
         powerConsumption = 0;
     }
@@ -518,7 +488,7 @@ struct Dormitory : Facility {
 
     double getRecoverySpeed() const {
         double speed = basicRecoverySpeed;
-        speed += min(atmosphere, 1000 * level) * 0.0004;
+        speed += std::min(atmosphere, 1000 * level) * 0.0004;
         return speed;
     }
 
@@ -538,7 +508,7 @@ struct Dormitory : Facility {
         } else if (lv == 5) {
             powerConsumption = 65;
         } else {
-            throw invalid_argument("Dormitory构造函数：宿舍等级只能为1~5");
+            throw std::invalid_argument("Dormitory构造函数：宿舍等级只能为1~5");
         }
     }
 
@@ -554,7 +524,7 @@ struct Processing : Facility {
         if (lv == 1 || lv == 2 || lv == 3) {
             powerConsumption = 10;
         } else {
-            throw invalid_argument("Processing构造函数：加工站等级只能为1,2,3");
+            throw std::invalid_argument("Processing构造函数：加工站等级只能为1,2,3");
         }
     }
 };
@@ -572,14 +542,14 @@ struct Training : Facility {
         } else if (lv == 3) {
             powerConsumption = 60;
         } else {
-            throw invalid_argument("Training构造函数：训练室等级只能为1,2,3");
+            throw std::invalid_argument("Training构造函数：训练室等级只能为1,2,3");
         }
     }
 };
 
 // 设施比较器 - 按类型和等级排序
 struct FacilityComparator {
-    bool operator()(const unique_ptr<Facility> &a, const unique_ptr<Facility> &b) const {
+    bool operator()(const std::unique_ptr<Facility> &a, const std::unique_ptr<Facility> &b) const {
         if (a->facilityType != b->facilityType) {
             return a->facilityType < b->facilityType; // 不同类型按类型升序
         }
@@ -589,7 +559,7 @@ struct FacilityComparator {
 
 // 设施比较器 - 按产出速率排序
 struct FacilityValueComparator {
-    bool operator()(const unique_ptr<Facility> &a, const unique_ptr<Facility> &b) const {
+    bool operator()(const std::unique_ptr<Facility> &a, const std::unique_ptr<Facility> &b) const {
         double rateA = a->productValue / a->productTime;
         double rateB = b->productValue / b->productTime;
         return rateA > rateB; // 按产出速率降序排序
@@ -598,7 +568,7 @@ struct FacilityValueComparator {
 
 // 设施比较器 - 按饱和时间排序
 struct FacilitySaturationComparator {
-    bool operator()(const unique_ptr<Facility> &a, const unique_ptr<Facility> &b) const {
+    bool operator()(const std::unique_ptr<Facility> &a, const std::unique_ptr<Facility> &b) const {
         int saturationA = a->capacity / a->productSpace * a->productTime;
         int saturationB = b->capacity / b->productSpace * b->productTime;
         return saturationA > saturationB; // 按饱和时间降序排序
@@ -610,28 +580,32 @@ struct GlobalParams {
     // 发电站（多个发电站视为1个）、办公室、会客室、控制中枢、训练室、加工站的数量固定
     // 宿舍的数量最多为4
     // 制造站、贸易站的数量可变，制造站、贸易站、发电站设施数量（发电站的设施数量为发电站等级）之和至多为9
-    Power power;                                  // 发电站
-    Office office;                                // 办公室
-    Reception reception;                          // 会客室
-    Control control;                              // 控制中枢
-    Training training;                            // 训练室
-    Processing processing;                        // 加工站
-    vector<Dormitory> dormitories;                // 宿舍
-    vector<unique_ptr<Facility>> otherFacilities; // 其他设施（制造站、贸易站）
+    Power power;                                            // 发电站
+    Office office;                                          // 办公室
+    Reception reception;                                    // 会客室
+    Control control;                                        // 控制中枢
+    Training training;                                      // 训练室
+    Processing processing;                                  // 加工站
+    std::vector<Dormitory> dormitories;                     // 宿舍
+    std::vector<std::unique_ptr<Facility>> otherFacilities; // 其他设施（制造站、贸易站）
 
-    int facilityCount[20] = {0};     // 各设施类型的数量
-    vector<Operator *> allOperators; // 所有驻守的干员
+    int facilityCount[20] = {0}; // 各设施类型的数量
+
+    int clearDuration = 0; // 清理基建时间，以小时为单位，刚清理后为0小时
 
     struct {
         // 将所有参数初始化为0
-        int ren_jian_yan_huo = 0;         // 人间烟火
-        int wu_shu_jie_jing = 0;          // 巫术结晶
-        int wu_sa_si_te_yin = 0;          // 乌萨斯特饮
-        int gong_cheng_ji_qi_ren = 0;     // 工程机器人
-        int gan_zhi_xin_xi = 0;           // 感知信息
-        int si_wei_lian_huan = 0;         // 思维链环
-        int mo_wu_liao_li = 0;            // 魔物料理
-        int mu_tian_liao = 0;             // 木天蓼
+        int ren_jian_yan_huo = 0;     // 人间烟火
+        int wu_shu_jie_jing = 0;      // 巫术结晶
+        int wu_sa_si_te_yin = 0;      // 乌萨斯特饮
+        int gong_cheng_ji_qi_ren = 0; // 工程机器人
+        int gan_zhi_xin_xi = 0;       // 感知信息
+        int si_wei_lian_huan = 0;     // 思维链环
+        int mo_wu_liao_li = 0;        // 魔物料理
+        int mu_tian_liao = 0;         // 木天蓼
+        int wu_sheng_gong_ming = 0;   // 无声共鸣
+        // 赤金生产线（技能“订单流可视化”的参考值为赤金贸易站实际个数，其它技能的参考值都为赤金贸易站实际个数+该值）
+        int extra_chi_jin_sheng_chan_xian = 0;
         int trade_count_by_influence = 0; // 受技能影响导致的贸易站名义上数量变化值
         int power_count_by_influence = 0; // 受技能影响导致的发电站名义上数量变化值
     } spec;
@@ -646,14 +620,15 @@ struct GlobalParams {
      * @note 宿舍数量至多为4个
      * @note 上限为1的设施类型数量至多为1个
      */
-    GlobalParams(vector<pair<int, int>> facilityCounts) { reset(facilityCounts); }
+    GlobalParams(std::vector<std::pair<int, int>> facilityCounts) { reset(facilityCounts); }
 
-    void reset(vector<pair<int, int>> facilityCounts) {
+    void reset(std::vector<std::pair<int, int>> facilityCounts) {
         spec = {};
         memset(facilityCount, 0, sizeof(facilityCount));
-        allOperators.clear();
         otherFacilities.clear();
         dormitories.clear();
+        cache_allFacilities_valid = false;
+        cache_allOperators_valid = false;
 
         for (auto p : facilityCounts) {
             int tp = p.first;
@@ -672,31 +647,31 @@ struct GlobalParams {
             } else if (tp == DORMITORY) {
                 dormitories.emplace_back(lv);
                 if ((int)dormitories.size() > 4) {
-                    throw invalid_argument("GlobalParams构造函数：宿舍数量不能超过4个");
+                    throw std::invalid_argument("GlobalParams构造函数：宿舍数量不能超过4个");
                 }
             } else if (tp == POWER) {
                 if (lv != 3) {
-                    throw invalid_argument("GlobalParams构造函数：发电站等级只能为3");
+                    throw std::invalid_argument("GlobalParams构造函数：发电站等级只能为3");
                 }
             } else if (tp == MFG_GOLD) {
-                otherFacilities.push_back(make_unique<Mfg_Gold>(lv));
+                otherFacilities.push_back(std::make_unique<Mfg_Gold>(lv));
             } else if (tp == MFG_RECORDS) {
-                otherFacilities.push_back(make_unique<Mfg_Records>(lv));
+                otherFacilities.push_back(std::make_unique<Mfg_Records>(lv));
             } else if (tp == MFG_ORIGINIUM) {
-                otherFacilities.push_back(make_unique<Mfg_Originium>(lv));
+                otherFacilities.push_back(std::make_unique<Mfg_Originium>(lv));
             } else if (tp == TRADE_ORUNDUM) {
-                otherFacilities.push_back(make_unique<Trade_Orundum>(lv));
+                otherFacilities.push_back(std::make_unique<Trade_Orundum>(lv));
             } else if (tp == TRADE_LMD) {
-                otherFacilities.push_back(make_unique<Trade_LMD>(lv));
+                otherFacilities.push_back(std::make_unique<Trade_LMD>(lv));
             } else {
-                throw invalid_argument("GlobalParams构造函数：设施类型错误");
+                throw std::invalid_argument("GlobalParams构造函数：设施类型错误");
             }
         }
         power = Power(facilityCount[POWER]);
 
         int totalCount = otherFacilities.size() + facilityCount[POWER];
         if (totalCount > 9) {
-            throw invalid_argument(
+            throw std::invalid_argument(
                 "GlobalParams构造函数：制造站、贸易站、发电站设施数量之和不能超过9个");
         }
         for (int tp = 1; tp <= 12; tp++) {
@@ -709,7 +684,8 @@ struct GlobalParams {
             if (tp == DORMITORY)
                 continue;
             if (facilityCount[tp] > 1) {
-                throw invalid_argument("GlobalParams构造函数：上限为1的设施类型数量不能超过1个");
+                throw std::invalid_argument(
+                    "GlobalParams构造函数：上限为1的设施类型数量不能超过1个");
             }
         }
 
@@ -719,43 +695,20 @@ struct GlobalParams {
             powerConsumptionSum += fac->powerConsumption;
         }
         if (powerConsumptionSum > 0) {
-            throw invalid_argument("GlobalParams构造函数：设施总耗电量不能大于总发电量");
+            throw std::invalid_argument("GlobalParams构造函数：设施总耗电量不能大于总发电量");
         }
     }
 
-    vector<Facility *> getAllFacilities() {
-        vector<Facility *> facilities;
-
-        facilities.push_back(&power);
-        facilities.push_back(&office);
-        facilities.push_back(&reception);
-        facilities.push_back(&control);
-        facilities.push_back(&training);
-        facilities.push_back(&processing);
-
-        for (auto &dorm : dormitories) {
-            facilities.push_back(&dorm);
-        }
-
-        for (auto &fac : otherFacilities) {
-            facilities.push_back(fac.get());
-        }
-
-        return facilities;
-    }
+    // 获取所有设施的列表
+    std::vector<Facility *> getAllFacilities();
 
     // 获取所有设施中驻守的干员列表
-    vector<Operator *> getAllOperators() {
-        if (!allOperators.empty())
-            return allOperators;
-        vector<Operator *> ops;
-        auto facilities = getAllFacilities();
-        for (const auto &fac : facilities) {
-            for (const auto &op : fac->operators) {
-                ops.push_back(op);
-            }
-        }
-        allOperators = ops;
-        return ops;
-    }
+    std::vector<Operator *> getAllOperators();
+
+  private:
+    std::vector<Facility *> cache_allFacilities; // 设施列表缓存
+    bool cache_allFacilities_valid = false;      // 设施列表缓存是否有效
+
+    std::vector<Operator *> cache_allOperators; // 干员列表缓存
+    bool cache_allOperators_valid = false;      // 干员列表缓存是否有效
 };

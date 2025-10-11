@@ -1,8 +1,8 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-#include "../globalParams.h"
 #include "skillTemplates.h"
+#include "../globalParams.h"
+using std::invalid_argument;
+using std::string;
+using std::vector;
 
 void add_efficiency(Facility &facility, Operator &op, int value) {
     if (value < 0) {
@@ -111,4 +111,22 @@ void add_efficiency_orundum(Facility &facility, Operator &op, int value) {
         return;
     }
     add_efficiency(facility, op, value);
+}
+
+void add_product_rate(Facility &facility, std::vector<double> rateValues) {
+    if (facility.facilityType != TRADE_LMD) {
+        throw invalid_argument("add_product_rate函数：facility不是贸易站-龙门币类型的设施");
+    }
+    if (rateValues.size() != 3) {
+        throw invalid_argument("add_product_rate函数：rateValues大小必须为3");
+    }
+    Trade_LMD *tradeFacility = dynamic_cast<Trade_LMD *>(&facility);
+    if (!tradeFacility) {
+        throw std::runtime_error("add_product_rate函数：facility无法转换为Trade_LMD");
+    }
+    std::vector<double> newRate(3);
+    for (int i = 0; i < 3; i++) {
+        newRate[i] = tradeFacility->productRate[i] + rateValues[i];
+    }
+    tradeFacility->changeProductRate(newRate);
 }

@@ -1,7 +1,7 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 #include "globalParams.h"
+using std::invalid_argument;
+using std::string;
+using std::vector;
 
 bool isMfg(int facilityType) {
     return facilityType == MFG_GOLD || facilityType == MFG_RECORDS || facilityType == MFG_ORIGINIUM;
@@ -61,7 +61,7 @@ void loadValueList() {
     // 公招出3~6星的概率，数据来源：https://ark.yituliu.cn/survey/maarecruitdata（截止2025.10.01）
     double probability[4] = {0.8394, 0.1530, 0.0055, 0.0021};
     // 每个星级对应的绿票和黄票收益，3、4星为满潜，5、6星为未满潜
-    pair<int, int> benefit[4] = {{10, 0}, {30, 1}, {0, 5}, {0, 10}};
+    std::pair<int, int> benefit[4] = {{10, 0}, {30, 1}, {0, 5}, {0, 10}};
     // 合成玉的价值:龙门币价值 = 0.75:0.0036
     double value_orundum = 0.75 / 0.0036 * value_LMD;
 
@@ -76,7 +76,7 @@ void loadValueList() {
     yellowTicketValue *= 600 * value_orundum; // 1抽对应600合成玉
 
     // 计算：刷新后公招收益期望 - 刷新前（3星）公招收益
-    pair<double, double> expectedBenefit = {0.0, 0.0};
+    std::pair<double, double> expectedBenefit = {0.0, 0.0};
     for (int i = 0; i < 4; i++) {
         expectedBenefit.first += probability[i] * benefit[i].first;
         expectedBenefit.second += probability[i] * benefit[i].second;
@@ -102,4 +102,138 @@ double getProductValue(int facilityType, int level) {
         throw invalid_argument("getProductValue函数：facilityType或level参数错误");
     }
     return productValueList[facilityType][level];
+}
+
+string Facility::getName() const {
+    switch (facilityType) {
+    case CONTROL:
+        return "控制中枢";
+    case MFG_GOLD:
+        return "制造站-赤金";
+    case MFG_RECORDS:
+        return "制造站-作战记录";
+    case MFG_ORIGINIUM:
+        return "制造站-源石碎片";
+    case TRADE_ORUNDUM:
+        return "贸易站-合成玉";
+    case TRADE_LMD:
+        return "贸易站-龙门币";
+    case RECEPTION:
+        return "会客室";
+    case POWER:
+        return "发电站";
+    case OFFICE:
+        return "办公室";
+    case DORMITORY:
+        return "宿舍";
+    case PROCESSING:
+        return "加工站";
+    case TRAINING:
+        return "训练室";
+    default:
+        return "其它设施";
+    }
+}
+
+double Trade_LMD::getValuePerOrder() {
+    double expectedValue = 0.0;
+    double totalRate = productRate[0] + productRate[1] + productRate[2];
+    for (int i = 0; i < 3; i++) {
+        if (productNumber[i] * 500 == productLMD[i]) {
+            double productValue_OrderPerGold = productValue;
+            expectedValue += productValue_OrderPerGold * productNumber[i] * productRate[i] / totalRate;
+        } else {
+            // 1龙门币的价值
+            double value_LMD = itemValueList[LMD];
+            // 1制造站赤金的价值
+            double productValue_perGold = productValueList[MFG_GOLD][3];
+            // 相减得到该类型订单下，由工作时长得到的价值增益
+            double benefit = value_LMD * productLMD[i] - productValue_perGold * productNumber[i];
+            expectedValue += benefit * productRate[i] / totalRate;
+        }
+    }
+    return expectedValue;
+}
+
+double Trade_LMD::getTimePerOrder() {
+    double timePerOrder = 0.0;
+    double totalRate = productRate[0] + productRate[1] + productRate[2];
+    for (int i = 0; i < 3; i++) {
+        timePerOrder += productTimeList[i] * productRate[i];
+    }
+    timePerOrder /= totalRate;
+    return timePerOrder;
+}
+
+void Trade_LMD::changeProductRate(vector<double> newRate) {
+    if (newRate.size() != 3) {
+        throw invalid_argument("Trade_LMD::changeProductRate：newRate大小必须为3");
+    }
+    for (int i = 0; i < 3; i++) {
+        productRate[i] = newRate[i];
+    }
+};
+
+void Trade_LMD::changeProductNumber(vector<int> newNumber) {
+    if (newNumber.size() != 3) {
+        throw invalid_argument("Trade_LMD::changeProductNumber：newNumber大小必须为3");
+    }
+    for (int i = 0; i < 3; i++) {
+        if (newNumber[i] <= 0) {
+            throw invalid_argument("Trade_LMD::changeProductNumber：newNumber的元素必须大于0");
+        }
+        productNumber[i] = newNumber[i];
+        productLMD[i] = productNumber[i] * 500;
+    }
+};
+
+void Trade_LMD::changeProductLMD(int index, int new_LMD) {
+    if (index < 0 || index >= 3) {
+        throw invalid_argument("Trade_LMD::changeProductLMD：index参数错误");
+    }
+    if (new_LMD <= 0) {
+        throw invalid_argument("Trade_LMD::changeProductLMD：new_LMD必须大于0");
+    }
+    productLMD[index] = new_LMD;
+}
+
+vector<Facility *> GlobalParams::getAllFacilities() {
+    if (cache_allFacilities_valid) {
+        return cache_allFacilities;
+    }
+    cache_allFacilities.clear();
+    cache_allFacilities_valid = true;
+
+    cache_allFacilities.push_back(&power);
+    cache_allFacilities.push_back(&office);
+    cache_allFacilities.push_back(&reception);
+    cache_allFacilities.push_back(&control);
+    cache_allFacilities.push_back(&training);
+    cache_allFacilities.push_back(&processing);
+
+    for (auto &dorm : dormitories) {
+        cache_allFacilities.push_back(&dorm);
+    }
+
+    for (auto &fac : otherFacilities) {
+        cache_allFacilities.push_back(fac.get());
+    }
+
+    return cache_allFacilities;
+}
+
+vector<Operator *> GlobalParams::getAllOperators() {
+    if (cache_allOperators_valid) {
+        return cache_allOperators;
+    }
+    cache_allOperators.clear();
+    cache_allOperators_valid = true;
+
+    auto facilities = getAllFacilities();
+    for (const auto &fac : facilities) {
+        for (const auto &op : fac->operators) {
+            cache_allOperators.push_back(op);
+        }
+    }
+    return cache_allOperators;
 }

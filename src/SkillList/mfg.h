@@ -1,12 +1,7 @@
 #pragma once
-#include <bits/stdc++.h>
-using namespace std;
-
 #include "../Skill.h"
+#include <vector>
 
-// 所有制造站技能
-
-extern vector<Skill> MfgSkillList;
-
-void loadMfgSkillList();
+// 加载所有制造站技能
+void loadMfgSkillList(std::vector<Skill> &MfgSkillList);
 
