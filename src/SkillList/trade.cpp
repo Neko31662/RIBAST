@@ -895,6 +895,17 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                   add_efficiency(facility, op, eff);
               }});
 
+    // 天生的顾问：进驻贸易站时，订单获取效率+15%，会客室每级额外提供5%获取效率，最多提供30%效率
+    TradeSkillList.push_back(
+        Skill{NORMAL, "天生的顾问", [](GlobalParams &gp, Facility &facility, Operator &op) {
+                  if (isTrade(facility.facilityType) == false) {
+                      return;
+                  }
+                  int lv = gp.reception.level;
+                  int eff = std::min(lv * 5 + 15, 30);
+                  add_efficiency(facility, op, eff);
+              }});
+
     // 际崖居民：进驻贸易站时，基建内（不包含副手及活动室使用者）每1名杜林族干员（最多4名）为当前贸易站提供1条赤金生产线
     TradeSkillList.push_back(
         Skill{NORMAL, "际崖居民", [](GlobalParams &gp, Facility &facility, Operator &op) {
@@ -990,8 +1001,7 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                       cap -= o->getCapacityReduce();
                   }
                   cap = std::max(cap, 1);
-                  int eff = cap * 4;
-                  add_efficiency(facility, op, eff);
+                  add_efficiency(facility, op, cap * 4);
               }});
 
     // 虔诚筹款·α：进驻贸易站时，每间宿舍每级+1%获取效率
@@ -1128,5 +1138,25 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                   }
                   add_capacity(facility, op, 5);
                   reduce_mood_consumption_rate(facility, op, 25);
+              }});
+
+    // 精英小队：进驻贸易站时，订单获取效率+25%，基建内（不包含副手及活动室）每有一间进驻精英干员的设施，订单获取效率额外+2%（最多10间）
+    TradeSkillList.push_back(
+        Skill{NORMAL, "精英小队", [](GlobalParams &gp, Facility &facility, Operator &op) {
+                  if (isTrade(facility.facilityType) == false) {
+                      return;
+                  }
+                  int eliteCount = 0;
+                  for (auto &f : gp.getAllFacilities()) {
+                      for (auto &ops : f->operators) {
+                          if (in_forces(*ops, "精英干员")) {
+                              eliteCount++;
+                              break;
+                          }
+                      }
+                  }
+                  eliteCount = std::min(10, eliteCount);
+                  int eff = eliteCount * 2 + 25;
+                  add_efficiency(facility, op, eff);
               }});
 }

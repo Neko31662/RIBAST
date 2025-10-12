@@ -1,0 +1,7028 @@
+{
+    "12F": {
+        "profession": "术师",
+        "rarity": 2,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "特训记录"
+                }
+            ]
+        }
+    },
+    "CONFESS-47": {
+        "profession": "先锋",
+        "rarity": 1,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "充能中"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "维护中"
+                }
+            ]
+        }
+    },
+    "Castle-3": {
+        "profession": "近卫",
+        "rarity": 1,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "备用能源"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "作战指导录像"
+                }
+            ]
+        }
+    },
+    "Friston-3": {
+        "profession": "重装",
+        "rarity": 1,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "备用能源"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "“愉快的对谈”"
+                }
+            ]
+        }
+    },
+    "Lancet-2": {
+        "profession": "医疗",
+        "rarity": 1,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "备用能源"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "医疗服务"
+                }
+            ]
+        }
+    },
+    "Miss.Christine": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "午休好去处"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "盛餐的回报"
+                }
+            ]
+        }
+    },
+    "Mon3tr": {
+        "profession": "医疗",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "博识生手"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "最高权限"
+                }
+            ]
+        }
+    },
+    "PhonoR-0": {
+        "profession": "辅助",
+        "rarity": 1,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "挽歌充能·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "咒文共鸣"
+                }
+            ]
+        }
+    },
+    "THRM-EX": {
+        "profession": "特种",
+        "rarity": 1,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "备用能源"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "热情澎湃"
+                }
+            ]
+        }
+    },
+    "U-Official": {
+        "profession": "辅助",
+        "rarity": 1,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "天真的谈判者"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "显眼的调查者"
+                }
+            ]
+        }
+    },
+    "W": {
+        "profession": "狙击",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "狙击专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "伺机而动"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "索然无味"
+                }
+            ]
+        }
+    },
+    "万顷": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "天师府工艺"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "勤学不倦"
+                }
+            ]
+        }
+    },
+    "三角初华": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "偶像光环"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "羁绊相生"
+                }
+            ]
+        }
+    },
+    "丰川祥子": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "丰富工作经验(精英0)"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "丰富工作经验(精英2)"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "生活的重压"
+                }
+            ]
+        }
+    },
+    "临光": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "左膀右臂"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "使徒"
+                }
+            ]
+        }
+    },
+    "乌尔比安": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "“问题应当准确”"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "“手段应当有效”"
+                }
+            ]
+        }
+    },
+    "乌有": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "好事之徒"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "“愿者上钩”"
+                }
+            ]
+        }
+    },
+    "九色鹿": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "因果"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "业报"
+                }
+            ]
+        }
+    },
+    "云迹": {
+        "profession": "特种",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "气流传动"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "特种专精·β"
+                }
+            ]
+        }
+    },
+    "亚叶": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "毒理学·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "一丝不苟"
+                }
+            ]
+        }
+    },
+    "仇白": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "近卫专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "实战技巧：领主"
+                }
+            ]
+        }
+    },
+    "令": {
+        "profession": "辅助",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "杯莫停"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "“山河远阔”"
+                }
+            ]
+        }
+    },
+    "伊内丝": {
+        "profession": "先锋",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "人事管理·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "聚影"
+                }
+            ]
+        }
+    },
+    "伊桑": {
+        "profession": "特种",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "WRITER"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "隐形的美食家"
+                }
+            ]
+        }
+    },
+    "伊芙利特": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "热能充能·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "高热充能"
+                }
+            ]
+        }
+    },
+    "休谟斯": {
+        "profession": "近卫",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "修修还能用"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "省省能更多"
+                }
+            ]
+        }
+    },
+    "伺夜": {
+        "profession": "先锋",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "领袖外交"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "新城贸易"
+                }
+            ]
+        }
+    },
+    "但书": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "合同法"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "违约索赔·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "违约索赔·β"
+                }
+            ]
+        }
+    },
+    "余": {
+        "profession": "重装",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "调众口"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "与人乐"
+                }
+            ]
+        }
+    },
+    "佩佩": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "多面逢源"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "慧眼独到"
+                }
+            ]
+        }
+    },
+    "信仰搅拌机": {
+        "profession": "重装",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "泡茶高手"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "社交达人"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "不泯童心"
+                }
+            ]
+        }
+    },
+    "假日威龙陈": {
+        "profession": "狙击",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "狙击专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "以身作则(训练室)"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "工作狂"
+                }
+            ]
+        }
+    },
+    "傀影": {
+        "profession": "特种",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "特种专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "假面魅影"
+                }
+            ]
+        }
+    },
+    "克洛丝": {
+        "profession": "狙击",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "慢性子"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "独处"
+                }
+            ]
+        }
+    },
+    "八幡海铃": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "可靠伙伴"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "家族认可"
+                }
+            ]
+        }
+    },
+    "冬时": {
+        "profession": "先锋",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "科学改造"
+                },
+                {
+                    "skillLevel": 1,
+                    "skillName": "流程优化"
+                }
+            ]
+        }
+    },
+    "冰酿": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "笑靥如春"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "小酌怡情"
+                }
+            ]
+        }
+    },
+    "凛冬": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "领袖(宿舍)"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "冬将军"
+                }
+            ]
+        }
+    },
+    "凛视": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "远见"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "未来之途"
+                }
+            ]
+        }
+    },
+    "凯尔希": {
+        "profession": "医疗",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "未知技术"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "最高权限"
+                }
+            ]
+        }
+    },
+    "凯瑟琳": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "工效模范·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "工效模范·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "自动化流水线"
+                }
+            ]
+        }
+    },
+    "初雪": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "喀兰圣女"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "辅助专精·β"
+                }
+            ]
+        }
+    },
+    "刺玫": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "芬芳疗养·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "芬芳疗养·β"
+                }
+            ]
+        }
+    },
+    "刻俄柏": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "“都想要”"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "“等不及”"
+                }
+            ]
+        }
+    },
+    "刻刀": {
+        "profession": "近卫",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "特训记录"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "淡泊"
+                }
+            ]
+        }
+    },
+    "医生": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "战术指导·防守"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "利他主义"
+                }
+            ]
+        }
+    },
+    "华法琳": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "医疗专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "医疗专精·β"
+                }
+            ]
+        }
+    },
+    "卡夫卡": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "手工艺品·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "手工艺品·β"
+                }
+            ]
+        }
+    },
+    "卡涅利安": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "术师专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "尽在掌握"
+                }
+            ]
+        }
+    },
+    "卡缇": {
+        "profession": "重装",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "仓库整备·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "活泼"
+                }
+            ]
+        }
+    },
+    "卡达": {
+        "profession": "术师",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "Vlog"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "剪辑·β"
+                }
+            ]
+        }
+    },
+    "历阵锐枪芬": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "标准化·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "重聚时光"
+                }
+            ]
+        }
+    },
+    "双月": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "战术指导·进攻"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "情报专家"
+                }
+            ]
+        }
+    },
+    "古米": {
+        "profession": "重装",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "交际"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "烹饪"
+                }
+            ]
+        }
+    },
+    "可颂": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "企鹅物流·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "使命必达"
+                }
+            ]
+        }
+    },
+    "史尔特尔": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "近卫专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "剑术记忆"
+                }
+            ]
+        }
+    },
+    "史都华德": {
+        "profession": "术师",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "谈判"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "标准化·β"
+                }
+            ]
+        }
+    },
+    "号角": {
+        "profession": "重装",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "军事工程学"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "DIY·炽合金"
+                }
+            ]
+        }
+    },
+    "司霆惊蛰": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "雷法专精"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "克己严修"
+                }
+            ]
+        }
+    },
+    "吉星": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "勤俭经营·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "勤俭经营·β"
+                }
+            ]
+        }
+    },
+    "吽": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "能工巧匠"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "坚毅随和"
+                }
+            ]
+        }
+    },
+    "和弦": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "独处"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "双面间谍"
+                }
+            ]
+        }
+    },
+    "哈洛德": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "交个朋友"
+                }
+            ]
+        }
+    },
+    "嘉维尔": {
+        "profession": "医疗",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "药理学·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "医疗专精·α"
+                }
+            ]
+        }
+    },
+    "四月": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "订单管理·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "订单管理·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "鼓舞"
+                }
+            ]
+        }
+    },
+    "因陀罗": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "传讯者"
+                }
+            ]
+        }
+    },
+    "图耶": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "物流规划·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "物流规划·β"
+                }
+            ]
+        }
+    },
+    "圣约送葬人": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "公证所教习·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "公证所教习·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "合理利用"
+                }
+            ]
+        }
+    },
+    "地灵": {
+        "profession": "辅助",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "天灾信使·α"
+                },
+                {
+                    "skillLevel": 1,
+                    "skillName": "准时下班"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "地质学·β"
+                }
+            ]
+        }
+    },
+    "坚雷": {
+        "profession": "重装",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "重装专精·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "零食网络"
+                }
+            ]
+        }
+    },
+    "埃拉托": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "狙击专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "拂弦"
+                }
+            ]
+        }
+    },
+    "塑心": {
+        "profession": "辅助",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "无声共鸣"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "无词颂歌"
+                }
+            ]
+        }
+    },
+    "塞雷娅": {
+        "profession": "重装",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "守望者"
+                }
+            ]
+        }
+    },
+    "夏栎": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "风声"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "情报整理"
+                }
+            ]
+        }
+    },
+    "夕": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "\"不以物喜\""
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "\"不以己悲\""
+                }
+            ]
+        }
+    },
+    "多萝西": {
+        "profession": "特种",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "源石技艺理论应用"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "莱茵科技·β"
+                }
+            ]
+        }
+    },
+    "夜刀": {
+        "profession": "先锋",
+        "rarity": 2,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "订单分发·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "标准化·α"
+                }
+            ]
+        }
+    },
+    "夜半": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "先锋专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "战术研习"
+                }
+            ]
+        }
+    },
+    "夜烟": {
+        "profession": "术师",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "金属工艺·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "订单分发·β"
+                }
+            ]
+        }
+    },
+    "夜莺": {
+        "profession": "医疗",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "鼓舞"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "提灯女神"
+                }
+            ]
+        }
+    },
+    "夜魔": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "术师专精·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "心理学"
+                }
+            ]
+        }
+    },
+    "天火": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "术师专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "术师专精·β"
+                }
+            ]
+        }
+    },
+    "奥斯塔": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "灵感"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "DIY·聚酸酯"
+                }
+            ]
+        }
+    },
+    "奥达": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "“职业操守”·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "“职业操守”·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "暗线"
+                }
+            ]
+        }
+    },
+    "妮芙": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "静心仪式·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "静心仪式·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "巡心"
+                }
+            ]
+        }
+    },
+    "娜仁图亚": {
+        "profession": "狙击",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "无畏豪情"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "齐心沙盗"
+                }
+            ]
+        }
+    },
+    "子月": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "幼狼情性"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "荒野生存"
+                }
+            ]
+        }
+    },
+    "孑": {
+        "profession": "特种",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "摊贩经济"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "市井之道"
+                }
+            ]
+        }
+    },
+    "守林人": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "线索搜集·β"
+                }
+            ]
+        }
+    },
+    "安哲拉": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "独处"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "麻烦回避者"
+                }
+            ]
+        }
+    },
+    "安德切尔": {
+        "profession": "狙击",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "订单分发·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "能工巧匠"
+                }
+            ]
+        }
+    },
+    "安比尔": {
+        "profession": "狙击",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "慵懒"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "订单分发·β"
+                }
+            ]
+        }
+    },
+    "安洁莉娜": {
+        "profession": "辅助",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "信使·罗德岛制药"
+                }
+            ]
+        }
+    },
+    "安赛尔": {
+        "profession": "医疗",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "善解人意"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "药理学·α"
+                }
+            ]
+        }
+    },
+    "宴": {
+        "profession": "近卫",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "心理学"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "线索搜集·β"
+                }
+            ]
+        }
+    },
+    "寒檀": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "降生于冰寒"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "雪祀候补"
+                }
+            ]
+        }
+    },
+    "寒芒克洛丝": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "异格者"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "实战技巧：速射"
+                }
+            ]
+        }
+    },
+    "寻澜": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "人情练达"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "情报探查"
+                }
+            ]
+        }
+    },
+    "导火索": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "战术指导·进攻"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "实干的寡言者"
+                }
+            ]
+        }
+    },
+    "小满": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "善解人意"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "乡野笛音"
+                }
+            ]
+        }
+    },
+    "山": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "内幕"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "哥伦比亚史"
+                }
+            ]
+        }
+    },
+    "崖心": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "探险家的热情"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "喀兰贸易·β"
+                }
+            ]
+        }
+    },
+    "嵯峨": {
+        "profession": "先锋",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "先锋专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "入世"
+                }
+            ]
+        }
+    },
+    "巡林者": {
+        "profession": "狙击",
+        "rarity": 2,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "人事管理·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "老当益壮"
+                }
+            ]
+        }
+    },
+    "左乐": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "学无不精·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "思而后行"
+                }
+            ]
+        }
+    },
+    "巫恋": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "裁缝·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "低语"
+                }
+            ]
+        }
+    },
+    "布丁": {
+        "profession": "术师",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "设备维护"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "超频"
+                }
+            ]
+        }
+    },
+    "布洛卡": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "近卫专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "近卫专精·β"
+                }
+            ]
+        }
+    },
+    "帕拉斯": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "智慧之境"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "胜利之计"
+                }
+            ]
+        }
+    },
+    "年": {
+        "profession": "重装",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "稀有金属辨识"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "肆无忌惮"
+                }
+            ]
+        }
+    },
+    "幽灵鲨": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "独处"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "狂热"
+                }
+            ]
+        }
+    },
+    "异客": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "电磁充能·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "聚能"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "自动化·α"
+                }
+            ]
+        }
+    },
+    "弑君者": {
+        "profession": "特种",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "獠牙的技艺"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "逆境荣光"
+                }
+            ]
+        }
+    },
+    "引星棘刺": {
+        "profession": "特种",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "金属工艺·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "原质塑金副产物"
+                }
+            ]
+        }
+    },
+    "归溟幽灵鲨": {
+        "profession": "特种",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "特种专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "阿戈尔战术"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "斗争渴望"
+                }
+            ]
+        }
+    },
+    "录武官": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "医疗专精·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "学无不精·α"
+                }
+            ]
+        }
+    },
+    "微风": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "没落贵族"
+                }
+            ]
+        }
+    },
+    "德克萨斯": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "恩怨"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "默契"
+                }
+            ]
+        }
+    },
+    "忍冬": {
+        "profession": "先锋",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "线索搜集·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "杀手的假期"
+                }
+            ]
+        }
+    },
+    "惊蛰": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "至察"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "断事如神"
+                }
+            ]
+        }
+    },
+    "慑砂": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "极简实用主义"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "工业设计"
+                }
+            ]
+        }
+    },
+    "慕斯": {
+        "profession": "近卫",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "订单分发·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "烘焙"
+                }
+            ]
+        }
+    },
+    "战车": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "彩虹小队"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "乌萨斯特饮"
+                }
+            ]
+        }
+    },
+    "截云": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "古老巫术"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "逐水草"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "问枯荣"
+                }
+            ]
+        }
+    },
+    "戴菲恩": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "旧识新交"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "运筹好手"
+                }
+            ]
+        }
+    },
+    "承曦格雷伊": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "巡线框架"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "晨曦"
+                }
+            ]
+        }
+    },
+    "折光": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "鉴定师的眼光"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "鉴定师的手段"
+                }
+            ]
+        }
+    },
+    "折桠": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "铁匠天赋"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "余料利用"
+                }
+            ]
+        }
+    },
+    "拉普兰德": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "醉翁之意·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "醉翁之意·β"
+                }
+            ]
+        }
+    },
+    "拜松": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "峯驰物流"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "少当家"
+                }
+            ]
+        }
+    },
+    "掠风": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "必修课程"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "自动化·α"
+                }
+            ]
+        }
+    },
+    "推进之王": {
+        "profession": "先锋",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "领袖(宿舍)"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "狮心王"
+                }
+            ]
+        }
+    },
+    "提丰": {
+        "profession": "狙击",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "冰原游弋"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "实战技巧：攻城手"
+                }
+            ]
+        }
+    },
+    "摩根": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "头号陪练"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "帮派指南针"
+                }
+            ]
+        }
+    },
+    "斑点": {
+        "profession": "重装",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "能工巧匠"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "金属工艺·α"
+                }
+            ]
+        }
+    },
+    "斥罪": {
+        "profession": "重装",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "法为正典"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "寻同路人"
+                }
+            ]
+        }
+    },
+    "斩业星熊": {
+        "profession": "重装",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "下城人脉"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "共事情谊"
+                }
+            ]
+        }
+    },
+    "断崖": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "线索搜集·β"
+                }
+            ]
+        }
+    },
+    "断罪者": {
+        "profession": "近卫",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "天启"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "拳术指导录像"
+                }
+            ]
+        }
+    },
+    "斯卡蒂": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "独处"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "悲歌"
+                }
+            ]
+        }
+    },
+    "新约能天使": {
+        "profession": "特种",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "天生乐天派"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "圣城趣事通"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "同城加急单"
+                }
+            ]
+        }
+    },
+    "早露": {
+        "profession": "狙击",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "学生会会长"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "人望"
+                }
+            ]
+        }
+    },
+    "明椒": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "朝气蓬勃"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "裁缝·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "裁缝·β"
+                }
+            ]
+        }
+    },
+    "星极": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "星象学"
+                }
+            ]
+        }
+    },
+    "星源": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "莱茵科技·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "莱茵科技·β"
+                }
+            ]
+        }
+    },
+    "星熊": {
+        "profession": "重装",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "重装专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "般若"
+                }
+            ]
+        }
+    },
+    "晓歌": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "不容遗漏·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "不容遗漏·β"
+                }
+            ]
+        }
+    },
+    "普罗旺斯": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "天灾信使·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "天灾信使·β"
+                }
+            ]
+        }
+    },
+    "暗索": {
+        "profession": "特种",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "谈判"
+                }
+            ]
+        }
+    },
+    "暮落": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "重装专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "实战技巧：驭法铁卫"
+                }
+            ]
+        }
+    },
+    "暴行": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "技巧理论"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "烹饪"
+                }
+            ]
+        }
+    },
+    "暴雨": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "护卫"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "重装专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "阵地经验"
+                }
+            ]
+        }
+    },
+    "月禾": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "天灾信使·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "洞悉人心"
+                }
+            ]
+        }
+    },
+    "月见夜": {
+        "profession": "近卫",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "交际"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "源石工艺·α"
+                }
+            ]
+        }
+    },
+    "末药": {
+        "profession": "医疗",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "药理学·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "善解人意"
+                }
+            ]
+        }
+    },
+    "杏仁": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "小奇思"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "挑大梁"
+                }
+            ]
+        }
+    },
+    "杜宾": {
+        "profession": "近卫",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "左膀右臂"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "教官"
+                }
+            ]
+        }
+    },
+    "杜林": {
+        "profession": "术师",
+        "rarity": 2,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "慵懒"
+                },
+                {
+                    "skillLevel": 1,
+                    "skillName": "嗜睡"
+                }
+            ]
+        }
+    },
+    "杰克": {
+        "profession": "近卫",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "活泼"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "线索搜集·β"
+                }
+            ]
+        }
+    },
+    "杰西卡": {
+        "profession": "狙击",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "标准化·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "联络员"
+                }
+            ]
+        }
+    },
+    "松果": {
+        "profession": "狙击",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "工程学"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "便携蓄电池"
+                }
+            ]
+        }
+    },
+    "松桐": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "见微知著"
+                }
+            ]
+        }
+    },
+    "极光": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "重装专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "极地生存"
+                }
+            ]
+        }
+    },
+    "极境": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "通讯员"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "插旗"
+                }
+            ]
+        }
+    },
+    "林": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "特殊渠道"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "用人唯才"
+                }
+            ]
+        }
+    },
+    "柏喙": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "裁缝·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "裁缝·β"
+                }
+            ]
+        }
+    },
+    "格劳克斯": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "电磁充能·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "电磁充能·β"
+                }
+            ]
+        }
+    },
+    "格拉尼": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "先锋专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "先锋专精·β"
+                }
+            ]
+        }
+    },
+    "格雷伊": {
+        "profession": "术师",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "静电场"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "能工巧匠"
+                }
+            ]
+        }
+    },
+    "桃金娘": {
+        "profession": "先锋",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "谈判"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "领袖(宿舍)"
+                }
+            ]
+        }
+    },
+    "桑葚": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "救援队·珠算"
+                },
+                {
+                    "skillLevel": 1,
+                    "skillName": "救援队·资源清点"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "救援队·灾后普查"
+                }
+            ]
+        }
+    },
+    "梅": {
+        "profession": "狙击",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "皇家探员（自称）"
+                }
+            ]
+        }
+    },
+    "梅尔": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "咪波·加工型"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "咪波·制造型"
+                }
+            ]
+        }
+    },
+    "梓兰": {
+        "profession": "辅助",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "心理学"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "供应管理"
+                }
+            ]
+        }
+    },
+    "棘刺": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "“炼金术”"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "“爆炸艺术”"
+                }
+            ]
+        }
+    },
+    "森蚺": {
+        "profession": "重装",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "自动化·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "自动化·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "我寻思能行"
+                }
+            ]
+        }
+    },
+    "森西": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "资深料理人"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "森西大食堂"
+                }
+            ]
+        }
+    },
+    "槐琥": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "团队精神"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "配合意识"
+                }
+            ]
+        }
+    },
+    "歌蕾蒂娅": {
+        "profession": "特种",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "潮汐守望"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "集群狩猎·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "集群狩猎·β"
+                }
+            ]
+        }
+    },
+    "止颂": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "苦修之律"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "虔修之律"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "巫妖学识"
+                }
+            ]
+        }
+    },
+    "正义骑士号": {
+        "profession": "狙击",
+        "rarity": 1,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "备用能源"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "“滴滴，启动！”"
+                }
+            ]
+        }
+    },
+    "死芒": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "术师专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "死焰指引"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "何须解脱"
+                }
+            ]
+        }
+    },
+    "水月": {
+        "profession": "特种",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "意识协议"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "标准化·β"
+                }
+            ]
+        }
+    },
+    "水灯心": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "永不停歇·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "永不停歇·β"
+                }
+            ]
+        }
+    },
+    "泡普卡": {
+        "profession": "近卫",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "麻烦制造者"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "和谐"
+                }
+            ]
+        }
+    },
+    "泡泡": {
+        "profession": "重装",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "囤积者"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "大就是好！"
+                }
+            ]
+        }
+    },
+    "波卜": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "倾听者"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "倾谈者"
+                }
+            ]
+        }
+    },
+    "波登可": {
+        "profession": "辅助",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "善解人意"
+                },
+                {
+                    "skillLevel": 1,
+                    "skillName": "疗养"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "沁人心脾"
+                }
+            ]
+        }
+    },
+    "泥岩": {
+        "profession": "重装",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "执著"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "DIY·源岩"
+                }
+            ]
+        }
+    },
+    "泰拉大陆调查团": {
+        "profession": "狙击",
+        "rarity": 1,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "可爱的艾露猫"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "可靠的随从们"
+                }
+            ]
+        }
+    },
+    "洋灰": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "标准化·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "掘进工程"
+                }
+            ]
+        }
+    },
+    "洛洛": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "舍弃的赘余"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "无用的赠予"
+                }
+            ]
+        }
+    },
+    "流明": {
+        "profession": "医疗",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "柔和微光·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "柔和微光·β"
+                }
+            ]
+        }
+    },
+    "流星": {
+        "profession": "狙击",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "标准化·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "善解人意"
+                }
+            ]
+        }
+    },
+    "浊心斯卡蒂": {
+        "profession": "辅助",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "辅助专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "同化"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "变异"
+                }
+            ]
+        }
+    },
+    "海沫": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "意识兼容"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "标准化·β"
+                }
+            ]
+        }
+    },
+    "海蒂": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "订单分发·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "名流欢会"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "“一千封信”"
+                }
+            ]
+        }
+    },
+    "海霓": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "穹顶物流管理·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "穹顶物流管理·β"
+                }
+            ]
+        }
+    },
+    "涤火杰西卡": {
+        "profession": "重装",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "订单管理·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "老友相聚"
+                }
+            ]
+        }
+    },
+    "淬羽赫默": {
+        "profession": "辅助",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "不停歇的电话"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "莱茵科技·γ"
+                }
+            ]
+        }
+    },
+    "深巡": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "对陆接洽代表·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "对陆接洽代表·β"
+                }
+            ]
+        }
+    },
+    "深律": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "宫廷礼仪"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "威权谕使"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "心声图绘"
+                }
+            ]
+        }
+    },
+    "深海色": {
+        "profession": "辅助",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "订单分发·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "专注·β"
+                }
+            ]
+        }
+    },
+    "深靛": {
+        "profession": "术师",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "毒剂师之友"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "光能充能·α"
+                },
+                {
+                    "skillLevel": 1,
+                    "skillName": "灯塔供能模块"
+                }
+            ]
+        }
+    },
+    "清流": {
+        "profession": "医疗",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "清洁能源"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "再生能源"
+                }
+            ]
+        }
+    },
+    "清道夫": {
+        "profession": "先锋",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "S.W.E.E.P."
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "拾荒者"
+                }
+            ]
+        }
+    },
+    "渡桥": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "懂行"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "天生的顾问"
+                }
+            ]
+        }
+    },
+    "温米": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "大锅饭·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "大锅饭·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "金属工艺·α"
+                }
+            ]
+        }
+    },
+    "温蒂": {
+        "profession": "特种",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "自动化·β"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "仿生海龙"
+                }
+            ]
+        }
+    },
+    "澄闪": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "电磁充能·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "电荷释放"
+                }
+            ]
+        }
+    },
+    "濯尘芙蓉": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "异格者"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "护理专精"
+                }
+            ]
+        }
+    },
+    "火哨": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "暖场"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "代为说项"
+                }
+            ]
+        }
+    },
+    "火神": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "工匠精神·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "工匠精神·β"
+                }
+            ]
+        }
+    },
+    "火龙S黑角": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "团队合作"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "秘传交涉术"
+                }
+            ]
+        }
+    },
+    "灰喉": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "必要责任"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "独处"
+                }
+            ]
+        }
+    },
+    "灰毫": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "红松骑士团·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "红松骑士团·β"
+                }
+            ]
+        }
+    },
+    "灰烬": {
+        "profession": "狙击",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "彩虹小队"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "情报储备"
+                }
+            ]
+        }
+    },
+    "灵知": {
+        "profession": "辅助",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "幕后指挥"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "精密计算"
+                }
+            ]
+        }
+    },
+    "炎客": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "技巧理论"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "登峰造极"
+                }
+            ]
+        }
+    },
+    "炎熔": {
+        "profession": "术师",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "热能充能·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "源石工艺·β"
+                }
+            ]
+        }
+    },
+    "炎狱炎熔": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "异格者"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "热能充能·γ"
+                }
+            ]
+        }
+    },
+    "烈夏": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "近卫专精·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "患难拍档"
+                }
+            ]
+        }
+    },
+    "烛煌": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "断金之交"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "热能充能·γ"
+                }
+            ]
+        }
+    },
+    "焰尾": {
+        "profession": "先锋",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "小小的领袖"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "红松的骑士"
+                }
+            ]
+        }
+    },
+    "焰影苇草": {
+        "profession": "医疗",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "红龙之血(精英0)"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "红龙之血(精英2)"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "领袖(控制中枢)"
+                }
+            ]
+        }
+    },
+    "煌": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "热能充能·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "斩铁裂钢"
+                }
+            ]
+        }
+    },
+    "熔泉": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "熔铸"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "DIY·异铁"
+                }
+            ]
+        }
+    },
+    "燧石": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "近卫专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "苦行"
+                }
+            ]
+        }
+    },
+    "爱丽丝": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "睡前故事"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "梦境呓语"
+                }
+            ]
+        }
+    },
+    "特克诺": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "熟极而流"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "DIY·晶体"
+                }
+            ]
+        }
+    },
+    "特米米": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "烤肉大师"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "一知半解"
+                }
+            ]
+        }
+    },
+    "狮蝎": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "特种专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "特种专精·β"
+                }
+            ]
+        }
+    },
+    "猎蜂": {
+        "profession": "近卫",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "近卫专精·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "特训记录"
+                }
+            ]
+        }
+    },
+    "玛恩纳": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "独善其身"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "公事公办"
+                }
+            ]
+        }
+    },
+    "玛露西尔": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "差遣使魔·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "差遣使魔·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "意想不到的美味"
+                }
+            ]
+        }
+    },
+    "玫兰莎": {
+        "profession": "近卫",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "供应管理"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "专注·α"
+                }
+            ]
+        }
+    },
+    "玫拉": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "狙击专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "最终调试"
+                }
+            ]
+        }
+    },
+    "琳琅诗怀雅": {
+        "profession": "特种",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "订单分发·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "招商引资"
+                }
+            ]
+        }
+    },
+    "琴柳": {
+        "profession": "先锋",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "维多利亚文学"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "感染力"
+                }
+            ]
+        }
+    },
+    "瑕光": {
+        "profession": "重装",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "精打细算"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "热心修补匠"
+                }
+            ]
+        }
+    },
+    "瑰盐": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "钱不我待"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "订单分发·β"
+                }
+            ]
+        }
+    },
+    "电弧": {
+        "profession": "辅助",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "点滴关照"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "无言的慈爱"
+                }
+            ]
+        }
+    },
+    "白金": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "狙击专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "狙击专精·β"
+                }
+            ]
+        }
+    },
+    "白铁": {
+        "profession": "辅助",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "心相连"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "意相通"
+                }
+            ]
+        }
+    },
+    "白雪": {
+        "profession": "狙击",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "作战指导录像"
+                }
+            ]
+        }
+    },
+    "白面鸮": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "莱茵科技·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "莱茵科技·β"
+                }
+            ]
+        }
+    },
+    "百炼嘉维尔": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "近卫专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "实战指导"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "过量训练"
+                }
+            ]
+        }
+    },
+    "真理": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "辅助专精·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "军师"
+                }
+            ]
+        }
+    },
+    "真言": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "订单分发·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "精英小队"
+                }
+            ]
+        }
+    },
+    "石棉": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "特立独行"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "探险者"
+                }
+            ]
+        }
+    },
+    "石英": {
+        "profession": "近卫",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "标准化·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "精准排期"
+                }
+            ]
+        }
+    },
+    "砾": {
+        "profession": "特种",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "专注·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "金属工艺·β"
+                }
+            ]
+        }
+    },
+    "祐天寺若麦": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "勤学苦练"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "成效优先"
+                }
+            ]
+        }
+    },
+    "稀音": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "延时摄影"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "剪辑·α"
+                }
+            ]
+        }
+    },
+    "空": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "偶像"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "企鹅物流·β"
+                }
+            ]
+        }
+    },
+    "空弦": {
+        "profession": "狙击",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "虔诚筹款·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "虔诚筹款·β"
+                }
+            ]
+        }
+    },
+    "空构": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "技术交流·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "技术交流·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "外卖水果挞"
+                }
+            ]
+        }
+    },
+    "空爆": {
+        "profession": "狙击",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "交际"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "爆破材料学·β"
+                }
+            ]
+        }
+    },
+    "米格鲁": {
+        "profession": "重装",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "仓库整备·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "活泼"
+                }
+            ]
+        }
+    },
+    "絮雨": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "巡游"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "追忆"
+                }
+            ]
+        }
+    },
+    "红": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "S.W.E.E.P."
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "追踪者"
+                }
+            ]
+        }
+    },
+    "红云": {
+        "profession": "狙击",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "拾荒者"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "回收利用"
+                }
+            ]
+        }
+    },
+    "红豆": {
+        "profession": "先锋",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "作战指导录像"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "先锋专精·β"
+                }
+            ]
+        }
+    },
+    "红隼": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "战纹"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "捍卫之道"
+                }
+            ]
+        }
+    },
+    "纯烬艾雅法拉": {
+        "profession": "医疗",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "医疗专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "实战技巧：行医"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "火山温泉浴"
+                }
+            ]
+        }
+    },
+    "绮良": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "订单流可视化·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "订单流可视化·β"
+                }
+            ]
+        }
+    },
+    "维什戴尔": {
+        "profession": "狙击",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "同谋·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "同谋·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "巴别塔之帜"
+                }
+            ]
+        }
+    },
+    "维娜·维多利亚": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "外贸决议·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "外贸决议·β"
+                }
+            ]
+        }
+    },
+    "维荻": {
+        "profession": "特种",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "谨慎加工"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "DIY·酮凝集·α"
+                }
+            ]
+        }
+    },
+    "缄默德克萨斯": {
+        "profession": "特种",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "沉默为剑"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "破斩桎梏"
+                }
+            ]
+        }
+    },
+    "缠丸": {
+        "profession": "近卫",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "技巧理论"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "订单分发·β"
+                }
+            ]
+        }
+    },
+    "缪尔赛思": {
+        "profession": "先锋",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "天生丽质"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "生态科主任"
+                }
+            ]
+        }
+    },
+    "罗宾": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "特种专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "陷阱对焦"
+                }
+            ]
+        }
+    },
+    "罗小黑": {
+        "profession": "近卫",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "御灵之力·金"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "化猫"
+                }
+            ]
+        }
+    },
+    "罗比菈塔": {
+        "profession": "辅助",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "工程学"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "标准化·β"
+                }
+            ]
+        }
+    },
+    "羽毛笔": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "放空"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "适应力"
+                }
+            ]
+        }
+    },
+    "翎羽": {
+        "profession": "先锋",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "先锋专精·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "订单管理·α"
+                }
+            ]
+        }
+    },
+    "耀骑士临光": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "骑士训练"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "崇高准则"
+                }
+            ]
+        }
+    },
+    "老鲤": {
+        "profession": "特种",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "浮生得闲"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "世事洞明"
+                }
+            ]
+        }
+    },
+    "耶拉": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "雪境守望"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "耶拉冈德"
+                }
+            ]
+        }
+    },
+    "聆音": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "恩典颂歌"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "近卫专精·α"
+                }
+            ]
+        }
+    },
+    "能天使": {
+        "profession": "狙击",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "企鹅物流·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "物流专家"
+                }
+            ]
+        }
+    },
+    "至简": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "绘图设计"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "机械辅助·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "机械辅助·β"
+                }
+            ]
+        }
+    },
+    "艾丝黛尔": {
+        "profession": "近卫",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "专注·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "独处"
+                }
+            ]
+        }
+    },
+    "艾丽妮": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "剑与手炮"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "精神锻炼"
+                }
+            ]
+        }
+    },
+    "艾拉": {
+        "profession": "特种",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "战术指导·防守"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "反抗者"
+                }
+            ]
+        }
+    },
+    "艾雅法拉": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "火山学家"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "天灾信使·β"
+                }
+            ]
+        }
+    },
+    "芙兰卡": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "近卫专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "近卫专精·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "B.P.R.S."
+                }
+            ]
+        }
+    },
+    "芙蓉": {
+        "profession": "医疗",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "善解人意"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "营养学"
+                }
+            ]
+        }
+    },
+    "芬": {
+        "profession": "先锋",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "急性子"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "订单分发·β"
+                }
+            ]
+        }
+    },
+    "芳汀": {
+        "profession": "近卫",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "“物尽其用”"
+                },
+                {
+                    "skillLevel": 1,
+                    "skillName": "“人善其事”"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "“独处”"
+                }
+            ]
+        }
+    },
+    "苇草": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "独处"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "替身"
+                }
+            ]
+        }
+    },
+    "苍苔": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "金属工艺·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "打工心得"
+                }
+            ]
+        }
+    },
+    "苏苏洛": {
+        "profession": "医疗",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "医疗专精·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "药理学·β"
+                }
+            ]
+        }
+    },
+    "若叶睦": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "演技的怪物"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "互为半身"
+                }
+            ]
+        }
+    },
+    "苦艾": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "秘密搜查"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "甄别"
+                }
+            ]
+        }
+    },
+    "荒芜拉普兰德": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "恣意英杰"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "叙拉古狂欢"
+                }
+            ]
+        }
+    },
+    "莎草": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "医疗专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "实战技巧：链愈师"
+                }
+            ]
+        }
+    },
+    "莫斯提马": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "信使·企鹅物流"
+                }
+            ]
+        }
+    },
+    "莱伊": {
+        "profession": "狙击",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "探井人·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "探井人·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "岩体锚固"
+                }
+            ]
+        }
+    },
+    "莱恩哈特": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "结构力学"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "选矿学"
+                }
+            ]
+        }
+    },
+    "莱欧斯": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "好奇心"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "饱餐的干劲"
+                }
+            ]
+        }
+    },
+    "菲亚梅塔": {
+        "profession": "狙击",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "自律"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "患难之交"
+                }
+            ]
+        }
+    },
+    "菲莱": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "灵河充能·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "灵河共鸣"
+                }
+            ]
+        }
+    },
+    "蒂比": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "蓝卡坞多面手"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "拍摄日愉快"
+                }
+            ]
+        }
+    },
+    "蓝毒": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "毒理学·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "毒理学·β"
+                }
+            ]
+        }
+    },
+    "蕾缪安": {
+        "profession": "狙击",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "订单分发·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "相伴"
+                }
+            ]
+        }
+    },
+    "薄绿": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "术师专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "博览群书"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "地质学·α"
+                }
+            ]
+        }
+    },
+    "薇薇安娜": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "金盏花诗会"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "烛骑士微光"
+                }
+            ]
+        }
+    },
+    "蚀清": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "腐蚀科学·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "腐蚀科学·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "缓蚀技术"
+                }
+            ]
+        }
+    },
+    "蛇屠箱": {
+        "profession": "重装",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "仓库整备·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "订单分发·α"
+                }
+            ]
+        }
+    },
+    "蜜莓": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "草药学·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "草药学·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "心理疏导"
+                }
+            ]
+        }
+    },
+    "蜜蜡": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "术师专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "术师专精·β"
+                }
+            ]
+        }
+    },
+    "行箸": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "踏坊寻味·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "踏坊寻味·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "线索搜集·β(行箸)"
+                }
+            ]
+        }
+    },
+    "衡沙": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "订单分发·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "大巴扎管理学"
+                }
+            ]
+        }
+    },
+    "裁度": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "量体裁衣"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "得心应手(制造站)"
+                }
+            ]
+        }
+    },
+    "褐果": {
+        "profession": "医疗",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "标准化·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "地质学·α"
+                }
+            ]
+        }
+    },
+    "见行者": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "逻辑推理"
+                }
+            ]
+        }
+    },
+    "角峰": {
+        "profession": "重装",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "喀兰贸易·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "重装专精·β"
+                }
+            ]
+        }
+    },
+    "讯使": {
+        "profession": "先锋",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "喀兰贸易·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "讯使"
+                }
+            ]
+        }
+    },
+    "诗怀雅": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "大小姐"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "教官"
+                }
+            ]
+        }
+    },
+    "诺威尔": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "熟手的尊严"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "长生的余裕"
+                }
+            ]
+        }
+    },
+    "调香师": {
+        "profession": "医疗",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "药理学·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "标准化·β"
+                }
+            ]
+        }
+    },
+    "谜图": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "情报分析"
+                }
+            ]
+        }
+    },
+    "豆苗": {
+        "profession": "先锋",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "磐蟹·豆豆"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "磐蟹·阿盘"
+                }
+            ]
+        }
+    },
+    "贝娜": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "“可靠”助手"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "裁缝·α"
+                }
+            ]
+        }
+    },
+    "贾维": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "灵感"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "DIY·装置"
+                }
+            ]
+        }
+    },
+    "赤冬": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "近卫专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "信影流"
+                }
+            ]
+        }
+    },
+    "赫德雷": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "白手起家·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "白手起家·β"
+                }
+            ]
+        }
+    },
+    "赫拉格": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "超脱"
+                },
+                {
+                    "skillLevel": 1,
+                    "skillName": "挣脱"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "解脱"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "兵者诡道"
+                }
+            ]
+        }
+    },
+    "赫默": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "莱茵科技·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "莱茵科技·β"
+                }
+            ]
+        }
+    },
+    "跃跃": {
+        "profession": "狙击",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "线索搜集·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "无辜笑脸"
+                }
+            ]
+        }
+    },
+    "车尔尼": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "慢板行歌"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "琴键漫步"
+                }
+            ]
+        }
+    },
+    "达格达": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "近卫专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "实战技巧：斗士"
+                }
+            ]
+        }
+    },
+    "远山": {
+        "profession": "术师",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "供应管理"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "占卜"
+                }
+            ]
+        }
+    },
+    "远牙": {
+        "profession": "狙击",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "“归乡”"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "红松骑士团·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "红松骑士团·β"
+                }
+            ]
+        }
+    },
+    "迷迭香": {
+        "profession": "狙击",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "超感"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "念力"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "意识实体"
+                }
+            ]
+        }
+    },
+    "送葬人": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "狙击专精·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "清理协议"
+                }
+            ]
+        }
+    },
+    "逻各斯": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "女妖之力"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "言语之义"
+                }
+            ]
+        }
+    },
+    "遥": {
+        "profession": "辅助",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "明星效应"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "节目邀约"
+                }
+            ]
+        }
+    },
+    "酒神": {
+        "profession": "辅助",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "镜中影"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "戏中人"
+                }
+            ]
+        }
+    },
+    "酸糖": {
+        "profession": "狙击",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "B-girl"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "Give me five"
+                }
+            ]
+        }
+    },
+    "重岳": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "知我为我"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "孤光共照"
+                }
+            ]
+        }
+    },
+    "野鬃": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "红松骑士团·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "红松骑士团·β"
+                }
+            ]
+        }
+    },
+    "钼铅": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "行动派"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "收纳达人"
+                }
+            ]
+        }
+    },
+    "铃兰": {
+        "profession": "辅助",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "辅助专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "共鸣"
+                }
+            ]
+        }
+    },
+    "铅踝": {
+        "profession": "狙击",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "模糊视线"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "窗外雪啸"
+                }
+            ]
+        }
+    },
+    "铎铃": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "跋山涉水"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "万里传书"
+                }
+            ]
+        }
+    },
+    "银灰": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "喀兰贸易·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "喀兰之主"
+                }
+            ]
+        }
+    },
+    "铸铁": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "近卫专精·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "尽心尽力"
+                }
+            ]
+        }
+    },
+    "锏": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "威压"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "不怒自威"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "冠军风采"
+                }
+            ]
+        }
+    },
+    "锡人": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "梅兰德侦探·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "梅兰德侦探·β"
+                }
+            ]
+        }
+    },
+    "锡兰": {
+        "profession": "医疗",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "学者"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "源石研究"
+                }
+            ]
+        }
+    },
+    "闪击": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "彩虹小队"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "语言学"
+                }
+            ]
+        }
+    },
+    "闪灵": {
+        "profession": "医疗",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "善解人意"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "慈悲"
+                }
+            ]
+        }
+    },
+    "阿": {
+        "profession": "特种",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "神经质"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "精准手术"
+                }
+            ]
+        }
+    },
+    "阿兰娜": {
+        "profession": "辅助",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "机械精通·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "机械精通·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "“搭把手！”"
+                }
+            ]
+        }
+    },
+    "阿斯卡纶": {
+        "profession": "特种",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "S.W.E.E.P.主管"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "情报主脑"
+                }
+            ]
+        }
+    },
+    "阿消": {
+        "profession": "特种",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "工程学"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "设备维护"
+                }
+            ]
+        }
+    },
+    "阿米娅": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "合作协议"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "小提琴独奏"
+                }
+            ]
+        }
+    },
+    "阿罗玛": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "净味香氛"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "例行清扫"
+                }
+            ]
+        }
+    },
+    "陈": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "德才兼备"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "警司"
+                }
+            ]
+        }
+    },
+    "陨星": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "爆破材料学·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "爆破材料学·β"
+                }
+            ]
+        }
+    },
+    "隐德来希": {
+        "profession": "近卫",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "无瑕心·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "无瑕心·β"
+                }
+            ]
+        }
+    },
+    "隐现": {
+        "profession": "狙击",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "交游广阔"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "甜甜圈派对"
+                }
+            ]
+        }
+    },
+    "雪绒": {
+        "profession": "术师",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "救援队·外界联络"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "救援队·保证体力"
+                }
+            ]
+        }
+    },
+    "雪雉": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "天道酬勤·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "天道酬勤·β"
+                }
+            ]
+        }
+    },
+    "雷蛇": {
+        "profession": "重装",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "脉冲电弧·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "脉冲电弧·β"
+                }
+            ]
+        }
+    },
+    "霍尔海雅": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "“职业操守”·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "“职业操守”·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "文献学顾问"
+                }
+            ]
+        }
+    },
+    "霜华": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "彩虹小队"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "机械工程"
+                }
+            ]
+        }
+    },
+    "霜叶": {
+        "profession": "近卫",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "独处"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "作战指导录像"
+                }
+            ]
+        }
+    },
+    "露托": {
+        "profession": "重装",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "一丝不苟"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "高效回收"
+                }
+            ]
+        }
+    },
+    "青枳": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "突发好运"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "不倒霉的一天"
+                }
+            ]
+        }
+    },
+    "鞭刃": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "近卫专精·α"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "教官"
+                }
+            ]
+        }
+    },
+    "风丸": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "化影"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "得心应手(会客室)"
+                }
+            ]
+        }
+    },
+    "风笛": {
+        "profession": "先锋",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "牧歌"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "训练有素"
+                }
+            ]
+        }
+    },
+    "食铁兽": {
+        "profession": "特种",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "作战指导录像"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "拳术指导录像"
+                }
+            ]
+        }
+    },
+    "香草": {
+        "profession": "先锋",
+        "rarity": 3,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "标准化·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "订单分发·α"
+                }
+            ]
+        }
+    },
+    "骋风": {
+        "profession": "近卫",
+        "rarity": 4,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "广交义友"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "眼观六路"
+                }
+            ]
+        }
+    },
+    "魔王": {
+        "profession": "辅助",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "魔王传承"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "“未完的故事”"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "期冀之汇"
+                }
+            ]
+        }
+    },
+    "鸿雪": {
+        "profession": "狙击",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "销路宣发"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "际崖居民"
+                }
+            ]
+        }
+    },
+    "麒麟R夜刀": {
+        "profession": "特种",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "耐力回复"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "以身作则(控制中枢)"
+                }
+            ]
+        }
+    },
+    "麦哲伦": {
+        "profession": "辅助",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "多功能测绘仪"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "龙腾式无人机"
+                }
+            ]
+        }
+    },
+    "黍": {
+        "profession": "重装",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "春雷响，万物长"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "稻禾厚，顺秋收"
+                }
+            ]
+        }
+    },
+    "黑": {
+        "profession": "狙击",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "沏茶"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "黑矢"
+                }
+            ]
+        }
+    },
+    "黑角": {
+        "profession": "重装",
+        "rarity": 2,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "仓库整备·β"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 1,
+                    "skillName": "订单管理·α"
+                }
+            ]
+        }
+    },
+    "黑键": {
+        "profession": "术师",
+        "rarity": 6,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "乐感"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "徘徊旋律"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "怅惘和声"
+                }
+            ]
+        }
+    },
+    "齐尔查克": {
+        "profession": "先锋",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "半身人公会代表"
+                }
+            ],
+            "2": [
+                {
+                    "skillLevel": 2,
+                    "skillName": "熟悉的味道"
+                }
+            ]
+        }
+    },
+    "龙舌兰": {
+        "profession": "近卫",
+        "rarity": 5,
+        "skill": {
+            "1": [
+                {
+                    "skillLevel": 0,
+                    "skillName": "投资·α"
+                },
+                {
+                    "skillLevel": 2,
+                    "skillName": "投资·β"
+                }
+            ]
+        }
+    }
+}

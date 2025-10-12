@@ -6,8 +6,16 @@
 
 // 干员类
 struct Operator {
-    std::string name; // 干员代号（游戏中的名称）
+    std::string name;       // 干员代号（游戏中的名称）
+    int rarity;             // 稀有度，1-6星
+    std::string profession; // 职业
 
+    Operator() : name(""), rarity(1), profession("") {}
+
+    Operator(std::string name_, int rarity_, std::string profession_)
+        : name(name_), rarity(rarity_), profession(profession_) {}
+
+    int phase = 0;                 // 精英化等级，1、2星的精0 30级视为精英1
     int moodConsumptionRate = 100; // 干员基础心情消耗速率
     int duration = 0;              // 进驻时长，单位小时，工位变化后，该值归0
     double mood = 24.0;            // 当前心情值

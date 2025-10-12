@@ -43,4 +43,4 @@ void add_efficiency_LMD(Facility &facility, Operator &op, int value);
 void add_efficiency_orundum(Facility &facility, Operator &op, int value);
 
 // 为贸易站-龙门设施的订单增加权重
-void add_product_rate(Facility &facility,std::vector<double> rateValues);
+void add_product_rate(Facility &facility, std::vector<double> rateValues);

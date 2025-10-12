@@ -3,6 +3,10 @@ using std::invalid_argument;
 using std::string;
 using std::vector;
 
+double productValueList[15][6];
+double itemValueList[3];
+bool hasLoadedValueList = false;
+
 bool isMfg(int facilityType) {
     return facilityType == MFG_GOLD || facilityType == MFG_RECORDS || facilityType == MFG_ORIGINIUM;
 }
@@ -11,9 +15,6 @@ bool isTrade(int facilityType) {
     return facilityType == TRADE_ORUNDUM || facilityType == TRADE_LMD;
 }
 
-double productValueList[15][6];
-double itemValueList[3];
-bool hasLoadedValueList = 0;
 void loadValueList() {
     if (hasLoadedValueList) {
         return;
@@ -40,8 +41,8 @@ void loadValueList() {
     double productValue_OrderPerGold = productTime_lv3 / averageGoldCount_lv3;
 
     // 计算单个线索的价值
-    // 假设1个线索收益为45信用（直接使用为30，送人为两方带来收益分别为20、30+(0~15)）
-    double productValue_perClue = 45.0;
+    // 假设1个线索收益为65信用（获取线索得到20，之后直接使用为30，送人为两方带来收益分别为20、30+(0~15)）
+    double productValue_perClue = 65.0;
     // 1信用对应18龙门币（50% off）
     productValue_perClue *= 18.0;
     // 1龙门币对应 （1/500贸易站赤金 + 1/500制造站赤金）
@@ -141,7 +142,8 @@ double Trade_LMD::getValuePerOrder() {
     for (int i = 0; i < 3; i++) {
         if (productNumber[i] * 500 == productLMD[i]) {
             double productValue_OrderPerGold = productValue;
-            expectedValue += productValue_OrderPerGold * productNumber[i] * productRate[i] / totalRate;
+            expectedValue +=
+                productValue_OrderPerGold * productNumber[i] * productRate[i] / totalRate;
         } else {
             // 1龙门币的价值
             double value_LMD = itemValueList[LMD];

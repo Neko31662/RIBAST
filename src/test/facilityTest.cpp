@@ -1,8 +1,15 @@
-#include <iostream>
+#ifdef __WIN32
+#include <cstdlib>
+#endif
+
 #include "../globalParams.h"
+#include <iostream>
 using namespace std;
 
 int main() {
+#ifdef __WIN32
+    system("chcp 65001");
+#endif
     vector<unique_ptr<Facility>> Facilities_test;
 
     for (int lv = 1; lv <= 3; lv++) {

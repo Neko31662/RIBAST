@@ -294,8 +294,8 @@ struct Trade_LMD : Trade {
         }
     };
 
-    int productTimeList[3];                 // 分别对应2,3,4赤金订单的生产时间
-    int productRate[3];                     // 分别对应2,3,4赤金订单的生产权重，初始的总和为100，修改后总和不一定为100
+    int productTimeList[3]; // 分别对应2,3,4赤金订单的生产时间
+    int productRate[3]; // 分别对应2,3,4赤金订单的生产权重，初始的总和为100，修改后总和不一定为100
     int productNumber[3] = {2, 3, 4};       // 分别对应2,3,4赤金订单的实际交付赤金个数
     int productLMD[3] = {1000, 1500, 2000}; // 分别对应2,3,4赤金订单的实际获取龙门币数
 

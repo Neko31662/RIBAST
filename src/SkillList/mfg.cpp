@@ -273,6 +273,33 @@ auto skillFunc_yuan_shi_gong_yi = [](GlobalParams &gp, Facility &facility, Opera
     add_efficiency_originium(facility, op, eff);
 };
 
+// 科学改造（alpha）：进驻制造站时，当前制造站内其他干员提供的生产力全部归零（不包含根据设施数量提供加成的生产力），每个当前制造站内干员为当前制造站仓库容量上限+5
+// 流程优化（beta）：进驻制造站时，当前制造站内其他干员提供的生产力全部归零（不包含根据设施数量提供加成的生产力），每个当前制造站内干员为当前制造站+10%生产力，仓库容量上限+5
+auto skillFunc_ke_xue_gai_zao = [](GlobalParams &gp, Facility &facility, Operator &op,
+                                   const string level) {
+    if (isMfg(facility.facilityType) == false) {
+        return;
+    }
+    int cap = 0;
+    int eff = 0;
+    if (level == "alpha") {
+        cap = 5;
+    } else if (level == "beta") {
+        cap = 10;
+        eff = 10;
+    } else {
+        throw invalid_argument("skillFunc_ke_xue_gai_zao函数：level参数错误");
+    }
+    cap *= facility.operators.size();
+    eff *= facility.operators.size();
+    for (auto &op : facility.operators) {
+        op->clearEfficiency();
+    }
+
+    add_capacity(facility, op, cap);
+    add_efficiency_by_facility(facility, op, eff);
+};
+
 void loadMfgSkillList(vector<Skill> &MfgSkillList) {
     // 标准化·α：进驻制造站时，生产力+15%
     MfgSkillList.push_back(
@@ -598,9 +625,9 @@ void loadMfgSkillList(vector<Skill> &MfgSkillList) {
                   reduce_capacity(facility, op, 8);
               }});
 
-    // 得心应手：进驻制造站时，生产力+25%，仓库容量上限+6
+    // 得心应手(制造站)：进驻制造站时，生产力+25%，仓库容量上限+6
     MfgSkillList.push_back(
-        Skill{NORMAL, "得心应手", [](GlobalParams &gp, Facility &facility, Operator &op) {
+        Skill{NORMAL, "得心应手(制造站)", [](GlobalParams &gp, Facility &facility, Operator &op) {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
@@ -760,6 +787,17 @@ void loadMfgSkillList(vector<Skill> &MfgSkillList) {
                   add_mood_consumption_rate(facility, op, 25);
               }});
 
+    // 特立独行：进驻制造站时，生产力+25%，仓库容量上限-12，心情每小时消耗+0.25
+    MfgSkillList.push_back(
+        Skill{NORMAL, "特立独行", [](GlobalParams &gp, Facility &facility, Operator &op) {
+                  if (isMfg(facility.facilityType) == false) {
+                      return;
+                  }
+                  add_efficiency(facility, op, 25);
+                  reduce_capacity(facility, op, 12);
+                  add_mood_consumption_rate(facility, op, 25);
+              }});
+
     // 急性子：进驻制造站后，生产力首小时+20%，此后每小时+1%，最终达到+25%
     MfgSkillList.push_back(
         Skill{EFF_BY_DURATION, "急性子", [](GlobalParams &gp, Facility &facility, Operator &op) {
@@ -816,6 +854,18 @@ void loadMfgSkillList(vector<Skill> &MfgSkillList) {
                                  [](GlobalParams &gp, Facility &facility, Operator &op) {
                                      skillFunc_zi_dong_hua(gp, facility, op, "beta");
                                  }});
+
+    // 意识兼容：进驻制造站时，当前制造站内所有莱茵科技类、红松骑士团类技能也全都视作标准化类技能
+    MfgSkillList.push_back(
+        Skill{YI_SHI_JIAN_RONG, "意识兼容", [](GlobalParams &gp, Facility &facility, Operator &op) {
+                  if (isMfg(facility.facilityType) == false) {
+                      return;
+                  }
+                  facility.getSpec<Mfg::MfgSpec>()->skillCount_biao_zhun_hua +=
+                      facility.getSpec<Mfg::MfgSpec>()->skillCount_lai_yin_ke_ji;
+                  facility.getSpec<Mfg::MfgSpec>()->skillCount_biao_zhun_hua +=
+                      facility.getSpec<Mfg::MfgSpec>()->skillCount_hong_song_qi_shi_tuan;
+              }});
 
     // 源石技艺理论应用：进驻制造站时，当前制造站内每个莱茵科技类技能为自身+5%的生产力
     MfgSkillList.push_back(Skill{
@@ -995,6 +1045,16 @@ void loadMfgSkillList(vector<Skill> &MfgSkillList) {
                   reduce_mood_consumption_rate(facility, op, 25);
               }});
 
+    // “等不及”：进驻制造站后，生产力首小时+20%，此后每小时+1%，最终达到+25%
+    MfgSkillList.push_back(
+        Skill{EFF_BY_DURATION, "“等不及”", [](GlobalParams &gp, Facility &facility, Operator &op) {
+                  if (isMfg(facility.facilityType) == false) {
+                      return;
+                  }
+                  int eff = std::min(20 + 1 * op.duration, 25);
+                  add_efficiency(facility, op, eff);
+              }});
+
     // “都想要”：进驻制造站时，仓库容量上限+8，心情每小时消耗-0.25
     MfgSkillList.push_back(
         Skill{NORMAL, "“都想要”", [](GlobalParams &gp, Facility &facility, Operator &op) {
@@ -1023,16 +1083,6 @@ void loadMfgSkillList(vector<Skill> &MfgSkillList) {
                   }
                   add_capacity(facility, op, 8);
                   reduce_mood_consumption_rate(facility, op, 25);
-              }});
-
-    // “等不及”：进驻制造站后，生产力首小时+20%，此后每小时+1%，最终达到+25%
-    MfgSkillList.push_back(
-        Skill{EFF_BY_DURATION, "等不及", [](GlobalParams &gp, Facility &facility, Operator &op) {
-                  if (isMfg(facility.facilityType) == false) {
-                      return;
-                  }
-                  int eff = std::min(20 + 1 * op.duration, 25);
-                  add_efficiency(facility, op, eff);
               }});
 
     // 回收利用：进驻制造站时，当前制造站内干员提升的每格仓库容量，提供2%生产力
@@ -1117,25 +1167,16 @@ void loadMfgSkillList(vector<Skill> &MfgSkillList) {
                 o->clearMoodConsumption();
             }
         }});
-}
 
-#include <iostream>
-int main() {
-    vector<Skill> MfgSkillList;
-    loadMfgSkillList(MfgSkillList);
-    try {
-        for (auto x : MfgSkillList) {
-            GlobalParams gp;
-            Mfg_Gold f1(3);
-            Mfg_Originium f2(3);
-            Mfg_Records f3(3);
-            Operator op;
-            x.apply(gp, f1, op);
-            x.apply(gp, f2, op);
-            x.apply(gp, f3, op);
-        }
-    } catch (const std::invalid_argument &e) {
-        std::cout << "捕获到异常：" << e.what() << std::endl;
-    }
-    return 0;
+    // 科学改造：进驻制造站时，当前制造站内其他干员提供的生产力全部归零（不包含根据设施数量提供加成的生产力），每个当前制造站内干员为当前制造站仓库容量上限+5
+    MfgSkillList.push_back(Skill{EFF_BY_FACILITY_COUNT, "科学改造",
+                                 [](GlobalParams &gp, Facility &facility, Operator &op) {
+                                     skillFunc_ke_xue_gai_zao(gp, facility, op, "alpha");
+                                 }});
+
+    // 流程优化：进驻制造站时，当前制造站内其他干员提供的生产力全部归零（不包含根据设施数量提供加成的生产力），每个当前制造站内干员为当前制造站+10%生产力，仓库容量上限+5
+    MfgSkillList.push_back(Skill{EFF_BY_FACILITY_COUNT, "流程优化",
+                                 [](GlobalParams &gp, Facility &facility, Operator &op) {
+                                     skillFunc_ke_xue_gai_zao(gp, facility, op, "beta");
+                                 }});
 }
