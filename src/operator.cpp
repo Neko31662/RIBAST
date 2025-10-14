@@ -1,16 +1,8 @@
 #include "operator.h"
+#include <stdexcept>
 using std::invalid_argument;
 using std::string;
 using std::vector;
-
-bool inNameList(Operator &op, const vector<string> &nameList) {
-    for (const auto &n : nameList) {
-        if (op.name == n) {
-            return true;
-        }
-    }
-    return false;
-}
 
 // 势力-干员列表
 std::map<string, vector<string>> forces_opList = {
@@ -24,11 +16,33 @@ std::map<string, vector<string>> forces_opList = {
       "空构", "隐现", "塑心", "蕾缪安", "信仰搅拌机", "CONFESS-47"}},
     {"精英干员", {"迷迭香", "煌", "逻各斯", "烛煌", "电弧", "真言"}}};
 
-bool in_forces(Operator &op, string forcesName) {
+bool inNameList(OperatorInfo &op, const vector<string> &nameList) {
+    for (const auto &n : nameList) {
+        if (op.name == n) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool in_forces(OperatorInfo &op, string forcesName) {
     if (forces_opList.find(forcesName) == forces_opList.end()) {
         throw invalid_argument("in_forces函数：不存在该势力名称");
     }
     return inNameList(op, forces_opList[forcesName]);
+}
+
+int opList_in_forces(const vector<OperatorInfo *> &opList, string forcesName) {
+    if (forces_opList.find(forcesName) == forces_opList.end()) {
+        throw invalid_argument("opList_in_forces函数：不存在该势力名称");
+    }
+    int count = 0;
+    for (const auto &op : opList) {
+        if (inNameList(*op, forces_opList[forcesName])) {
+            count++;
+        }
+    }
+    return count;
 }
 
 int opList_in_forces(const vector<Operator *> &opList, string forcesName) {

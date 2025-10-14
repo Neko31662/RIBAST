@@ -8,12 +8,21 @@ project(RIBAST)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# 添加OpenXLSX子目录
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output)
+
+add_subdirectory(src/tools/OpenXLSX)
+
 # 定义通用的源文件集合，避免重复
 set(COMMON_SOURCES
     src/globalParams.cpp
     src/operator.cpp
+    src/dataLoader/excelLoader.cpp
     src/dataLoader/operatorData.cpp
     src/dataLoader/skillData.cpp
+    src/dataLoader/playerOperatorData.cpp
     src/skillList/mfg.cpp
     src/skillList/skillTemplates.cpp
     src/skillList/trade.cpp
@@ -23,6 +32,9 @@ set(COMMON_SOURCES
 # 为所有目标设置宏定义
 function(setup_target target_name)
     target_compile_definitions(${target_name} PRIVATE "PROJECT_SOURCE_DIR=\"${CMAKE_SOURCE_DIR}\"")
+    if(TARGET OpenXLSX::OpenXLSX)
+        target_link_libraries(${target_name} PRIVATE OpenXLSX::OpenXLSX)
+    endif()
 endfunction()
 
 # 主程序可执行文件
@@ -51,6 +63,13 @@ add_executable(facilitySpecTest
     src/test/facilitySpecTest.cpp
 )
 setup_target(facilitySpecTest)
+
+# Excel读取示例程序
+add_executable(excelTest
+    ${COMMON_SOURCES}
+    src/test/excelTest.cpp
+)
+setup_target(excelTest)
 
 # 如果有其他测试文件，可以按相同模式添加
 # add_executable(otherTest

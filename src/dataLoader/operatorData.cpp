@@ -14,7 +14,7 @@ using std::string;
 using std::vector;
 
 std::unordered_map<string, int> operatorNameToUid;
-vector<Operator> uidToOperator;
+vector<OperatorInfo> uidToOperatorInfo;
 vector<std::array<vector<int>, 3>> skillListByOperator;
 bool hasLoadedOperatorData = false;
 
@@ -26,7 +26,7 @@ void loadOperatorData() {
     loadSkillData();
 
     operatorNameToUid.clear();
-    uidToOperator.clear();
+    uidToOperatorInfo.clear();
     skillListByOperator.clear();
 
     // 构建文件路径 - 使用字符串拼接替代filesystem
@@ -49,8 +49,8 @@ void loadOperatorData() {
     // 遍历解析后的JSON对象
     // 遍历所有干员名称
     for (auto const &[opName, info] : j_operators.items()) {
-        uidToOperator.emplace_back(opName, info["rarity"], info["profession"]);
-        int uid_op = (int)uidToOperator.size() - 1;
+        uidToOperatorInfo.emplace_back(opName, info["rarity"], info["profession"]);
+        int uid_op = (int)uidToOperatorInfo.size() - 1;
         operatorNameToUid[opName] = uid_op;
 
         if (skillListByOperator.size() <= uid_op) {

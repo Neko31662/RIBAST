@@ -5,20 +5,26 @@
 #include <vector>
 
 // 干员类
-struct Operator {
+struct OperatorInfo {
     std::string name;       // 干员代号（游戏中的名称）
     int rarity;             // 稀有度，1-6星
     std::string profession; // 职业
 
-    Operator() : name(""), rarity(1), profession("") {}
+    OperatorInfo() : name(""), rarity(1), profession("") {}
 
-    Operator(std::string name_, int rarity_, std::string profession_)
+    OperatorInfo(std::string name_, int rarity_, std::string profession_)
         : name(name_), rarity(rarity_), profession(profession_) {}
+};
 
+struct Operator : public OperatorInfo {
     int phase = 0;                 // 精英化等级，1、2星的精0 30级视为精英1
     int moodConsumptionRate = 100; // 干员基础心情消耗速率
     int duration = 0;              // 进驻时长，单位小时，工位变化后，该值归0
     double mood = 24.0;            // 当前心情值
+
+    Operator() : OperatorInfo() {}
+
+    Operator(OperatorInfo &info, int phase_) : OperatorInfo(info), phase(phase_) {}
 
   private:
     // 由基建技能提供的心情消耗速率（消耗增加为正值，减少为负值）
@@ -65,7 +71,7 @@ struct Operator {
 };
 
 // 判断干员是否属于某个势力
-bool in_forces(Operator &op, std::string forcesName);
+bool in_forces(OperatorInfo &op, std::string forcesName);
 
 // 统计干员列表中属于某个势力的干员的数量
 int opList_in_forces(const std::vector<Operator *> &opList, std::string forcesName);

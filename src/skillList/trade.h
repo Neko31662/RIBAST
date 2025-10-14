@@ -1,5 +1,5 @@
 #pragma once
-#include "../Skill.h"
+#include "../skill.h"
 #include <vector>
 
 // 加载所有贸易站技能

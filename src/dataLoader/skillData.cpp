@@ -1,4 +1,5 @@
 #include "skillData.h"
+#include <stdexcept>
 
 using std::string;
 using std::vector;
