@@ -1,7 +1,7 @@
 #pragma once
-#include "../globalParams.h"
-#include "../operator.h"
-#include "../skill.h"
+#include "globalParams.h"
+#include "operator.h"
+#include "skill.h"
 
 // 技能模板函数
 

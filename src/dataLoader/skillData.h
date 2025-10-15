@@ -4,10 +4,10 @@
 #include <unordered_map>
 #include <vector>
 
-#include "../skill.h"
-#include "../skillList/mfg.h"
-#include "../skillList/others.h"
-#include "../skillList/trade.h"
+#include "skill.h"
+#include "mfg.h"
+#include "others.h"
+#include "trade.h"
 
 extern std::unordered_map<std::string, int> skillNameToUid;
 extern std::vector<Skill> uidToSkill;

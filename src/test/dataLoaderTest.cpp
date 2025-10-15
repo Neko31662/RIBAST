@@ -2,9 +2,9 @@
 #include <cstdlib>
 #endif
 
-#include "../dataLoader/operatorData.h"
-#include "../dataLoader/playerOperatorData.h"
-#include "../dataLoader/skillData.h"
+#include "operatorData.h"
+#include "playerOperatorData.h"
+#include "skillData.h"
 
 int main() {
 #ifdef __WIN32
@@ -12,7 +12,7 @@ int main() {
 #endif
     loadSkillData();
     loadOperatorData();
-    loadPlayerOperatorData("data/干员练度表.xlsx");
+    loadPlayerOperatorData(std::string(PROJECT_SOURCE_DIR)+"/data/干员练度表.xlsx");
     for (auto x : playerOperatorData) {
         auto op = x.second;
         std::cout << op.name << " " << op.rarity << "星 精" << op.phase << std::endl;

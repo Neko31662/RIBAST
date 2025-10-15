@@ -1,20 +1,21 @@
 #ifdef __WIN32
-#include "../tools/characterConverter.h"
+#include "characterConverter.h"
 #include <cstdlib>
 #endif
-#include "../dataLoader/excelLoader.h"
+#include "excelLoader.h"
 #include <OpenXLSX.hpp>
 #include <string>
 
 using namespace OpenXLSX;
 
-int main() {
+int main()
+{
 
 #ifdef __WIN32
     system("chcp 65001");
 #endif
 
-    std::string filePath = "data/干员练度表.xlsx";
+    std::string filePath = std::string(PROJECT_SOURCE_DIR) + "/data/干员练度表.xlsx";
 
 #ifdef __WIN32
     SafeExcelPath sep(filePath);

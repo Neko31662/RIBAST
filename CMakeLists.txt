@@ -8,6 +8,15 @@ project(RIBAST)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# 定义项目包含目录 - 统一头文件管理
+set(PROJECT_INCLUDE_DIRS
+    ${CMAKE_SOURCE_DIR}/src
+    ${CMAKE_SOURCE_DIR}/src/dataStructure
+    ${CMAKE_SOURCE_DIR}/src/dataLoader
+    ${CMAKE_SOURCE_DIR}/src/skillList
+    ${CMAKE_SOURCE_DIR}/src/tools
+)
+
 # 添加OpenXLSX子目录
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output)
@@ -17,8 +26,8 @@ add_subdirectory(src/tools/OpenXLSX)
 
 # 定义通用的源文件集合，避免重复
 set(COMMON_SOURCES
-    src/globalParams.cpp
-    src/operator.cpp
+    src/dataStructure/globalParams.cpp
+    src/dataStructure/operator.cpp
     src/dataLoader/excelLoader.cpp
     src/dataLoader/operatorData.cpp
     src/dataLoader/skillData.cpp
@@ -29,9 +38,15 @@ set(COMMON_SOURCES
     src/skillList/others.cpp
 )
 
-# 为所有目标设置宏定义
+# 为所有目标设置宏定义和包含目录
 function(setup_target target_name)
+    # 设置项目源码路径宏
     target_compile_definitions(${target_name} PRIVATE "PROJECT_SOURCE_DIR=\"${CMAKE_SOURCE_DIR}\"")
+    
+    # 统一设置包含目录
+    target_include_directories(${target_name} PRIVATE ${PROJECT_INCLUDE_DIRS})
+    
+    # 链接 OpenXLSX 库
     if(TARGET OpenXLSX::OpenXLSX)
         target_link_libraries(${target_name} PRIVATE OpenXLSX::OpenXLSX)
     endif()
@@ -77,3 +92,31 @@ setup_target(excelTest)
 #     src/test/otherTest.cpp
 # )
 # setup_target(otherTest)
+
+# =============================================================================
+# 头文件管理辅助函数
+# =============================================================================
+
+# 添加新的包含目录
+function(add_include_directory dir_path)
+    list(APPEND PROJECT_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/${dir_path})
+    set(PROJECT_INCLUDE_DIRS ${PROJECT_INCLUDE_DIRS} PARENT_SCOPE)
+    message(STATUS "添加包含目录: ${CMAKE_SOURCE_DIR}/${dir_path}")
+endfunction()
+
+# 为特定目标添加额外的包含目录
+function(add_target_include target_name dir_path)
+    target_include_directories(${target_name} PRIVATE ${CMAKE_SOURCE_DIR}/${dir_path})
+    message(STATUS "为 ${target_name} 添加包含目录: ${CMAKE_SOURCE_DIR}/${dir_path}")
+endfunction()
+
+# 打印当前所有包含目录（调试用）
+function(print_include_directories)
+    message(STATUS "当前项目包含目录:")
+    foreach(dir ${PROJECT_INCLUDE_DIRS})
+        message(STATUS "  - ${dir}")
+    endforeach()
+endfunction()
+
+# 可以调用此函数查看当前包含目录
+# print_include_directories()

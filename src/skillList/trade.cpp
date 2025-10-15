@@ -1,6 +1,6 @@
 #include "trade.h"
-#include "../globalParams.h"
-#include "../operator.h"
+#include "globalParams.h"
+#include "operator.h"
 #include "skillPriority.h"
 #include "skillTemplates.h"
 #include <stdexcept>
@@ -53,7 +53,7 @@ auto skillFunc_dui_lu_jie_qia_dai_biao = [](GlobalParams &gp, Facility &facility
     }
 
     add_efficiency(facility, op, eff1);
-    vector<Operator *> allOps = gp.getAllOperators();
+    auto allOps = gp.getAllOperators();
     for (const auto &o : allOps) {
         if (o->name == "乌尔比安") {
             add_efficiency(facility, op, eff2);
@@ -311,8 +311,8 @@ auto skillFunc_qian_cheng_chou_kuan = [](GlobalParams &gp, Facility &facility, O
     }
 
     int total_level = 0;
-    for (const auto &f : gp.dormitories) {
-        total_level += f.level;
+    for (const auto &f : gp.facilities[DORMITORY]) {
+        total_level += f->level;
     }
     add_efficiency(facility, op, eff * total_level);
 };
@@ -890,7 +890,7 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                   if (isTrade(facility.facilityType) == false) {
                       return;
                   }
-                  int lv = gp.reception.level;
+                  int lv = gp.facilities[RECEPTION][0]->level;
                   int eff = std::min(lv * 5 + 25, 40);
                   add_efficiency(facility, op, eff);
               }});
@@ -901,7 +901,7 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                   if (isTrade(facility.facilityType) == false) {
                       return;
                   }
-                  int lv = gp.reception.level;
+                  int lv = gp.facilities[RECEPTION][0]->level;
                   int eff = std::min(lv * 5 + 15, 30);
                   add_efficiency(facility, op, eff);
               }});
@@ -1022,7 +1022,7 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                   if (isTrade(facility.facilityType) == false) {
                       return;
                   }
-                  int dormCount = (int)(gp.dormitories.size());
+                  int dormCount = (int)(gp.facilities[DORMITORY].size());
                   int operatorCount = dormCount * 5; // 默认满人
                   gp.spec.gan_zhi_xin_xi += operatorCount;
               }});
@@ -1064,7 +1064,7 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                                        if (isTrade(facility.facilityType) == false) {
                                            return;
                                        }
-                                       int dormCount = (int)(gp.dormitories.size());
+                                       int dormCount = (int)(gp.facilities[DORMITORY].size());
                                        int operatorCount = dormCount * 5; // 默认满人
                                        gp.spec.ren_jian_yan_huo += operatorCount;
                                    }});

@@ -1,6 +1,6 @@
 #include "mfg.h"
-#include "../globalParams.h"
-#include "../operator.h"
+#include "globalParams.h"
+#include "operator.h"
 #include "skillPriority.h"
 #include "skillTemplates.h"
 using std::invalid_argument;
@@ -52,7 +52,7 @@ auto skillFunc_ji_xie_jing_tong = [](GlobalParams &gp, Facility &facility, Opera
     if (facility.facilityType != MFG_GOLD) {
         return;
     }
-    auto ops = gp.power.operators;
+    auto ops = gp.facilities[POWER][0]->operators;
     int platformCount = 0;
     for (auto &o : ops) {
         if (in_forces(*o, "作业平台")) {
@@ -408,10 +408,10 @@ void loadMfgSkillList(vector<Skill> &MfgSkillList) {
                   if (facility.facilityType != MFG_GOLD) {
                       return;
                   }
-                  int dormCount = (int)(gp.dormitories.size());
+                  int dormCount = (int)(gp.facilities[DORMITORY].size());
                   int level = 0;
                   for (int i = 0; i < dormCount; i++) {
-                      level += gp.dormitories[i].level;
+                      level += gp.facilities[DORMITORY][i]->level;
                   }
                   int eff = level;
                   add_efficiency_gold(facility, op, eff);
@@ -661,7 +661,7 @@ void loadMfgSkillList(vector<Skill> &MfgSkillList) {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  int dormCount = (int)(gp.dormitories.size());
+                  int dormCount = (int)(gp.facilities[DORMITORY].size());
                   int operatorCount = dormCount * 5; // 默认满人
                   gp.spec.gan_zhi_xin_xi += operatorCount;
               }});

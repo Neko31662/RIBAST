@@ -2,7 +2,7 @@
 #include <cstdlib>
 #endif
 
-#include "../globalParams.h"
+#include "globalParams.h"
 #include <iostream>
 using namespace std;
 

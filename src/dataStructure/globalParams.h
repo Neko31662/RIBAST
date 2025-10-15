@@ -4,9 +4,11 @@
 #include <memory>
 #include <stdexcept>
 #include <string>
+#include <utility>
 #include <vector>
 
 #include "operator.h"
+#include "dataLoader.h"
 
 // 设施编号
 #define MFG_GOLD 1      // 制造站-赤金
@@ -33,7 +35,8 @@
 //
 // 基础作战记录、初级作战记录的价值根据其与中级作战记录的经验比例确定；
 //
-// 线索的价值确定方式如下：由线索->信用->龙门币（50% off）确定每线索对应的龙门币价值；
+// 线索的价值确定方式如下：由线索->信用->龙门币（50%
+// off）确定每线索对应的龙门币价值；
 //
 // 公招刷新次数的价值确定方式如下：公招刷新带来的黄票与绿票的增益期望->
 // (黄票->黄票对应的抽数（258黄票对38抽）->每抽对应的合成玉数量) +
@@ -55,6 +58,9 @@ bool isMfg(int facilityType);
 // 判断设施类型是否为贸易站
 bool isTrade(int facilityType);
 
+// 判断设施类型是否为个数上限为1的设施（发电站不算上限为1）
+bool isUniqueFacility(int facilityType);
+
 // 单个设施的基类
 struct Facility {
     // 只与设施种类有关的参数
@@ -72,7 +78,7 @@ struct Facility {
     double productTime = 1;      // 单个产品在效率1.0下的生产时间，单位分钟
     double productValue = 0.001; // 单个产品的基础价值
 
-    std::vector<Operator *> operators; // 设施中驻守的干员列表
+    std::vector<std::shared_ptr<Operator>> operators; // 设施中驻守的干员列表
 
     // 设施特化属性的基类
     struct FacilitySpecBase {
@@ -580,14 +586,21 @@ struct GlobalParams {
     // 发电站（多个发电站视为1个）、办公室、会客室、控制中枢、训练室、加工站的数量固定
     // 宿舍的数量最多为4
     // 制造站、贸易站的数量可变，制造站、贸易站、发电站设施数量（发电站的设施数量为发电站等级）之和至多为9
-    Power power;                                            // 发电站
-    Office office;                                          // 办公室
-    Reception reception;                                    // 会客室
-    Control control;                                        // 控制中枢
-    Training training;                                      // 训练室
-    Processing processing;                                  // 加工站
-    std::vector<Dormitory> dormitories;                     // 宿舍
-    std::vector<std::unique_ptr<Facility>> otherFacilities; // 其他设施（制造站、贸易站）
+    // Power power;                              // 发电站
+    // Office office;                            // 办公室
+    // Reception reception;                      // 会客室
+    // Control control;                          // 控制中枢
+    // Training training;                        // 训练室
+    // Processing processing;                    // 加工站
+    // std::vector<Dormitory> dormitories;       // 宿舍
+    // std::vector<Mfg_Gold> mfg_gold;           // 制造站-赤金
+    // std::vector<Mfg_Records> mfg_records;     // 制造站-作战记录
+    // std::vector<Mfg_Originium> mfg_originium; // 制造站-源石碎片
+    // std::vector<Trade_Orundum> trade_orundum; // 贸易站-合成玉
+    // std::vector<Trade_LMD> trade_lmd;         // 贸易站-龙门币
+
+    std::array<std::vector<std::shared_ptr<Facility>>, 13>
+        facilities; // 按设施类型存储的设施列表，索引0未使用，1~12分别对应设施类型
 
     int facilityCount[20] = {0}; // 各设施类型的数量
 
@@ -613,102 +626,58 @@ struct GlobalParams {
     GlobalParams() {}
     /*
      * @brief GlobalParams构造函数，初始化基建全局参数
-     * @param facilityCounts 设施数量列表，形式为{<设施类型, 等级>, ... }
+     * @param facilityCounts 设施数量列表，形式为{
+     * <设施类型a, {设施a-1等级, 设施a-2等级, ...}>,
+     * <设施类型b, {设施b-1等级, 设施b-2等级, ...}>,
+     *  ... }
      *
-     * @note 设施类型参见宏定义
-     * @note 制造站、贸易站、发电站设施数量之和至多为9个，且发电站等级必须为3
-     * @note 宿舍数量至多为4个
+     * @note 设施类型参见宏定义；
+     * @note 制造站、贸易站、发电站设施数量之和至多为9个，且发电站等级必须为3；
+     * @note 宿舍数量至多为4个；
      * @note 上限为1的设施类型数量至多为1个
      */
-    GlobalParams(std::vector<std::pair<int, int>> facilityCounts) { reset(facilityCounts); }
-
-    void reset(std::vector<std::pair<int, int>> facilityCounts) {
-        spec = {};
-        memset(facilityCount, 0, sizeof(facilityCount));
-        otherFacilities.clear();
-        dormitories.clear();
-        cache_allFacilities_valid = false;
-        cache_allOperators_valid = false;
-
-        for (auto p : facilityCounts) {
-            int tp = p.first;
-            int lv = p.second;
-            facilityCount[tp]++;
-            if (tp == CONTROL) {
-                control = Control(lv);
-            } else if (tp == RECEPTION) {
-                reception = Reception(lv);
-            } else if (tp == OFFICE) {
-                office = Office(lv);
-            } else if (tp == TRAINING) {
-                training = Training(lv);
-            } else if (tp == PROCESSING) {
-                processing = Processing(lv);
-            } else if (tp == DORMITORY) {
-                dormitories.emplace_back(lv);
-                if ((int)dormitories.size() > 4) {
-                    throw std::invalid_argument("GlobalParams构造函数：宿舍数量不能超过4个");
-                }
-            } else if (tp == POWER) {
-                if (lv != 3) {
-                    throw std::invalid_argument("GlobalParams构造函数：发电站等级只能为3");
-                }
-            } else if (tp == MFG_GOLD) {
-                otherFacilities.push_back(std::make_unique<Mfg_Gold>(lv));
-            } else if (tp == MFG_RECORDS) {
-                otherFacilities.push_back(std::make_unique<Mfg_Records>(lv));
-            } else if (tp == MFG_ORIGINIUM) {
-                otherFacilities.push_back(std::make_unique<Mfg_Originium>(lv));
-            } else if (tp == TRADE_ORUNDUM) {
-                otherFacilities.push_back(std::make_unique<Trade_Orundum>(lv));
-            } else if (tp == TRADE_LMD) {
-                otherFacilities.push_back(std::make_unique<Trade_LMD>(lv));
-            } else {
-                throw std::invalid_argument("GlobalParams构造函数：设施类型错误");
-            }
-        }
-        power = Power(facilityCount[POWER]);
-
-        int totalCount = otherFacilities.size() + facilityCount[POWER];
-        if (totalCount > 9) {
-            throw std::invalid_argument(
-                "GlobalParams构造函数：制造站、贸易站、发电站设施数量之和不能超过9个");
-        }
-        for (int tp = 1; tp <= 12; tp++) {
-            if (isMfg(tp))
-                continue;
-            if (isTrade(tp))
-                continue;
-            if (tp == POWER)
-                continue;
-            if (tp == DORMITORY)
-                continue;
-            if (facilityCount[tp] > 1) {
-                throw std::invalid_argument(
-                    "GlobalParams构造函数：上限为1的设施类型数量不能超过1个");
-            }
-        }
-
-        auto allFacilities = getAllFacilities();
-        int powerConsumptionSum = 0;
-        for (const auto &fac : allFacilities) {
-            powerConsumptionSum += fac->powerConsumption;
-        }
-        if (powerConsumptionSum > 0) {
-            throw std::invalid_argument("GlobalParams构造函数：设施总耗电量不能大于总发电量");
-        }
+    GlobalParams(const std::vector<std::pair<int, std::vector<int>>> &facilityCounts) {
+        reset(facilityCounts);
     }
 
+    /*
+     * @brief 重设基建建筑类型和全局参数
+     * @param facilityCounts 设施数量列表，形式为{
+     * <设施类型a, {设施a-1等级, 设施a-2等级, ...}>,
+     * <设施类型b, {设施b-1等级, 设施b-2等级, ...}>,
+     *  ... }
+     *
+     * @note 设施类型参见宏定义；
+     * @note 制造站、贸易站、发电站设施数量之和至多为9个，且发电站等级必须为3；
+     * @note 宿舍数量至多为4个；
+     * @note 上限为1的设施类型数量至多为1个
+     */
+    void reset(const std::vector<std::pair<int, std::vector<int>>> &facilityCounts);
+
+    /*
+     * @brief 设置干员驻守安排
+     * @param operatorArrangement 干员驻守安排，形式为{
+     * <设施类型a, {{设施a-1 1号工位干员uid, 设施a-1 2号工位干员uid, ...}, {设施a-2 1号工位干员uid,
+     * ...}, ...}>, <设施类型a, {{设施b-1 1号工位干员uid, 设施b-1 2号工位干员uid, ...}, {设施b-2
+     * 1号工位干员uid, ...}, ...}>,
+     *  ... }
+     *
+     * @note 设施类型参见宏定义；
+     * @note 数量限制不为1的设施，设施的顺序必须和调用reset时一致；
+     */
+    void arrangeOperators(
+        const std::vector<std::pair<int, std::vector<std::vector<int>>>> &operatorArrangement);
+
     // 获取所有设施的列表
-    std::vector<Facility *> getAllFacilities();
+    std::vector<std::shared_ptr<Facility>> getAllFacilities();
 
     // 获取所有设施中驻守的干员列表
-    std::vector<Operator *> getAllOperators();
+    std::vector<std::shared_ptr<Operator>> getAllOperators();
 
   private:
-    std::vector<Facility *> cache_allFacilities; // 设施列表缓存
+    std::vector<std::shared_ptr<Facility>> cache_allFacilities; // 设施列表缓存
     bool cache_allFacilities_valid = false;      // 设施列表缓存是否有效
 
-    std::vector<Operator *> cache_allOperators; // 干员列表缓存
+    std::vector<std::shared_ptr<Operator>> cache_allOperators; // 干员列表缓存
     bool cache_allOperators_valid = false;      // 干员列表缓存是否有效
 };

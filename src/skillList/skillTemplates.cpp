@@ -1,5 +1,5 @@
 #include "skillTemplates.h"
-#include "../globalParams.h"
+#include "globalParams.h"
 using std::invalid_argument;
 using std::string;
 using std::vector;

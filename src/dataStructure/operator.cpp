@@ -32,7 +32,7 @@ bool in_forces(OperatorInfo &op, string forcesName) {
     return inNameList(op, forces_opList[forcesName]);
 }
 
-int opList_in_forces(const vector<OperatorInfo *> &opList, string forcesName) {
+int opList_in_forces(const vector<std::shared_ptr<OperatorInfo>> &opList, string forcesName) {
     if (forces_opList.find(forcesName) == forces_opList.end()) {
         throw invalid_argument("opList_in_forces函数：不存在该势力名称");
     }
@@ -45,7 +45,7 @@ int opList_in_forces(const vector<OperatorInfo *> &opList, string forcesName) {
     return count;
 }
 
-int opList_in_forces(const vector<Operator *> &opList, string forcesName) {
+int opList_in_forces(const vector<std::shared_ptr<Operator>> &opList, string forcesName) {
     if (forces_opList.find(forcesName) == forces_opList.end()) {
         throw invalid_argument("opList_in_forces函数：不存在该势力名称");
     }

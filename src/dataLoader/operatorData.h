@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../operator.h"
-#include "../skillList/skillSplitTable.h"
+#include "operator.h"
+#include "skillSplitTable.h"
 #include "skillData.h"
 #include <array>
 #include <string>

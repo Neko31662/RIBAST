@@ -1,6 +1,6 @@
 #include "operatorData.h"
-#include "../operator.h"
-#include "../tools/json/json.hpp"
+#include "operator.h"
+#include "json/json.hpp"
 #include <array>
 #include <fstream>
 #include <iostream>

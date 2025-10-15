@@ -1,7 +1,7 @@
 #include "others.h"
-#include "../globalParams.h"
-#include "../operator.h"
-#include "../tools/json/json.hpp"
+#include "globalParams.h"
+#include "operator.h"
+#include "json/json.hpp"
 #include "skillPriority.h"
 #include "skillTemplates.h"
 #include <algorithm>

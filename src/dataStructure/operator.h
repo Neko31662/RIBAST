@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <memory>
 
 // 干员类
 struct OperatorInfo {
@@ -74,4 +75,5 @@ struct Operator : public OperatorInfo {
 bool in_forces(OperatorInfo &op, std::string forcesName);
 
 // 统计干员列表中属于某个势力的干员的数量
-int opList_in_forces(const std::vector<Operator *> &opList, std::string forcesName);
+int opList_in_forces(const std::vector<std::shared_ptr<Operator>> &opList, std::string forcesName);
+int opList_in_forces(const std::vector<std::shared_ptr<OperatorInfo>> &opList, std::string forcesName);

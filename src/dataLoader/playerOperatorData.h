@@ -1,9 +1,9 @@
 #pragma once
 #ifdef _WIN32
-#include "../tools/characterConverter.h"
+#include "characterConverter.h"
 #endif
 
-#include "../operator.h"
+#include "operator.h"
 #include "excelLoader.h"
 #include "operatorData.h"
 
