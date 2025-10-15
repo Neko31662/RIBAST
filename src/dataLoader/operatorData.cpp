@@ -27,6 +27,7 @@ void loadOperatorData() {
 
     operatorNameToUid.clear();
     uidToOperatorInfo.clear();
+    uidToOperatorInfo.emplace_back(); // uid=0不使用
     skillListByOperator.clear();
 
     // 构建文件路径 - 使用字符串拼接替代filesystem

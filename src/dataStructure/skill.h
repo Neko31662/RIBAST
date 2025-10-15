@@ -22,12 +22,6 @@ struct Skill {
         : priority(p), name(n), func(std::move(f)) {}
 
     void apply(GlobalParams &GP, Facility &facility, Operator &op) const {
-        apply_impl(GP, facility, op);
-    }
-
-  private:
-    template <size_t... I>
-    void apply_impl(GlobalParams &GP, Facility &facility, Operator &op) const {
         func(GP, facility, op);
     }
 };

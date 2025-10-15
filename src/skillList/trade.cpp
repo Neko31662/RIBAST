@@ -890,7 +890,7 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                   if (isTrade(facility.facilityType) == false) {
                       return;
                   }
-                  int lv = gp.facilities[RECEPTION][0]->level;
+                  int lv = gp.facilities[MEETING][0]->level;
                   int eff = std::min(lv * 5 + 25, 40);
                   add_efficiency(facility, op, eff);
               }});
@@ -901,7 +901,7 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                   if (isTrade(facility.facilityType) == false) {
                       return;
                   }
-                  int lv = gp.facilities[RECEPTION][0]->level;
+                  int lv = gp.facilities[MEETING][0]->level;
                   int eff = std::min(lv * 5 + 15, 30);
                   add_efficiency(facility, op, eff);
               }});

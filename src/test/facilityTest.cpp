@@ -21,7 +21,7 @@ int main() {
             Facilities_test.push_back(make_unique<Trade_Orundum>(lv));
         Facilities_test.push_back(make_unique<Trade_LMD>(lv));
     }
-    Facilities_test.push_back(make_unique<Reception>(3));
+    Facilities_test.push_back(make_unique<Meeting>(3));
     Facilities_test.push_back(make_unique<Power>(3));
     Facilities_test.push_back(make_unique<Office>(3));
     sort(Facilities_test.begin(), Facilities_test.end(), FacilityValueComparator{});

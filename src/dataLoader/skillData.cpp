@@ -15,6 +15,7 @@ void loadSkillData() {
     hasLoadedSkillData = true;
 
     uidToSkill.clear();
+    uidToSkill.emplace_back(); // uid=0不使用
     skillNameToUid.clear();
 
     loadMfgSkillList(uidToSkill);

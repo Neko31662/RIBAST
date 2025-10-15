@@ -30,13 +30,13 @@ void demonstrateSpecUsage() {
     }
 
     // 创建其他设施
-    Reception reception(3);
+    Meeting meeting(3);
     Power power(3);
     Office office(3);
     Control control(5);
 
     // 访问各自的Spec
-    if (auto *receptionSpec = reception.getSpec<Reception::ReceptionSpec>()) {
+    if (auto *meetingSpec = meeting.getSpec<Meeting::MeetingSpec>()) {
         cout << "成功访问到会客室的Spec" << endl;
     }
 
@@ -56,7 +56,7 @@ void demonstrateSpecUsage() {
     vector<unique_ptr<Facility>> facilities;
     facilities.push_back(make_unique<Mfg_Gold>(3));
     facilities.push_back(make_unique<Trade_LMD>(2));
-    facilities.push_back(make_unique<Reception>(3));
+    facilities.push_back(make_unique<Meeting>(3));
 
     for (auto &facility : facilities) {
         cout << "设施: " << facility->getName() << endl;
@@ -66,7 +66,7 @@ void demonstrateSpecUsage() {
             cout << "  这是制造站类型的设施" << endl;
         } else if (auto *tradeSpec = facility->getSpec<Trade::TradeSpec>()) {
             cout << "  这是贸易站类型的设施" << endl;
-        } else if (auto *receptionSpec = facility->getSpec<Reception::ReceptionSpec>()) {
+        } else if (auto *meetingSpec = facility->getSpec<Meeting::MeetingSpec>()) {
             cout << "  这是会客室" << endl;
         }
     }

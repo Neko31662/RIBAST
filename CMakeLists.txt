@@ -28,6 +28,8 @@ add_subdirectory(src/tools/OpenXLSX)
 set(COMMON_SOURCES
     src/dataStructure/globalParams.cpp
     src/dataStructure/operator.cpp
+    src/dataStructure/facility.cpp
+    src/dataStructure/arrangement.cpp
     src/dataLoader/excelLoader.cpp
     src/dataLoader/operatorData.cpp
     src/dataLoader/skillData.cpp
