@@ -1,9 +1,10 @@
 #include "others.h"
+
 #include "globalParams.h"
 #include "operator.h"
-#include "json/json.hpp"
 #include "skillPriority.h"
 #include "skillTemplates.h"
+#include "json/json.hpp"
 #include <algorithm>
 #include <fstream>
 #include <iostream>

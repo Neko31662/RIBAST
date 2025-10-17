@@ -17,19 +17,6 @@ struct GlobalParams {
     // 发电站（多个发电站视为1个）、办公室、会客室、控制中枢、训练室、加工站的数量固定
     // 宿舍的数量最多为4
     // 制造站、贸易站的数量可变，制造站、贸易站、发电站设施数量（发电站的设施数量为发电站等级）之和至多为9
-    // Power power;                              // 发电站
-    // Office office;                            // 办公室
-    // Meeting meeting;                      // 会客室
-    // Control control;                          // 控制中枢
-    // Training training;                        // 训练室
-    // Processing processing;                    // 加工站
-    // std::vector<Dormitory> dormitories;       // 宿舍
-    // std::vector<Mfg_Gold> mfg_gold;           // 制造站-赤金
-    // std::vector<Mfg_Records> mfg_records;     // 制造站-作战记录
-    // std::vector<Mfg_Originium> mfg_originium; // 制造站-源石碎片
-    // std::vector<Trade_Orundum> trade_orundum; // 贸易站-合成玉
-    // std::vector<Trade_LMD> trade_lmd;         // 贸易站-龙门币
-
     std::array<std::vector<std::shared_ptr<Facility>>, FACILITY_TYPE_COUNT + 1>
         facilities; // 按设施类型存储的设施列表，索引0未使用，1~12分别对应设施类型
 

@@ -1,9 +1,9 @@
 #pragma once
 #include "skill.h"
 #include <map>
+#include <memory>
 #include <string>
 #include <vector>
-#include <memory>
 
 // 干员类
 struct OperatorInfo {
@@ -29,23 +29,23 @@ struct Operator : public OperatorInfo {
 
   private:
     // 由基建技能提供的心情消耗速率（消耗增加为正值，减少为负值）
-    int efficiencyEnhance = 0;      // 由干员基建技能增加的效率
-    int efficiencyReduce = 0;       // 由干员基建技能减少的效率
+    double efficiencyEnhance = 0;   // 由干员基建技能（除特殊技能外）增加的效率
+    double efficiencyReduce = 0;    // 由干员基建技能（除特殊技能外）减少的效率
     int capacityEnhance = 0;        // 由干员基建技能增加的容量上限
     int capacityReduce = 0;         // 由干员基建技能减少的容量上限
     int moodConsumptionEnhance = 0; // 由干员基建技能提供的心情消耗速率增加值
     int moodConsumptionReduce = 0;  // 由干员基建技能提供的心情消耗速率减少值
-    friend void add_efficiency(Facility &facility, Operator &op, int value);
-    friend void reduce_efficiency(Facility &facility, Operator &op, int value);
+    friend void add_efficiency(Facility &facility, Operator &op, double value);
+    friend void reduce_efficiency(Facility &facility, Operator &op, double value);
     friend void add_capacity(Facility &facility, Operator &op, int value);
     friend void reduce_capacity(Facility &facility, Operator &op, int value);
     friend void add_mood_consumption_rate(Facility &facility, Operator &op, int value);
     friend void reduce_mood_consumption_rate(Facility &facility, Operator &op, int value);
 
     struct {
-        int efficiency_by_facility = 0; // 由设施数量提供的效率加成
+        double efficiency_by_facility = 0; // 由设施数量提供的效率加成
     } spec;
-    friend void add_efficiency_by_facility(Facility &facility, Operator &op, int value);
+    friend void add_efficiency_by_facility(Facility &facility, Operator &op, double value);
 
   public:
     double getEfficiencyEnhance() const { return efficiencyEnhance; }
@@ -54,10 +54,14 @@ struct Operator : public OperatorInfo {
     int getCapacityReduce() const { return capacityReduce; }
     double getMoodConsumptionEnhance() const { return moodConsumptionEnhance; }
     double getMoodConsumptionReduce() const { return moodConsumptionReduce; }
+    double getEfficiencyEffect() const {
+        return efficiencyEnhance - efficiencyReduce + spec.efficiency_by_facility;
+    }
 
     void clearEfficiency() {
         efficiencyEnhance = 0;
         efficiencyReduce = 0;
+        spec.efficiency_by_facility = 0;
     }
 
     void clearCapacity() {
@@ -69,6 +73,12 @@ struct Operator : public OperatorInfo {
         moodConsumptionEnhance = 0;
         moodConsumptionReduce = 0;
     }
+
+    void clearAll() {
+        clearEfficiency();
+        clearCapacity();
+        clearMoodConsumption();
+    }
 };
 
 // 判断干员是否属于某个势力
@@ -76,4 +86,5 @@ bool in_forces(OperatorInfo &op, std::string forcesName);
 
 // 统计干员列表中属于某个势力的干员的数量
 int opList_in_forces(const std::vector<std::shared_ptr<Operator>> &opList, std::string forcesName);
-int opList_in_forces(const std::vector<std::shared_ptr<OperatorInfo>> &opList, std::string forcesName);
+int opList_in_forces(const std::vector<std::shared_ptr<OperatorInfo>> &opList,
+                     std::string forcesName);

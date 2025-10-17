@@ -1,4 +1,5 @@
 #include "trade.h"
+
 #include "globalParams.h"
 #include "operator.h"
 #include "skillPriority.h"

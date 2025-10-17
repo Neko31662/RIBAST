@@ -1,4 +1,5 @@
 #include "operatorData.h"
+
 #include "operator.h"
 #include "json/json.hpp"
 #include <array>

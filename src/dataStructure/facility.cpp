@@ -1,4 +1,6 @@
 #include "facility.h"
+
+#include "globalParams.h"
 using std::invalid_argument;
 using std::pair;
 using std::string;
@@ -143,6 +145,59 @@ string getFacilityTypeName(int facilityType) {
 }
 
 string Facility::getName() const { return getFacilityTypeName(facilityType); }
+
+double Meeting::calculateEfficiencyByFacility(GlobalParams &gp) {
+    double result = 0.0;
+
+    // 宿舍氛围值累计加成
+    int totalAtmosphere = 0;
+    for (std::shared_ptr<Facility> &f : gp.facilities[DORMITORY]) {
+        std::shared_ptr<Dormitory> dorm = std::dynamic_pointer_cast<Dormitory>(f);
+        totalAtmosphere += dorm->atmosphere;
+    }
+    if (totalAtmosphere >= 4000) {
+        result += 15;
+    } else if (totalAtmosphere >= 3000) {
+        result += 10;
+    } else if (totalAtmosphere >= 2000) {
+        result += 5;
+    }
+
+    // 进驻干员稀有度、精英阶段、非涣散加成
+    for (auto &op : operators) {
+        if (op != nullptr) {
+            // 稀有度加成
+            if (op->rarity == 6) {
+                result += 5;
+            } else if (op->rarity == 5) {
+                result += 4;
+            } else if (op->rarity == 4) {
+                result += 2;
+            }
+            // 精英阶段加成
+            if (op->phase == 2) {
+                result += 16;
+            } else if (op->phase == 1) {
+                result += 8;
+            }
+            // 非涣散加成
+            if (op->mood > 0) {
+                result += 5;
+            }
+        }
+    }
+
+    // 会客室等级加成
+    if (level == 3) {
+        result += 11;
+    } else if (level == 2) {
+        result += 9;
+    } else if (level == 1) {
+        result += 7;
+    }
+
+    return result;
+}
 
 double Trade_LMD::getValuePerOrder() {
     double expectedValue = 0.0;

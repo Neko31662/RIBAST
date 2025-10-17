@@ -1,4 +1,5 @@
 #include "operator.h"
+
 #include <stdexcept>
 using std::invalid_argument;
 using std::string;

@@ -1,4 +1,5 @@
 #include "mfg.h"
+
 #include "globalParams.h"
 #include "operator.h"
 #include "skillPriority.h"
@@ -290,8 +291,9 @@ auto skillFunc_ke_xue_gai_zao = [](GlobalParams &gp, Facility &facility, Operato
     } else {
         throw invalid_argument("skillFunc_ke_xue_gai_zao函数：level参数错误");
     }
-    cap *= facility.operators.size();
-    eff *= facility.operators.size();
+    int count = facility.countOperators();
+    cap *= count;
+    eff *= count;
     for (auto &op : facility.operators) {
         op->clearEfficiency();
     }

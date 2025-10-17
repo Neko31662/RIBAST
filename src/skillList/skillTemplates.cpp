@@ -1,17 +1,18 @@
 #include "skillTemplates.h"
+
 #include "globalParams.h"
 using std::invalid_argument;
 using std::string;
 using std::vector;
 
-void add_efficiency(Facility &facility, Operator &op, int value) {
+void add_efficiency(Facility &facility, Operator &op, double value) {
     if (value < 0) {
         throw invalid_argument("add_efficiency函数：value不能为负");
     }
     op.efficiencyEnhance += value;
 }
 
-void reduce_efficiency(Facility &facility, Operator &op, int value) {
+void reduce_efficiency(Facility &facility, Operator &op, double value) {
     if (value < 0) {
         throw invalid_argument("reduce_efficiency函数：value不能为负");
     }
@@ -46,7 +47,7 @@ void reduce_capacity(Facility &facility, Operator &op, int value) {
     op.capacityReduce += value;
 }
 
-void add_efficiency_gold(Facility &facility, Operator &op, int value) {
+void add_efficiency_gold(Facility &facility, Operator &op, double value) {
     if (value < 0) {
         throw invalid_argument("add_efficiency_gold函数：value不能为负");
     }
@@ -56,7 +57,7 @@ void add_efficiency_gold(Facility &facility, Operator &op, int value) {
     add_efficiency(facility, op, value);
 }
 
-void add_efficiency_records(Facility &facility, Operator &op, int value) {
+void add_efficiency_records(Facility &facility, Operator &op, double value) {
     if (value < 0) {
         throw invalid_argument("add_efficiency_records函数：value不能为负");
     }
@@ -66,7 +67,7 @@ void add_efficiency_records(Facility &facility, Operator &op, int value) {
     add_efficiency(facility, op, value);
 }
 
-void add_efficiency_originium(Facility &facility, Operator &op, int value) {
+void add_efficiency_originium(Facility &facility, Operator &op, double value) {
     if (value < 0) {
         throw invalid_argument("add_efficiency_originium函数：value不能为负");
     }
@@ -76,14 +77,14 @@ void add_efficiency_originium(Facility &facility, Operator &op, int value) {
     add_efficiency(facility, op, value);
 }
 
-void add_efficiency_by_facility(Facility &facility, Operator &op, int value) {
+void add_efficiency_by_facility(Facility &facility, Operator &op, double value) {
     if (value < 0) {
         throw invalid_argument("add_efficiency_by_facility函数：value不能为负");
     }
     op.spec.efficiency_by_facility += value;
 }
 
-void add_efficiency_trade(Facility &facility, Operator &op, int value) {
+void add_efficiency_trade(Facility &facility, Operator &op, double value) {
     if (value < 0) {
         throw invalid_argument("add_efficiency_trade函数：value不能为负");
     }
@@ -93,7 +94,7 @@ void add_efficiency_trade(Facility &facility, Operator &op, int value) {
     add_efficiency(facility, op, value);
 }
 
-void add_efficiency_LMD(Facility &facility, Operator &op, int value) {
+void add_efficiency_LMD(Facility &facility, Operator &op, double value) {
     if (value < 0) {
         throw invalid_argument("add_efficiency_LMD函数：value不能为负");
     }
@@ -103,7 +104,7 @@ void add_efficiency_LMD(Facility &facility, Operator &op, int value) {
     add_efficiency(facility, op, value);
 }
 
-void add_efficiency_orundum(Facility &facility, Operator &op, int value) {
+void add_efficiency_orundum(Facility &facility, Operator &op, double value) {
     if (value < 0) {
         throw invalid_argument("add_efficiency_orundum函数：value不能为负");
     }

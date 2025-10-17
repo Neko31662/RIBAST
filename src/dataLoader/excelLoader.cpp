@@ -1,4 +1,3 @@
-// excelLoader.cpp
 #include "excelLoader.h"
 
 #include <OpenXLSX.hpp>

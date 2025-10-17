@@ -17,7 +17,7 @@
 #define TRADE_LMD 5     // 贸易站-龙门币
 #define POWER 6         // 发电站
 #define CONTROL 7       // 控制中枢
-#define MEETING 8     // 会客室
+#define MEETING 8       // 会客室
 #define OFFICE 9        // 办公室
 #define DORMITORY 10    // 宿舍
 #define PROCESSING 11   // 加工站
@@ -27,6 +27,8 @@
 // 物品编号
 #define LMD 1
 #define ORUNDUM 2
+
+struct GlobalParams;
 
 // 设施产品的价值表，productValueList[i][j]表示类型为i的设施，等级为j时，生产产品的价值
 // 赤金、中级作战记录、源石碎片、龙门币、合成玉产品的价值由三级设施生产一份产品所需的时间确定；
@@ -70,7 +72,7 @@ struct Facility {
 
     // （可能）与设施等级有关的参数
     int level = 0;            // 设施等级
-    int efficiency = 0;       // 效率，使用整数表示，基础效率100代表1.0
+    double efficiency = 0;    // 效率，使用整数表示，基础效率100代表1.0
     int capacity = 0;         // 容量
     int operatorLimit = 0;    // 干员数量上限
     int powerConsumption = 0; // 设施的电力消耗
@@ -83,25 +85,36 @@ struct Facility {
 
     std::vector<std::shared_ptr<Operator>> operators; // 设施中驻守的干员列表
 
-    // 设施特化属性的基类
-    struct FacilitySpecBase {
-        virtual ~FacilitySpecBase() = default;
-        virtual std::unique_ptr<FacilitySpecBase> clone() const = 0;
-    };
-    std::unique_ptr<FacilitySpecBase> spec; // 设施特化属性
-
     Facility() {}
     Facility(int facilityType, int lv) {
         this->facilityType = facilityType;
         level = lv;
         productValue = getProductValue(facilityType, lv);
     }
-    // 返回该设施是否在工作，工作的定义为，该设施所制造的产品是否在生产
-    virtual bool isWorking() const { return !operators.empty(); }
 
+    // 设施特化属性的基类
+    struct FacilitySpecBase {
+        virtual ~FacilitySpecBase() = default;
+        virtual std::unique_ptr<FacilitySpecBase> clone() const = 0;
+    };
+    std::unique_ptr<FacilitySpecBase> spec; // 设施特化属性
     // 获取特定类型的 spec，类型安全的访问方式
     template <typename T> T *getSpec() { return dynamic_cast<T *>(spec.get()); }
     template <typename T> const T *getSpec() const { return dynamic_cast<const T *>(spec.get()); }
+
+    // 返回该设施是否在工作，工作的定义为，如果容量未满，该设施所制造的产品是否会继续生产
+    virtual bool isWorking() const { return !operators.empty(); }
+
+    // 返回当前驻守的干员数量，不要使用 operators.size()，因为有可能有空位
+    int countOperators() const {
+        int count = 0;
+        for (auto &op : operators) {
+            if (op != nullptr && op->name != "") {
+                count++;
+            }
+        }
+        return count;
+    }
 
     // 返回设施名称
     std::string getName() const;
@@ -115,6 +128,24 @@ struct Facility {
         }
         return false;
     }
+
+    // 计算实际效率，即综合了所有建筑自身属性以及干员技能后，得到的效率
+    double calculateActualEfficiency(GlobalParams &gp) {
+        if (!isWorking()) {
+            return 0.0;
+        }
+
+        double actualEfficiency = efficiency;
+        for (const auto &op : operators) {
+            actualEfficiency += op->getEfficiencyEffect();
+        }
+        actualEfficiency += calculateEfficiencyByFacility(gp);
+
+        return actualEfficiency;
+    }
+
+    // 计算由建筑本身属性和干员入驻情况决定的、与干员技能无关的效率加成
+    virtual double calculateEfficiencyByFacility(GlobalParams &gp) { return 0.0; }
 };
 
 // 制造站
@@ -159,6 +190,10 @@ struct Mfg : Facility {
         } else {
             throw std::invalid_argument("Mfg构造函数：制造站等级只能为1,2,3");
         }
+    }
+
+    double calculateEfficiencyByFacility(GlobalParams &gp) override {
+        return 1.0 * countOperators();
     }
 };
 
@@ -263,6 +298,10 @@ struct Trade : Facility {
         } else {
             throw std::invalid_argument("Trade构造函数：贸易站等级只能为1,2,3");
         }
+    }
+
+    double calculateEfficiencyByFacility(GlobalParams &gp) override {
+        return 1.0 * countOperators();
     }
 };
 
@@ -401,6 +440,8 @@ struct Meeting : Facility {
         productSpace = 1;
         productTime = 20 * 60;
     }
+
+    double calculateEfficiencyByFacility(GlobalParams &gp) override;
 };
 
 // 发电站（无人机自动回复视为发电站的产出，所有发电站默认为满级，且视为一个设施，该结构体的level值代表发电站数量）
@@ -431,6 +472,10 @@ struct Power : Facility {
 
     // 无干员驻守时无人机也会充能，因此发电站在无人时也视为工作
     bool isWorking() const override { return true; }
+
+    double calculateEfficiencyByFacility(GlobalParams &gp) override {
+        return 5.0 * countOperators();
+    }
 };
 
 // 办公室（获取公招刷新次数）
@@ -449,7 +494,7 @@ struct Office : Facility {
     Office() {}
     Office(int lv) : Facility(OFFICE, lv) {
         spec = std::make_unique<OfficeSpec>();
-        efficiency = 105; // 只要有干员进驻就获得5%的效率加成
+        efficiency = 100;
         capacity = 3;
         operatorLimit = 1;
 
@@ -466,6 +511,10 @@ struct Office : Facility {
         productSpace = 1;
         productTime = 12 * 60;
     }
+
+    double calculateEfficiencyByFacility(GlobalParams &gp) override {
+        return 5.0 * countOperators();
+    };
 };
 
 // 控制中枢
@@ -519,6 +568,8 @@ struct Dormitory : Facility {
         } else {
             throw std::invalid_argument("Dormitory构造函数：宿舍等级只能为1~5");
         }
+
+        atmosphere = std::min(5000, 1000 * lv);
     }
 
     bool isWorking() const override { return false; }
