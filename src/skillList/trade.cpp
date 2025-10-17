@@ -54,8 +54,11 @@ auto skillFunc_dui_lu_jie_qia_dai_biao = [](GlobalParams &gp, Facility &facility
     }
 
     add_efficiency(facility, op, eff1);
-    auto allOps = gp.getAllOperators();
-    for (const auto &o : allOps) {
+    auto ops = gp.getAllOperators();
+    for (const auto &o : ops) {
+        if (o.get() == nullptr) {
+            continue;
+        }
         if (o->name == "乌尔比安") {
             add_efficiency(facility, op, eff2);
             break;
@@ -83,7 +86,7 @@ auto skillFunc_bai_shou_qi_jia = [](GlobalParams &gp, Facility &facility, Operat
     }
 
     add_efficiency(facility, op, eff1);
-    auto ops = facility.operators;
+    auto ops = facility.getOperators();
     for (auto &o : ops) {
         if (o->name == "伊内丝") {
             add_efficiency(facility, op, eff2);
@@ -134,7 +137,7 @@ auto skillFunc_tian_dao_chou_qin = [](GlobalParams &gp, Facility &facility, Oper
         throw invalid_argument("skillFunc_tian_dao_chou_qin函数：level参数错误");
     }
 
-    auto &ops = facility.operators;
+    auto ops = facility.getOperators();
     int total_efficiency = 0;
     for (const auto &o : ops) {
         total_efficiency += o->getEfficiencyEnhance();
@@ -167,7 +170,7 @@ auto skillFunc_qin_jian_jing_ying = [](GlobalParams &gp, Facility &facility, Ope
         throw invalid_argument("skillFunc_qin_jian_jing_ying函数：level参数错误");
     }
 
-    auto &ops = facility.operators;
+    auto ops = facility.getOperators();
     for (const auto &o : ops) {
         if (o->name != op.name) {
             add_efficiency(facility, op, eff);
@@ -480,9 +483,9 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                       return;
                   }
                   add_efficiency(facility, op, 30);
-                  auto ops = facility.operators;
+                  auto ops = facility.getOperators();
                   for (auto &o : ops) {
-                      if (in_forces(*o, "格拉斯哥帮")) {
+                      if (in_forces(o, "格拉斯哥帮")) {
                           add_efficiency(facility, op, 10);
                           break;
                       }
@@ -519,7 +522,7 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                   if (isTrade(facility.facilityType) == false) {
                       return;
                   }
-                  auto &ops = facility.operators;
+                  auto ops = facility.getOperators();
                   int total_increase = 0;
                   for (const auto &o : ops) {
                       total_increase += o->getCapacityEnhance();
@@ -573,7 +576,7 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                   if (isTrade(facility.facilityType) == false) {
                       return;
                   }
-                  auto &ops = facility.operators;
+                  auto ops = facility.getOperators();
                   for (auto &o : ops) {
                       if (o->name != op.name) {
                           o->clearEfficiency();
@@ -612,8 +615,8 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                       return;
                   }
                   add_efficiency(facility, op, 20);
-                  for (auto &o : facility.operators) {
-                      if (in_forces(*o, "能天使")) {
+                  for (auto &o : facility.getOperators()) {
+                      if (in_forces(o, "能天使")) {
                           add_efficiency(facility, op, 25);
                           break;
                       }
@@ -627,8 +630,8 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                       return;
                   }
                   int count = 0;
-                  for (auto &o : facility.operators) {
-                      if (in_forces(*o, "拉特兰")) {
+                  for (auto &o : facility.getOperators()) {
+                      if (in_forces(o, "拉特兰")) {
                           count++;
                       }
                   }
@@ -653,8 +656,8 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                   if (isTrade(facility.facilityType) == false) {
                       return;
                   }
-                  for (auto &o : facility.operators) {
-                      if (in_forces(*o, "格拉斯哥帮")) {
+                  for (auto &o : facility.getOperators()) {
+                      if (in_forces(o, "格拉斯哥帮")) {
                           add_efficiency(facility, op, 20);
                       }
                       if (o->name == "推进之王") {
@@ -746,7 +749,7 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                   if (isTrade(facility.facilityType) == false) {
                       return;
                   }
-                  auto &ops = facility.operators;
+                  auto ops = facility.getOperators();
                   int total_increase = 0;
                   for (const auto &o : ops) {
                       total_increase += o->getCapacityEnhance();
@@ -815,7 +818,7 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                   if (isTrade(facility.facilityType) == false) {
                       return;
                   }
-                  auto &ops = facility.operators;
+                  auto ops = facility.getOperators();
                   for (auto &o : ops) {
                       reduce_mood_consumption_rate(facility, *o, 10);
                   }
@@ -916,7 +919,7 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                   int count = 0;
                   auto ops = gp.getAllOperators();
                   for (const auto &o : ops) {
-                      if (in_forces(*o, "杜林族")) {
+                      if (in_forces(o, "杜林族")) {
                           count++;
                           if (count >= 4) {
                               break;
@@ -956,7 +959,7 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                       return;
                   }
                   int cap = facility.capacity;
-                  for (const auto &o : facility.operators) {
+                  for (const auto &o : facility.getOperators()) {
                       cap += o->getCapacityEnhance();
                       cap -= o->getCapacityReduce();
                   }
@@ -986,7 +989,7 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                   }
                   op.clearEfficiency();
                   int eff = 0;
-                  for (const auto &o : facility.operators) {
+                  for (const auto &o : facility.getOperators()) {
                       if (o->name != op.name) {
                           eff += o->getEfficiencyEnhance();
                           eff -= o->getEfficiencyReduce();
@@ -997,7 +1000,7 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                       reduce_capacity(facility, op, reduce);
                   }
                   int cap = facility.capacity;
-                  for (const auto &o : facility.operators) {
+                  for (const auto &o : facility.getOperators()) {
                       cap += o->getCapacityEnhance();
                       cap -= o->getCapacityReduce();
                   }
@@ -1149,8 +1152,8 @@ void loadTradeSkillList(vector<Skill> &TradeSkillList) {
                   }
                   int eliteCount = 0;
                   for (auto &f : gp.getAllFacilities()) {
-                      for (auto &ops : f->operators) {
-                          if (in_forces(*ops, "精英干员")) {
+                      for (auto &ops : f->getOperators()) {
+                          if (in_forces(ops, "精英干员")) {
                               eliteCount++;
                               break;
                           }

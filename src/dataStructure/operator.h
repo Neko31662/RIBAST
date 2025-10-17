@@ -19,7 +19,6 @@ struct OperatorInfo {
 
 struct Operator : public OperatorInfo {
     int phase = 0;                 // 精英化等级，1、2星的精0 30级视为精英1
-    int moodConsumptionRate = 100; // 干员基础心情消耗速率
     int duration = 0;              // 进驻时长，单位小时，工位变化后，该值归0
     double mood = 24.0;            // 当前心情值
 
@@ -82,9 +81,9 @@ struct Operator : public OperatorInfo {
 };
 
 // 判断干员是否属于某个势力
-bool in_forces(OperatorInfo &op, std::string forcesName);
+bool in_forces(const std::shared_ptr<Operator> &op, const std::string &forcesName);
 
 // 统计干员列表中属于某个势力的干员的数量
-int opList_in_forces(const std::vector<std::shared_ptr<Operator>> &opList, std::string forcesName);
+int opList_in_forces(const std::vector<std::shared_ptr<Operator>> &opList, const std::string &forcesName);
 int opList_in_forces(const std::vector<std::shared_ptr<OperatorInfo>> &opList,
-                     std::string forcesName);
+                     const std::string &forcesName);

@@ -83,7 +83,8 @@ struct GlobalParams {
     void arrangeOperators(const SingleSchedule &operatorArrangement);
 
     // 获取所有设施的列表
-    std::vector<std::shared_ptr<Facility>> getAllFacilities();
+    const std::vector<std::shared_ptr<Facility>>& getAllFacilities();
+    const std::vector<std::shared_ptr<Facility>>& getAllFacilities(int facilityType);
 
     // 获取所有设施中驻守的干员列表
     std::vector<std::shared_ptr<Operator>> getAllOperators();
@@ -94,4 +95,7 @@ struct GlobalParams {
 
     std::vector<std::shared_ptr<Operator>> cache_allOperators; // 干员列表缓存
     bool cache_allOperators_valid = false;                     // 干员列表缓存是否有效
+
+    // 修改一个工位的干员，oldop为nullptr表示该工位修改前无人驻守，newUid为0表示该工位修改后无人驻守
+    void changeOneOperator(std::shared_ptr<Operator> &oldop, int newUid);
 };

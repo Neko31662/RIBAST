@@ -146,13 +146,62 @@ string getFacilityTypeName(int facilityType) {
 
 string Facility::getName() const { return getFacilityTypeName(facilityType); }
 
-double Meeting::calculateEfficiencyByFacility(GlobalParams &gp) {
+int Facility::countOperators() const {
+        int count = 0;
+        for (const auto &op : operators) {
+            if (op.get() != nullptr && op->name != "") {
+                count++;
+            }
+        }
+        return count;
+    }
+
+bool Facility::hasOperator(std::string opName) const {
+    auto validOperators = getOperators();
+    for (const auto &op : validOperators) {
+        if (op.get() == nullptr) {
+            continue;
+        }
+        if (op->name == opName) {
+            return true;
+        }
+    }
+    return false;
+}
+
+double Facility::calculateActualEfficiency(const GlobalParams &gp) const {
+    if (!isWorking()) {
+        return 0.0;
+    }
+
+    double actualEfficiency = 100.0;
+    auto validOperators = getOperators();
+    for (const auto &op : validOperators) {
+        actualEfficiency += op->getEfficiencyEffect();
+    }
+    actualEfficiency += calculateEfficiencyByFacility(gp);
+
+    return actualEfficiency;
+}
+
+std::vector<std::shared_ptr<Operator>> Facility::getOperators() const{
+    vector<std::shared_ptr<Operator>> res;
+    for (const auto &op : operators) {
+        if (op.get() != nullptr) {
+            res.push_back(op);
+        }
+    }
+    return res;
+}
+
+double Meeting::calculateEfficiencyByFacility(const GlobalParams &gp) const {
     double result = 0.0;
+    // 效率计算参考：https://m.prts.wiki/w/%E7%BD%97%E5%BE%B7%E5%B2%9B%E5%9F%BA%E5%BB%BA/%E4%BC%9A%E5%AE%A2%E5%AE%A4
 
     // 宿舍氛围值累计加成
     int totalAtmosphere = 0;
-    for (std::shared_ptr<Facility> &f : gp.facilities[DORMITORY]) {
-        std::shared_ptr<Dormitory> dorm = std::dynamic_pointer_cast<Dormitory>(f);
+    for (const std::shared_ptr<Facility> &f : gp.facilities[DORMITORY]) {
+        const std::shared_ptr<Dormitory> dorm = std::dynamic_pointer_cast<Dormitory>(f);
         totalAtmosphere += dorm->atmosphere;
     }
     if (totalAtmosphere >= 4000) {
@@ -164,7 +213,8 @@ double Meeting::calculateEfficiencyByFacility(GlobalParams &gp) {
     }
 
     // 进驻干员稀有度、精英阶段、非涣散加成
-    for (auto &op : operators) {
+    auto validOperators = getOperators();
+    for (auto &op : validOperators) {
         if (op != nullptr) {
             // 稀有度加成
             if (op->rarity == 6) {

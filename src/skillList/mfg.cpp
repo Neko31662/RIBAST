@@ -53,10 +53,10 @@ auto skillFunc_ji_xie_jing_tong = [](GlobalParams &gp, Facility &facility, Opera
     if (facility.facilityType != MFG_GOLD) {
         return;
     }
-    auto ops = gp.facilities[POWER][0]->operators;
+    auto ops = gp.facilities[POWER][0]->getOperators();
     int platformCount = 0;
     for (auto &o : ops) {
-        if (in_forces(*o, "作业平台")) {
+        if (in_forces(o, "作业平台")) {
             platformCount++;
         }
     }
@@ -184,7 +184,7 @@ auto skillFunc_zi_dong_hua = [](GlobalParams &gp, Facility &facility, Operator &
     }
 
     // 将当前制造站内其他干员提供的生产力归零
-    for (auto &other_op : facility.operators) {
+    for (auto &other_op : facility.getOperators()) {
         if (other_op->name != op.name) {
             other_op->clearEfficiency();
         }
@@ -294,7 +294,7 @@ auto skillFunc_ke_xue_gai_zao = [](GlobalParams &gp, Facility &facility, Operato
     int count = facility.countOperators();
     cap *= count;
     eff *= count;
-    for (auto &op : facility.operators) {
+    for (auto &op : facility.getOperators()) {
         op->clearEfficiency();
     }
 
@@ -542,8 +542,8 @@ void loadMfgSkillList(vector<Skill> &MfgSkillList) {
                   int count = 0;
                   auto facilities = gp.getAllFacilities();
                   for (auto &f : facilities) {
-                      for (auto &o : f->operators) {
-                          if (in_forces(*o, "黑钢国际")) {
+                      for (auto &o : f->getOperators()) {
+                          if (in_forces(o, "黑钢国际")) {
                               count++;
                               if (count >= 3) {
                                   break;
@@ -702,7 +702,7 @@ void loadMfgSkillList(vector<Skill> &MfgSkillList) {
                       return;
                   }
                   int bonus = 0;
-                  auto ops = facility.operators;
+                  auto ops = facility.getOperators();
                   for (auto &o : ops) {
                       if (o->name != op.name) {
                           bonus += o->getEfficiencyEnhance();
@@ -920,7 +920,7 @@ void loadMfgSkillList(vector<Skill> &MfgSkillList) {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  auto &ops = facility.operators;
+                  auto ops = facility.getOperators();
                   int a1Count = opList_in_forces(ops, "A1小队");
                   int eff = 10 * a1Count;
                   add_efficiency(facility, op, eff);
@@ -1024,7 +1024,7 @@ void loadMfgSkillList(vector<Skill> &MfgSkillList) {
             facility.getSpec<Mfg::MfgSpec>()->has_skill_da_jiu_shi_hao = true;
             facility.getSpec<Mfg::MfgSpec>()->has_skill_hui_shou_li_yong = false;
             int eff = 0;
-            for (auto &o : facility.operators) {
+            for (auto &o : facility.getOperators()) {
                 int addedCapacity = std::max(o->getCapacityEnhance() - o->getCapacityReduce(), 0);
                 int eff = 0;
                 if (addedCapacity <= 16) {
@@ -1095,7 +1095,7 @@ void loadMfgSkillList(vector<Skill> &MfgSkillList) {
             }
             facility.getSpec<Mfg::MfgSpec>()->has_skill_hui_shou_li_yong = 1;
             int eff = 0;
-            for (auto &o : facility.operators) {
+            for (auto &o : facility.getOperators()) {
                 int addedCapacity = std::max(o->getCapacityEnhance() - o->getCapacityReduce(), 0);
                 int eff = 0;
                 eff = 2 * addedCapacity;
@@ -1153,7 +1153,7 @@ void loadMfgSkillList(vector<Skill> &MfgSkillList) {
                   if (isMfg(facility.facilityType) == false) {
                       return;
                   }
-                  for (auto &o : facility.operators) {
+                  for (auto &o : facility.getOperators()) {
                       reduce_mood_consumption_rate(facility, *o, 10);
                   }
               }});
@@ -1165,7 +1165,7 @@ void loadMfgSkillList(vector<Skill> &MfgSkillList) {
                 return;
             }
             facility.getSpec<Mfg::MfgSpec>()->has_skill_tuan_dui_jing_shen = 1;
-            for (auto &o : facility.operators) {
+            for (auto &o : facility.getOperators()) {
                 o->clearMoodConsumption();
             }
         }});

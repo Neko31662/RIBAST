@@ -17,7 +17,7 @@ std::map<string, vector<string>> forces_opList = {
       "空构", "隐现", "塑心", "蕾缪安", "信仰搅拌机", "CONFESS-47"}},
     {"精英干员", {"迷迭香", "煌", "逻各斯", "烛煌", "电弧", "真言"}}};
 
-bool inNameList(OperatorInfo &op, const vector<string> &nameList) {
+bool inNameList(const OperatorInfo &op, const vector<string> &nameList) {
     for (const auto &n : nameList) {
         if (op.name == n) {
             return true;
@@ -26,19 +26,26 @@ bool inNameList(OperatorInfo &op, const vector<string> &nameList) {
     return false;
 }
 
-bool in_forces(OperatorInfo &op, string forcesName) {
+bool in_forces(const std::shared_ptr<Operator> &op, const std::string &forcesName) {
+    if (op.get() == nullptr) {
+        return false;
+    }
     if (forces_opList.find(forcesName) == forces_opList.end()) {
         throw invalid_argument("in_forces函数：不存在该势力名称");
     }
-    return inNameList(op, forces_opList[forcesName]);
+    return inNameList(*op, forces_opList[forcesName]);
 }
 
-int opList_in_forces(const vector<std::shared_ptr<OperatorInfo>> &opList, string forcesName) {
+int opList_in_forces(const std::vector<std::shared_ptr<Operator>> &opList,
+                     const std::string &forcesName) {
     if (forces_opList.find(forcesName) == forces_opList.end()) {
         throw invalid_argument("opList_in_forces函数：不存在该势力名称");
     }
     int count = 0;
     for (const auto &op : opList) {
+        if (op.get() == nullptr) {
+            continue;
+        }
         if (inNameList(*op, forces_opList[forcesName])) {
             count++;
         }
@@ -46,12 +53,16 @@ int opList_in_forces(const vector<std::shared_ptr<OperatorInfo>> &opList, string
     return count;
 }
 
-int opList_in_forces(const vector<std::shared_ptr<Operator>> &opList, string forcesName) {
+int opList_in_forces(const std::vector<std::shared_ptr<OperatorInfo>> &opList,
+                     const std::string &forcesName) {
     if (forces_opList.find(forcesName) == forces_opList.end()) {
         throw invalid_argument("opList_in_forces函数：不存在该势力名称");
     }
     int count = 0;
     for (const auto &op : opList) {
+        if (op.get() == nullptr) {
+            continue;
+        }
         if (inNameList(*op, forces_opList[forcesName])) {
             count++;
         }

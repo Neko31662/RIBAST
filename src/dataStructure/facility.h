@@ -72,7 +72,6 @@ struct Facility {
 
     // （可能）与设施等级有关的参数
     int level = 0;            // 设施等级
-    double efficiency = 0;    // 效率，使用整数表示，基础效率100代表1.0
     int capacity = 0;         // 容量
     int operatorLimit = 0;    // 干员数量上限
     int powerConsumption = 0; // 设施的电力消耗
@@ -82,8 +81,6 @@ struct Facility {
     int productSpace = 1;        // 单个产品占用的容量
     double productTime = 1;      // 单个产品在效率1.0下的生产时间，单位分钟
     double productValue = 0.001; // 单个产品的基础价值
-
-    std::vector<std::shared_ptr<Operator>> operators; // 设施中驻守的干员列表
 
     Facility() {}
     Facility(int facilityType, int lv) {
@@ -106,46 +103,25 @@ struct Facility {
     virtual bool isWorking() const { return !operators.empty(); }
 
     // 返回当前驻守的干员数量，不要使用 operators.size()，因为有可能有空位
-    int countOperators() const {
-        int count = 0;
-        for (auto &op : operators) {
-            if (op != nullptr && op->name != "") {
-                count++;
-            }
-        }
-        return count;
-    }
+    int countOperators() const;
 
     // 返回设施名称
     std::string getName() const;
 
     // 返回是否含有指定名称的干员
-    bool hasOperator(std::string opName) const {
-        for (const auto &op : operators) {
-            if (op->name == opName) {
-                return true;
-            }
-        }
-        return false;
-    }
+    bool hasOperator(std::string opName) const;
 
-    // 计算实际效率，即综合了所有建筑自身属性以及干员技能后，得到的效率
-    double calculateActualEfficiency(GlobalParams &gp) {
-        if (!isWorking()) {
-            return 0.0;
-        }
-
-        double actualEfficiency = efficiency;
-        for (const auto &op : operators) {
-            actualEfficiency += op->getEfficiencyEffect();
-        }
-        actualEfficiency += calculateEfficiencyByFacility(gp);
-
-        return actualEfficiency;
-    }
+    // 计算实际效率，即综合了所有建筑自身属性以及干员技能后，得到的效率，基础效率值为100.0
+    double calculateActualEfficiency(const GlobalParams &gp) const;
 
     // 计算由建筑本身属性和干员入驻情况决定的、与干员技能无关的效率加成
-    virtual double calculateEfficiencyByFacility(GlobalParams &gp) { return 0.0; }
+    virtual double calculateEfficiencyByFacility(const GlobalParams &gp) const { return 0.0; }
+
+    // 获取当前驻守的干员列表（不含空位）
+    std::vector<std::shared_ptr<Operator>> getOperators() const;
+
+  private:
+    std::vector<std::shared_ptr<Operator>> operators; // 设施中驻守的干员列表
 };
 
 // 制造站
@@ -172,7 +148,6 @@ struct Mfg : Facility {
 
     Mfg() {}
     Mfg(int facilityType, int lv) : Facility(facilityType, lv) {
-        efficiency = 100;
         spec = std::make_unique<MfgSpec>();
 
         if (lv == 1) {
@@ -192,7 +167,7 @@ struct Mfg : Facility {
         }
     }
 
-    double calculateEfficiencyByFacility(GlobalParams &gp) override {
+    double calculateEfficiencyByFacility(const GlobalParams &gp) const override {
         return 1.0 * countOperators();
     }
 };
@@ -280,7 +255,6 @@ struct Trade : Facility {
 
     Trade() {}
     Trade(int facilityType, int lv) : Facility(facilityType, lv) {
-        efficiency = 100;
         spec = std::make_unique<TradeSpec>();
 
         if (lv == 1) {
@@ -300,7 +274,7 @@ struct Trade : Facility {
         }
     }
 
-    double calculateEfficiencyByFacility(GlobalParams &gp) override {
+    double calculateEfficiencyByFacility(const GlobalParams &gp) const override {
         return 1.0 * countOperators();
     }
 };
@@ -411,19 +385,6 @@ struct Meeting : Facility {
     Meeting(int lv) : Facility(MEETING, lv) {
         spec = std::make_unique<MeetingSpec>();
 
-        // 效率计算参考：https://m.prts.wiki/w/%E7%BD%97%E5%BE%B7%E5%B2%9B%E5%9F%BA%E5%BB%BA/%E4%BC%9A%E5%AE%A2%E5%AE%A4
-        efficiency = 100;
-        // 会客室等级加成
-        if (lv == 1) {
-            efficiency += 0.07;
-        } else if (lv == 2) {
-            efficiency += 0.09;
-        } else if (lv == 3) {
-            efficiency += 0.11;
-        } else {
-            throw std::invalid_argument("Meeting构造函数：会客室等级只能为1,2,3");
-        }
-
         // 考虑到大多数情况下线索都是缺一张或两张，其他线索还可能重复，这里把线索容量设为3
         capacity = 3;
 
@@ -435,13 +396,15 @@ struct Meeting : Facility {
             powerConsumption = 30;
         } else if (lv == 3) {
             powerConsumption = 60;
+        } else {
+            throw std::invalid_argument("Meeting构造函数：会客室等级只能为1,2,3");
         }
 
         productSpace = 1;
         productTime = 20 * 60;
     }
 
-    double calculateEfficiencyByFacility(GlobalParams &gp) override;
+    double calculateEfficiencyByFacility(const GlobalParams &gp) const override;
 };
 
 // 发电站（无人机自动回复视为发电站的产出，所有发电站默认为满级，且视为一个设施，该结构体的level值代表发电站数量）
@@ -462,7 +425,6 @@ struct Power : Facility {
         }
         level = number;
         spec = std::make_unique<PowerSpec>();
-        efficiency = 100;
         capacity = 235; // 后面或许会改成可变值
         operatorLimit = number;
         powerConsumption = -270 * number;
@@ -473,7 +435,7 @@ struct Power : Facility {
     // 无干员驻守时无人机也会充能，因此发电站在无人时也视为工作
     bool isWorking() const override { return true; }
 
-    double calculateEfficiencyByFacility(GlobalParams &gp) override {
+    double calculateEfficiencyByFacility(const GlobalParams &gp) const override {
         return 5.0 * countOperators();
     }
 };
@@ -494,7 +456,6 @@ struct Office : Facility {
     Office() {}
     Office(int lv) : Facility(OFFICE, lv) {
         spec = std::make_unique<OfficeSpec>();
-        efficiency = 100;
         capacity = 3;
         operatorLimit = 1;
 
@@ -512,7 +473,7 @@ struct Office : Facility {
         productTime = 12 * 60;
     }
 
-    double calculateEfficiencyByFacility(GlobalParams &gp) override {
+    double calculateEfficiencyByFacility(const GlobalParams &gp) const override {
         return 5.0 * countOperators();
     };
 };

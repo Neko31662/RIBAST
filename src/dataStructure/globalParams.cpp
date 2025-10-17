@@ -84,7 +84,7 @@ void GlobalParams::reset(const FacilitiesInfo &facilityCounts) {
 }
 
 // 修改一个工位的干员，oldop为nullptr表示该工位修改前无人驻守，newUid为0表示该工位修改后无人驻守
-void changeOneOperator(std::shared_ptr<Operator> &oldop, int newUid) {
+void GlobalParams::changeOneOperator(std::shared_ptr<Operator> &oldop, int newUid) {
     if (oldop == nullptr) {
         if (newUid == 0) {
             // do nothing
@@ -154,7 +154,7 @@ void GlobalParams::arrangeOperators(const SingleSchedule &operatorArrangement) {
     }
 }
 
-vector<std::shared_ptr<Facility>> GlobalParams::getAllFacilities() {
+const vector<std::shared_ptr<Facility>>& GlobalParams::getAllFacilities() {
     if (cache_allFacilities_valid) {
         return cache_allFacilities;
     }
@@ -168,6 +168,10 @@ vector<std::shared_ptr<Facility>> GlobalParams::getAllFacilities() {
     }
 
     return cache_allFacilities;
+}
+
+const vector<std::shared_ptr<Facility>>& GlobalParams::getAllFacilities(int facilityType) {
+    return facilities[facilityType];
 }
 
 vector<std::shared_ptr<Operator>> GlobalParams::getAllOperators() {
